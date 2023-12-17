@@ -10,15 +10,11 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-
     -- import any extras modules here that doesn't require setup
     -- { import = "lazyvim.plugins.extras.lang.typescript" },
-    
     -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
     { import = "lazyvim.plugins.extras.lang.json" },
-    
     { import = "lazyvim.plugins.extras.ui.mini-animate" },
-    
     -- import/override with your plugins
     { import = "plugins" },
   },

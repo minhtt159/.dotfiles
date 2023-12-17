@@ -2,7 +2,6 @@ return {
   -- Use <tab> for completion and snippets (supertab)
   -- first: disable default <tab> and <s-tab> behavior in LuaSnip
   { "L3MON4D3/LuaSnip" },
-  
   -- then: setup supertab in cmp
   {
     "hrsh7th/nvim-cmp",
@@ -19,7 +18,8 @@ return {
 
       local luasnip = require("luasnip")
       local cmp = require("cmp")
-
+      -- What acutally happend is during Insert mode, pressing <Tab> or <Shift-Tab> will
+      -- walk though the autocomplete options
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
