@@ -15,6 +15,9 @@ return {
         "dockerfile-language-server",
         "docker-compose-language-service",
       },
+      ui = {
+        border = "rounded",
+      },
     },
   },
 }
