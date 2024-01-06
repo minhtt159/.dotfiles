@@ -50,7 +50,7 @@ opt.iskeyword:append("-")
 -- Other behaviours
 opt.swapfile = false -- Do not want *.swp files
 opt.backup = false -- Do not want backup
--- opt.undodir   = os.getenv("HOME") .. "/.vim/undodir" -- Undo directory
+opt.undodir   = os.getenv("HOME") .. "/.vim/undodir" -- Undo directory
 opt.undofile = true -- Undo file
 
 -- CPU goes brr 🔥

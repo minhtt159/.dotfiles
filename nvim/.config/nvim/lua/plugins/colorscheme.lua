@@ -1,3 +1,13 @@
+function ColorMe(color)
+	-- Set color scheme
+	color = color or 'rose-pine'
+	vim.cmd.colorscheme(color)
+	
+	-- Set Transparent Background
+	vim.api.nvim_set_hl(0, "Normal", { bg = 'none' })
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = 'none' })
+end
+
 return {
   -- Color Schemes goes here
   {
@@ -17,6 +27,7 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
+    priority = 1000,
     opts = {
       term_colors = true,
       transparent_background = false,
@@ -41,24 +52,33 @@ return {
         },
       },
       integrations = {
+        cmp = true,
+        treesitter = true,
         telescope = {
           enabled = true,
-          style = "nvchad",
+          -- style = "nvchad"
         },
-        dropbar = {
-          enabled = true,
-          color_mode = true,
-        },
+        which_key = true,
+        flash = true,
+        harpoon = true,
+        -- dropbar = {
+        --   enabled = true,
+        --   color_mode = true,
+        -- },
       },
     },
+    config = function()
+      -- load the colorscheme
+      ColorMe(catppuccin)
+    end,
   },
-  -- Configure LazyVim to load
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
-      -- colorscheme = "decay",
-    },
-  },
+  -- -- Configure LazyVim to load
+  -- {
+  --   "LazyVim/LazyVim",
+  --   opts = {
+  --     colorscheme = "catppuccin",
+  --     -- colorscheme = "decay",
+  --   },
+  -- },
 }
 

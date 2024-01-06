@@ -1,4 +1,5 @@
 return {
+  -- Everyone said that I do not need tree, BURN THE TREES
   {
     "nvim-tree/nvim-tree.lua",
     version = "*",
@@ -14,7 +15,7 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
-    -- enabled = false,
+    enabled = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
