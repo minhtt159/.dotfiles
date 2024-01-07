@@ -4,9 +4,6 @@ return {
     priority = 1000
   },
   {
-    "github/copilot.vim"
-  },
-  {
     'numToStr/Comment.nvim',
     opts = {
       -- add any options here
@@ -24,5 +21,5 @@ return {
     config = function()
       require("fidget").setup({})
     end
-  }
+  },
 }

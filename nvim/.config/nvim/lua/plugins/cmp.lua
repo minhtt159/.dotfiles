@@ -66,7 +66,8 @@ M.config = function()
 			{ name = "buffer" },
 			{ name = "path" },
 		}, {
-			{ name = "neorg" },
+			{ name = "neorg" }, -- Do I need this?
+			{ name = "copilot"}, -- Yes, I'm a copilot user
 		}),
 
 		formatting = {
