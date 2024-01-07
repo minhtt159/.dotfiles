@@ -13,6 +13,9 @@ return {
       vim.keymap.set("n", "<leader>xq", function() trouble.toggle("quickfix") end, { desc = "Toggle quickfix items" })
       vim.keymap.set("n", "<leader>xl", function() trouble.toggle("loclist") end, { desc = "Items from the window's location list" })
       vim.keymap.set("n", "gR", function() trouble.toggle("lsp_references") end, { desc = "References from LSP client"})
+      -- Overwrite LSP diagnostic
+      vim.keymap.set("n", "[d", function() trouble.next({ skip_groups = true, jump = true }) end, { desc = "Jump to next diagnostic" })
+      vim.keymap.set("n", "]d", function() trouble.previous({ skip_groups = true, jump = true }) end, { desc = "Jump to previous diagnostic" })
     end,
   },
   {

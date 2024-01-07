@@ -2,7 +2,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    config = function () 
+    config = function ()
       -- https://github.com/nvim-treesitter/nvim-treesitter/wiki/Installation#lazynvim
       local configs = require("nvim-treesitter.configs")
       configs.setup({
@@ -44,6 +44,6 @@ return {
         },
         -- do I want to add treesitter parser config
       })
-    end,  
+    end,
   },
 }

@@ -91,6 +91,8 @@ return {
       end, { desc = "Grep whole word" })
       -- vim.keymap.set("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", desc = "Find Buffer"},
       vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Find Helps" })
+      -- Load fzf plugin
+      require('telescope').load_extension('fzf')
     end,
   },
 }
