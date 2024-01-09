@@ -10,9 +10,6 @@ return {
         build = "make",
       },
     },
-    -- change some options
-    opts = {
-    },
     config = function()
       require("telescope").setup({
         extensions = {

@@ -5,7 +5,7 @@ function ColorMe(color)
 	
 	-- Set Transparent Background
 	vim.api.nvim_set_hl(0, "Normal", { bg = 'none' })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = 'none' })
+	-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = 'none' })
 end
 
 return {
@@ -28,46 +28,46 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
-    opts = {
-      term_colors = true,
-      transparent_background = false,
-      styles = {
-        comments = {},
-        conditionals = {},
-        loops = {},
-        functions = {},
-        keywords = {},
-        strings = {},
-        variables = {},
-        numbers = {},
-        booleans = {},
-        properties = {},
-        types = {},
-      },
-      color_overrides = {
-        mocha = {
-          base = "#000000",
-          mantle = "#000000",
-          crust = "#000000",
-        },
-      },
-      integrations = {
-        cmp = true,
-        treesitter = true,
-        telescope = {
-          enabled = true,
-          -- style = "nvchad"
-        },
-        which_key = true,
-        flash = true,
-        harpoon = true,
-        -- dropbar = {
-        --   enabled = true,
-        --   color_mode = true,
-        -- },
-      },
-    },
     config = function()
+      require("catppuccin").setup({
+        term_colors = true,
+        transparent_background = true,
+        styles = {
+          comments = {},
+          conditionals = {},
+          loops = {},
+          functions = {},
+          keywords = {},
+          strings = {},
+          variables = {},
+          numbers = {},
+          booleans = {},
+          properties = {},
+          types = {},
+        },
+        color_overrides = {
+          mocha = {
+            base = "#000000",
+            mantle = "#000000",
+            crust = "#000000",
+          },
+        },
+        integrations = {
+          cmp = true,
+          treesitter = true,
+          telescope = {
+            enabled = true,
+            -- style = "nvchad"
+          },
+          which_key = true,
+          flash = true,
+          harpoon = true,
+          -- dropbar = {
+          --   enabled = true,
+          --   color_mode = true,
+          -- },
+        },
+      })
       -- load the colorscheme
       ColorMe(catppuccin)
     end,
