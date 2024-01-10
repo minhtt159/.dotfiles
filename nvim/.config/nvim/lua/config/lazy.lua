@@ -21,11 +21,15 @@ require("lazy").setup({
       import = "lazyvim.plugins",
     },
     -- import any extras modules here
-    -- { import = "lazyvim.plugins.extras.lang.typescript" },
-    -- { import = "lazyvim.plugins.extras.lang.json" },
-    -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
-    -- Use Prettier for formatting
+    { import = "lazyvim.plugins.extras.lang.go" },
+    { import = "lazyvim.plugins.extras.lang.terraform" },
+    { import = "lazyvim.plugins.extras.lang.docker" },
+    { import = "lazyvim.plugins.extras.lang.cmake" },
+    -- LSP None-ls
+    { import = "lazyvim.plugins.extras.lsp.none-ls" },
+    -- Formatting
     { import = "lazyvim.plugins.extras.formatting.prettier" },
+    { import = "lazyvim.plugins.extras.formatting.black" },
     -- Just use Folke's Copilot, maybe he knows better
     { import = "lazyvim.plugins.extras.coding.copilot" },
     -- import/override with your plugins

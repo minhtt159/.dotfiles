@@ -4,6 +4,11 @@ return {
     "folke/persistence.nvim",
     enabled = false,
   },
+  -- Bufferline gives me a lot of trouble, so I'm disabling it for now
+  {
+    "akinsho/bufferline.nvim",
+    enabled = false,
+  },
   {
     "rcarriga/nvim-notify",
     enabled = false,
@@ -15,7 +20,7 @@ return {
   },
   {
     "stevearc/dressing.nvim",
-    enabled = false,
+    enabled = true,
   },
   {
     "folke/noice.nvim",
