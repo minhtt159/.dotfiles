@@ -20,31 +20,18 @@ return {
     },
   },
   {
-    "catppuccin/nvim",
+    "catppuccin",
     lazy = false,
-    name = "catppuccin",
-    opts = function()
-      return {}
-    end,
-    config = function()
-      require("catppuccin").setup({
-        term_colors = true,
-        transparent_background = true,
-        color_overrides = {
-          mocha = {
-            base = "#000000",
-            mantle = "#000000",
-            crust = "#000000",
-          },
-        },
-      })
-    end,
-  },
-  -- This is not doing shit
-  {
-    "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight",
+      term_colors = true,
+      transparent_background = true,
+      color_overrides = {
+        mocha = {
+          base = "#000000",
+          mantle = "#000000",
+          crust = "#000000",
+        },
+      },
     },
   },
 }

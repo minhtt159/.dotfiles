@@ -11,7 +11,7 @@ return {
     },
     config = function()
       local harpoon = require("harpoon")
-      harpoon:setup()
+      harpoon:setup({})
 
       vim.keymap.set("n", "<leader>hm", function()
         harpoon:list():append()
@@ -40,4 +40,3 @@ return {
     end,
   },
 }
-
