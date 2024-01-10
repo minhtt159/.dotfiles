@@ -1,18 +1,13 @@
-function ColorMe(color)
-	-- Set color scheme
-	color = color or 'rose-pine'
-	vim.cmd.colorscheme(color)
-	
-	-- Set Transparent Background
-	vim.api.nvim_set_hl(0, "Normal", { bg = 'none' })
-	-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = 'none' })
-end
-
 return {
-  -- Color Schemes goes here
   {
-    "rose-pine/neovim",
-    name = "rose-pine",
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
   },
   {
     "decaycs/decay.nvim",
@@ -26,25 +21,15 @@ return {
   },
   {
     "catppuccin/nvim",
+    lazy = false,
     name = "catppuccin",
-    priority = 1000,
+    opts = function()
+      return {}
+    end,
     config = function()
       require("catppuccin").setup({
         term_colors = true,
         transparent_background = true,
-        styles = {
-          comments = {},
-          conditionals = {},
-          loops = {},
-          functions = {},
-          keywords = {},
-          strings = {},
-          variables = {},
-          numbers = {},
-          booleans = {},
-          properties = {},
-          types = {},
-        },
         color_overrides = {
           mocha = {
             base = "#000000",
@@ -52,33 +37,14 @@ return {
             crust = "#000000",
           },
         },
-        integrations = {
-          cmp = true,
-          treesitter = true,
-          telescope = {
-            enabled = true,
-            -- style = "nvchad"
-          },
-          which_key = true,
-          flash = true,
-          harpoon = true,
-          -- dropbar = {
-          --   enabled = true,
-          --   color_mode = true,
-          -- },
-        },
       })
-      -- load the colorscheme
-      ColorMe(catppuccin)
     end,
   },
-  -- -- Configure LazyVim to load
-  -- {
-  --   "LazyVim/LazyVim",
-  --   opts = {
-  --     colorscheme = "catppuccin",
-  --     -- colorscheme = "decay",
-  --   },
-  -- },
+  -- This is not doing shit
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "tokyonight",
+    },
+  },
 }
-

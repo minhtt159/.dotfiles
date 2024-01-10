@@ -1,9 +1,9 @@
 return {
   {
+    -- TODO: Maybe I want to do it myself instead of using LazyVim
     "nvim-lualine/lualine.nvim",
     opts = {
       theme = "catppuccin",
-      -- theme = "decay",
       options = {
         -- component_separators = " ",
         -- section_separators = { left = "", right = "" },
