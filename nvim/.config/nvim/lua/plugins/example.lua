@@ -19,4 +19,7 @@ return {
       },
     },
   },
+  {
+    "petobens/poet-v",
+  },
 }
