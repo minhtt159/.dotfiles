@@ -21,5 +21,8 @@ return {
   },
   {
     "HiPhish/jinja.vim",
-  }
+  },
+  {
+    "petobens/poet-v",
+  },
 }
