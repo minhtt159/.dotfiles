@@ -19,4 +19,7 @@ return {
       },
     },
   },
+  {
+    "HiPhish/jinja.vim",
+  }
 }
