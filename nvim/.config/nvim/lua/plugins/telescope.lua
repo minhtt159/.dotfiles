@@ -36,6 +36,12 @@ return {
         sorting_strategy = "ascending",
         winblend = 0,
       },
+      pickers = {
+        find_files = {
+          -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+          find_command = { "rg", "--files", "--glob", "!**/.git/*", "-L" },
+        },
+      },
     },
   },
   -- add telescope-fzf-native

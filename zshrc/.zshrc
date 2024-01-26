@@ -18,6 +18,12 @@ export ZSH="$HOME/.oh-my-zsh"
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(history)
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
+ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -78,9 +84,24 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git
-	zsh-autosuggestions
+plugins=(
+  git
+  history-substring-search
+  brew
+  gradle
+  ng
+  npm
+  yarn
+  zsh-autosuggestions
+  sdkman
 )
+
+alias x="exit"
+alias reload="source ~/.zshrc"
+alias hc="history -c"
+alias hg="history | grep "
+
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 source $ZSH/oh-my-zsh.sh
 
@@ -103,9 +124,20 @@ fi
 # export ARCHFLAGS="-arch arm64"
 
 # Flutter
-export PATH=$PATH:$HOME/flutter/bin
+if command -v flutter >/dev/null 2>&1; then
+  export PATH="$HOME/flutter/bin:$PATH"
+fi
 # Rust
-export PATH=$HOME/.cargo/bin:$PATH
+if command -v cargo >/dev/null 2>&1; then
+  export PATH="$HOME/.cargo/bin:$PATH"
+fi
+# Java
+if command -v java >/dev/null 2>&1; then
+  export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+fi
+# Node Version Manager
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 # Local bin
 export PATH=$HOME/.local/bin:$PATH
 
@@ -116,6 +148,12 @@ export PATH=$HOME/.local/bin:$PATH
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 
+#Include Z
+if command -v brew >/dev/null 2>&1; then
+  # Load rupa's z if installed
+  [ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
+fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -124,7 +162,9 @@ alias k=kubectl
 compdef __start_kubectl k
 
 # SOPS age for k3s
-export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt
+if command -v sops >/dev/null 2>&1; then
+  export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt
+fi
 
 autoload -U compinit; compinit
 

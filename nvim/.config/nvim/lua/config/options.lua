@@ -4,8 +4,8 @@
 
 -- LazyVim got it right, so check this again
 
--- -- Use `opt` for short
--- local opt = vim.opt
+-- Use `opt` for short
+local opt = vim.opt
 
 -- -- Line numbers
 -- opt.number = true
@@ -20,8 +20,8 @@
 -- opt.smartindent = true -- if you code in C
 
 -- -- Personal choice
--- opt.wrap = true -- Wrap line like for not to scroll, f**k connection string
--- opt.scrolloff = 8 -- Minimum of rows
+opt.wrap = true -- Wrap line like for not to scroll, f**k connection string
+opt.scrolloff = 8 -- Minimum of rows
 
 -- -- Search setting
 -- opt.ignorecase = true -- hello == Hello
