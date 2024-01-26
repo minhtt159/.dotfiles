@@ -94,6 +94,7 @@ plugins=(
   yarn
   zsh-autosuggestions
   sdkman
+  1password
 )
 
 alias x="exit"
