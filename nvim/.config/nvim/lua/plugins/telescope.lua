@@ -10,6 +10,14 @@ return {
         function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
         desc = "Find Plugin File",
       },
+      -- require ripgrep
+      {
+        "<leader>fg",
+        function()
+          require("telescope.builtin").live_grep({ cwd = require("lazy.core.config").options.root })
+        end,
+        desc = "Live Grep",
+      },
       -- Thanks ThePrimeagen
       {
         "<leader>fws",
