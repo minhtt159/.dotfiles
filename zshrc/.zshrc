@@ -169,3 +169,6 @@ fi
 
 autoload -U compinit; compinit
 
+export TERRAGRUNT_DOWNLOAD=$HOME/.terragrunt/plugin-cache
+
+eval "$(rbenv init - zsh)"

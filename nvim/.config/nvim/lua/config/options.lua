@@ -7,29 +7,35 @@
 -- Use `opt` for short
 local opt = vim.opt
 
--- -- Line numbers
--- opt.number = true
--- opt.relativenumber = true
+-- Line numbers
+opt.number = true
+opt.relativenumber = true
 
--- -- Tab & indentation
+-- Tab & indentation
 -- opt.tabstop = 2
 -- opt.softtabstop = 2
 -- opt.shiftwidth = 2
 -- opt.expandtab = true
--- opt.autoindent = true
--- opt.smartindent = true -- if you code in C
+opt.autoindent = true
+opt.smartindent = true -- if you code in C
 
--- -- Personal choice
+-- Personal choice
 opt.wrap = true -- Wrap line like for not to scroll, f**k connection string
 opt.scrolloff = 8 -- Minimum of rows
 
--- -- Search setting
--- opt.ignorecase = true -- hello == Hello
--- opt.smartcase = true -- Hello != hello
--- opt.hlsearch = true -- Highlight all?
--- opt.incsearch = true -- Search faster
+-- Sets how neovim will display certain whitespace in the editor.
+--  See `:help 'list'`
+--  and `:help 'listchars'`
+opt.list = true
+opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
--- -- Cursor line
+-- Search setting
+opt.incsearch = true -- Search faster
+opt.ignorecase = true -- hello == Hello
+opt.smartcase = true -- Hello != hello
+opt.hlsearch = true -- Highlight; to clear highlight use keymaps
+
+-- Cursor line
 -- opt.cursorline = false -- Noob?
 
 -- -- Color setting
@@ -39,21 +45,30 @@ opt.scrolloff = 8 -- Minimum of rows
 -- -- Backspace behaviour
 -- opt.backspace = "indent,eol,start"
 
--- -- Clipboard
--- opt.clipboard:append("unnamedplus")
+-- Sync clipboard between OS and Neovim.
+--  Remove this option if you want your OS clipboard to remain independent.
+--  See `:help 'clipboard'`
+opt.clipboard:append("unnamedplus")
 
--- -- Split Windows
--- opt.splitright = true
--- opt.splitbelow = true
+-- Split Windows
+opt.splitright = true
+opt.splitbelow = true
 
 -- -- What is a word?
--- opt.iskeyword:append("-")
+opt.iskeyword:append("-")
 
--- -- Other behaviours
--- opt.swapfile = false -- Do not want *.swp files
--- opt.backup = false -- Do not want backup
--- opt.undodir   = os.getenv("HOME") .. "/.vim/undodir" -- Undo directory
--- opt.undofile = true -- Undo file
+-- Other behaviours
+opt.swapfile = false -- Do not want *.swp files
+opt.backup = false -- Do not want backup
+-- opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- Undo directory
+opt.undofile = true -- Undo file
+
+-- Mouse mode, useful for resizing windows
+opt.mouse = "a"
 
 -- -- CPU goes brr 🔥
 -- opt.updatetime = 50
+
+-- Decrease update time
+opt.updatetime = 250
+opt.timeoutlen = 300
