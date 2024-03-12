@@ -6,19 +6,6 @@ return {
     keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
     config = true,
   },
-
-  -- add any tools you want to have installed below
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "stylua",
-        "shellcheck",
-        "shfmt",
-        "flake8",
-      },
-    },
-  },
   {
     "HiPhish/jinja.vim",
   },
@@ -32,6 +19,7 @@ return {
   },
   { -- Autoformat
     "stevearc/conform.nvim",
+    event = "VeryLazy",
     opts = {
       notify_on_error = false,
       -- format_on_save = {
