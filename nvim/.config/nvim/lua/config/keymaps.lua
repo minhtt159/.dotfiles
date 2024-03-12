@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- vim.g.maplocalleader = " "
 
 local keymap = vim.keymap
 
@@ -32,7 +32,6 @@ keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnosti
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
---
 --  See `:help wincmd` for a list of all window commands
 -- keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 -- keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })

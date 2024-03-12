@@ -4,8 +4,8 @@ return {
     build = ":TSUpdate",
     config = function()
       -- https://github.com/nvim-treesitter/nvim-treesitter/wiki/Installation#lazynvim
-      local configs = require("nvim-treesitter.configs")
-      configs.setup({
+      ---@diagnostic disable-next-line: missing-fields
+      require("nvim-treesitter.configs").setup({
         sync_install = false,
         auto_install = true,
         ensure_installed = {
@@ -42,7 +42,12 @@ return {
           -- Instead of true it can also be a list of languages
           additional_vim_regex_highlighting = false,
         },
-        -- do I want to add treesitter parser config
+        -- There are additional nvim-treesitter modules that you can use to interact
+        -- with nvim-treesitter. You should go explore a few and see what interests you:
+        --
+        --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
+        --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
+        --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
       })
     end,
   },
