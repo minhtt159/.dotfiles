@@ -9,8 +9,8 @@ return {
       suggestion = { enabled = false },
       panel = { enabled = false },
       filetypes = {
-        markdown = true,
-        help = true,
+        markdown = false,
+        ["*"] = true,
       },
     },
   },
@@ -55,7 +55,7 @@ return {
 
   -- copilot cmp source
   {
-    "nvim-cmp",
+    "hrsh7th/nvim-cmp",
     dependencies = {
       {
         "zbirenbaum/copilot-cmp",

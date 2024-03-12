@@ -15,6 +15,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- disable completion on markdown files by default
 vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("disable-cmp-by-ft", { clear = true }),
   pattern = { "gitcommit", "markdown" },
   callback = function()
     require("cmp").setup({ enabled = false })
