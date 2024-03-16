@@ -7,9 +7,9 @@ return {
   {
     "HiPhish/jinja.vim",
   },
-  {
-    "petobens/poet-v",
-  },
+  -- {
+  --   "petobens/poet-v",
+  -- },
   -- "gc" to comment visual regions/lines
   {
     "numToStr/Comment.nvim",
