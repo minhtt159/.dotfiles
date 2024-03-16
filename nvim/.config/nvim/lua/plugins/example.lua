@@ -5,17 +5,20 @@ return {
     keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
   },
   {
+    -- Jinja syntax highlighting
     "HiPhish/jinja.vim",
   },
   -- {
   --   "petobens/poet-v",
   -- },
-  -- "gc" to comment visual regions/lines
   {
+    -- "gc" to comment visual regions/lines
     "numToStr/Comment.nvim",
     opts = {},
   },
   { -- Autoformat
+    -- NOTE: Usually, the language will install this plugin
+    -- but put it here just to be safe
     "stevearc/conform.nvim",
     event = "VeryLazy",
     opts = {
@@ -35,7 +38,9 @@ return {
       },
     },
   },
-  { -- Collection of various small independent plugins/modules
+  {
+    -- TODO: Figure out how to use opts in LazyVim way
+    -- Collection of various small independent plugins/modules
     "echasnovski/mini.nvim",
     config = function()
       -- Better Around/Inside textobjects
