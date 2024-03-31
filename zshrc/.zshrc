@@ -93,8 +93,8 @@ plugins=(
   npm
   yarn
   zsh-autosuggestions
-  sdkman
   1password
+  direnv
 )
 
 alias x="exit"
