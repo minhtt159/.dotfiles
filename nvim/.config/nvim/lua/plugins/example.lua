@@ -10,6 +10,9 @@ return {
   {
     "petobens/poet-v",
   },
+  {
+    "towolf/vim-helm",
+  },
   -- "gc" to comment visual regions/lines
   {
     "numToStr/Comment.nvim",
