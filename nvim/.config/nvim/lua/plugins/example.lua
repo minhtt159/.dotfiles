@@ -5,8 +5,12 @@ return {
     keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
   },
   {
+    -- Jinja syntax highlighting
     "HiPhish/jinja.vim",
   },
+  -- {
+  --   "petobens/poet-v",
+  -- },
   {
     "petobens/poet-v",
   },
@@ -19,6 +23,8 @@ return {
     opts = {},
   },
   { -- Autoformat
+    -- NOTE: Usually, the language will install this plugin
+    -- but put it here just to be safe
     "stevearc/conform.nvim",
     event = "VeryLazy",
     opts = {
@@ -38,7 +44,9 @@ return {
       },
     },
   },
-  { -- Collection of various small independent plugins/modules
+  {
+    -- TODO: Figure out how to use opts in LazyVim way
+    -- Collection of various small independent plugins/modules
     "echasnovski/mini.nvim",
     config = function()
       -- Better Around/Inside textobjects
@@ -74,5 +82,18 @@ return {
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
+  },
+  {
+    "lucidph3nx/nvim-sops",
+    event = { "BufEnter" },
+    keys = {
+      { "<leader>ef", vim.cmd.SopsEncrypt, desc = "[E]ncrypt [F]ile" },
+      { "<leader>df", vim.cmd.SopsDecrypt, desc = "[D]ecrypt [F]ile" },
+    },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
   },
 }

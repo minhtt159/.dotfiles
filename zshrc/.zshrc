@@ -93,8 +93,8 @@ plugins=(
   npm
   yarn
   zsh-autosuggestions
-  sdkman
   1password
+  direnv
 )
 
 alias x="exit"
@@ -137,10 +137,16 @@ if command -v java >/dev/null 2>&1; then
   export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 fi
 # Node Version Manager
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+if command -v brew > /dev/null 2>&1; then
+  [ -f $(brew --prefix nvm)/nvm.sh ] && export NVM_DIR=~/.nvm && source $(brew --prefix nvm)/nvm.sh
+fi
 # Local bin
 export PATH=$HOME/.local/bin:$PATH
+
+# rbenv setup
+if command -v rbenv >/dev/null 2>&1; then
+  eval "$(rbenv init - zsh)"
+fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -171,4 +177,3 @@ autoload -U compinit; compinit
 
 export TERRAGRUNT_DOWNLOAD=$HOME/.terragrunt/plugin-cache
 
-eval "$(rbenv init - zsh)"

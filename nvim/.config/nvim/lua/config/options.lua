@@ -20,8 +20,11 @@ opt.autoindent = true
 opt.smartindent = true -- if you code in C
 
 -- Personal choice
+opt.scrolloff = 10 -- Minimum of rows
+-- opt.textwidth = 80 -- Text width
+-- opt.colorcolumn = "80" -- 80 char limit
 opt.wrap = true -- Wrap line like for not to scroll, f**k connection string
-opt.scrolloff = 8 -- Minimum of rows
+opt.linebreak = true -- Break line at word
 
 -- Sets how neovim will display certain whitespace in the editor.
 --  See `:help 'list'`
