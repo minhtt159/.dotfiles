@@ -30,8 +30,8 @@ require("lazy").setup({
     -- Formatting
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.formatting.black" },
-    -- Just use Folke's Copilot, maybe he knows better
-    { import = "lazyvim.plugins.extras.coding.copilot" },
+    -- Copilot
+    -- { import = "lazyvim.plugins.extras.coding.copilot" },
     -- import/override with your plugins
     { import = "plugins" },
     -- Custom language plugins

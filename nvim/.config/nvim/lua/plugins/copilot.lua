@@ -1,5 +1,5 @@
+-- INFO: I took this from the LazyVim repo, don't know if I should do it, but keep it here just to be safe
 return {
-
   -- copilot
   {
     "zbirenbaum/copilot.lua",
