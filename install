@@ -17,6 +17,3 @@ do
     stow $folder
 done
 popd
-
-# It's gonna have some error, but it's OK
-# https://github.com/aspiers/stow/issues/65

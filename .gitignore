@@ -1,2 +1,3 @@
-*/packer_compiled.lua
-*/.tmp*
+**/.DS_Store
+**/packer_compiled.lua
+**/.tmp*
