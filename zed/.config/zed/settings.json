@@ -11,8 +11,34 @@
     "diagnostics": false,
     "metrics": false
   },
+  // Theme and keymaps
   "base_keymap": "VSCode",
   "theme": "Catppuccin Mocha",
-  "ui_font_size": 16,
-  "buffer_font_size": 16
+  // Fonts
+  "ui_font_size": 15,
+  "buffer_font_size": 14,
+  "buffer_font_family": "Hack Nerd Font",
+  // Magic features
+  "git_status": true,
+  "tab_size": 2,
+  "copilot": {
+    "disabled_globs": [".env*"]
+  },
+  "enable_language_server": true,
+  "remove_trailing_whitespace_on_save": true,
+  "lsp": {
+    "gopls": {
+      "initialization_options": {
+        "hints": {
+          "assignVariableTypes": true,
+          "compositeLiteralFields": true,
+          "compositeLiteralTypes": true,
+          "constantValues": true,
+          "functionTypeParameters": true,
+          "parameterNames": true,
+          "rangeVariableTypes": true
+        }
+      }
+    }
+  }
 }
