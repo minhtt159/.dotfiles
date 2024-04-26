@@ -137,8 +137,8 @@ if command -v java >/dev/null 2>&1; then
   export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 fi
 # Node Version Manager
-if command -v nvm > /dev/null 2>&1; then
-   export NVM_DIR="$HOME/.nvm"
+if [ -f /opt/homebrew/opt/nvm/nvm.sh ] ; then
+  export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 fi
@@ -177,5 +177,6 @@ fi
 
 autoload -U compinit; compinit
 
-export TERRAGRUNT_DOWNLOAD=$HOME/.terragrunt/plugin-cache
+# Debug kubernetes - currently, direnv does not support aliases
+alias kdebug='kubectl run bb --image=busybox --rm -it -- sh'
 
