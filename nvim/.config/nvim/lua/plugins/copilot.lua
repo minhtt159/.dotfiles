@@ -1,6 +1,5 @@
 -- INFO: I took this from the LazyVim repo, don't know if I should do it, but keep it here just to be safe
 return {
-  -- copilot
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
@@ -26,6 +25,7 @@ return {
         ["Warning"] = Util.ui.fg("DiagnosticError"),
         ["InProgress"] = Util.ui.fg("DiagnosticWarn"),
       }
+      -- add copilot status to lualine
       table.insert(opts.sections.lualine_x, 2, {
         function()
           local icon = require("lazyvim.config").icons.kinds.Copilot
