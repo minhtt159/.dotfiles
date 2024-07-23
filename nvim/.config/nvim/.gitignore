@@ -6,4 +6,5 @@ debug
 foo.*
 *.log
 data
-**/lazy-lock.json
+lazy-lock.json
+lazyvim.json

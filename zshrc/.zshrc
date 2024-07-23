@@ -178,5 +178,5 @@ fi
 autoload -U compinit; compinit
 
 # Debug kubernetes - currently, direnv does not support aliases
-alias kdebug='kubectl run bb --image=busybox --rm -it -- sh'
+alias kdebug='kubectl run bb --image=alpine --rm -it -- sh'
 
