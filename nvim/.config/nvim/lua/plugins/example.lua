@@ -4,10 +4,10 @@ return {
     "simrat39/symbols-outline.nvim",
     keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
   },
-  {
-    -- Jinja syntax highlighting
-    "HiPhish/jinja.vim",
-  },
+  -- {
+  --   -- Jinja syntax highlighting
+  --   "HiPhish/jinja.vim",
+  -- },
   -- {
   --   "petobens/poet-v",
   -- },
