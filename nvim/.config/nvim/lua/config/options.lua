@@ -2,7 +2,7 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
--- LazyVim got it right, so check this again
+vim.g.have_nerd_font = true
 
 -- Use `opt` for short
 local opt = vim.opt
@@ -18,6 +18,7 @@ opt.relativenumber = true
 -- opt.expandtab = true
 opt.autoindent = true
 opt.smartindent = true -- if you code in C
+opt.breakindent = true
 
 -- Personal choice
 opt.scrolloff = 10 -- Minimum of rows
@@ -39,11 +40,11 @@ opt.smartcase = true -- Hello != hello
 opt.hlsearch = true -- Highlight; to clear highlight use keymaps
 
 -- Cursor line
--- opt.cursorline = false -- Noob?
+opt.cursorline = true
 
 -- -- Color setting
 -- opt.termguicolors = true
--- opt.signcolumn = "yes"
+opt.signcolumn = "yes"
 
 -- -- Backspace behaviour
 -- opt.backspace = "indent,eol,start"
@@ -51,7 +52,7 @@ opt.hlsearch = true -- Highlight; to clear highlight use keymaps
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-opt.clipboard:append("unnamedplus")
+opt.clipboard = "unnamedplus"
 
 -- Split Windows
 opt.splitright = true
@@ -70,8 +71,11 @@ opt.undofile = true -- Undo file
 opt.mouse = "a"
 
 -- -- CPU goes brr 🔥
--- opt.updatetime = 50
-
--- Decrease update time
 opt.updatetime = 250
 opt.timeoutlen = 300
+
+-- Don't show the mode, since it's already in the status line
+opt.showmode = false
+
+-- Preview substitutions live, as you type!
+opt.inccommand = "split"

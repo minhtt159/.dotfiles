@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 
 vim.g.mapleader = " "
--- vim.g.maplocalleader = " "
+-- vim.g.maplocalleader = "\\"
 
 local keymap = vim.keymap
 
@@ -16,7 +16,7 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move this line up 1" })
 
 -- Clear highlight
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear highlight" })
-keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>") -- Clear search highlight with <Esc>
+keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight" })
 
 -- Diagnostic keymaps
 keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
