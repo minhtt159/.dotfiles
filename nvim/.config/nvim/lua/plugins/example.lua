@@ -4,18 +4,46 @@ return {
     "simrat39/symbols-outline.nvim",
     keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
   },
-  -- {
-  --   -- Jinja syntax highlighting
-  --   "HiPhish/jinja.vim",
-  -- },
-  -- {
-  --   "petobens/poet-v",
-  -- },
   -- "gc" to comment visual regions/lines
   {
     "numToStr/Comment.nvim",
     opts = {},
   },
+  {
+    "folke/persistence.nvim",
+    enabled = false,
+  },
+  -- Bufferline gives me a lot of trouble, so I'm disabling it for now
+  {
+    "akinsho/bufferline.nvim",
+    enabled = false,
+  },
+  {
+    "rcarriga/nvim-notify",
+    enabled = true,
+    -- opts = {
+    --   background_colour = "#000000",
+    -- },
+  },
+  {
+    "stevearc/dressing.nvim",
+    enabled = true,
+  },
+  {
+    "folke/noice.nvim",
+    enabled = true,
+  },
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   opts = {
+  --     char = "▏",
+  --   },
+  -- },
+  -- {
+  --   "NvChad/nvim-colorizer.lua",
+  --   event = "BufRead",
+  --   config = true,
+  -- },
   { -- Autoformat
     -- NOTE: Usually, the language will install this plugin
     -- but put it here just to be safe

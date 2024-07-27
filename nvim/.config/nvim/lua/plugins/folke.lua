@@ -1,10 +1,12 @@
 return {
   -- Highlight todo, notes, etc in comments
   {
+    -- INFO: https://github.com/folke/todo-comments.nvim
     "folke/todo-comments.nvim",
     event = "VimEnter",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = { signs = false },
+    -- opts will be merged with the parent spec
+    opts = { signs = true },
   },
   -- change trouble config
   {
@@ -28,25 +30,17 @@ return {
       -- { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     },
   },
-  -- { -- Useful plugin to show you pending keybinds.
-  --   "folke/which-key.nvim",
-  --   event = "VimEnter", -- Sets the loading event to 'VimEnter'
-  --   opts = function(_, opts)
-  --     if require("lazyvim.util").has("noice.nvim") then
-  --       opts.defaults["<leader>sn"] = { name = "+noice" }
-  --     end
-  --   end,
-  --   config = function() -- This is the function that runs, AFTER loading
-  --     require("which-key").setup()
-  --
-  --     -- Document existing key chains
-  --     require("which-key").register({
-  --       ["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
-  --       ["<leader>d"] = { name = "[D]ocument", _ = "which_key_ignore" },
-  --       ["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
-  --       ["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
-  --       ["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
-  --     })
-  --   end,
-  -- },
+  { -- Useful plugin to show you pending keybinds.
+    "folke/which-key.nvim",
+    opts = {
+      spec = {
+        -- Document existing key chains
+        { "<leader>c", mode = { "n" }, desc = "[C]ode" },
+        { "<leader>d", mode = { "n" }, desc = "[D]ocument" },
+        { "<leader>s", mode = { "n" }, desc = "[S]earch" },
+        -- { "<leader>r", mode = { "n" }, desc = "[R]ename" },
+        -- { "<leader>w", mode = { "n" }, desc = "[W]orkspace" },
+      },
+    },
+  },
 }
