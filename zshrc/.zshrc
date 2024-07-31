@@ -58,16 +58,16 @@ ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
-  history-substring-search
-  brew
-  zsh-autosuggestions
   1password
+  brew
   direnv
-  # npm # Node.js
-  # ng # Angular CLI
-  # yarn
-  # gradle # Java
+  dotenv
+  git
+  kubectl
+  history-substring-search
+  zsh-autosuggestions
+  # virtualenvwrapper # Python
+  nvm # Node Version Manager
 )
 
 alias x="exit"
@@ -124,17 +124,11 @@ fi
 if command -v cargo >/dev/null 2>&1; then
   export PATH="$HOME/.cargo/bin:$PATH"
 fi
+
 # -- Java
 if command -v java >/dev/null 2>&1; then
   export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 fi
-# -- Node Version Manager
-# if [ -f /opt/homebrew/opt/nvm/nvm.sh ] ; then
-#   export NVM_DIR="$HOME/.nvm"
-#   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-#   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-# fi
-#
 
 # Flux
 if command -v flux >/dev/null 2>&1; then
@@ -145,8 +139,6 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 source <(kubectl completion zsh)
-alias k=kubectl
-compdef __start_kubectl k
 
 # SOPS age for k3s
 if command -v sops >/dev/null 2>&1; then

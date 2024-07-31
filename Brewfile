@@ -25,6 +25,7 @@ brew "z"
 brew "stow"
 brew "jq"
 brew "yq"
+brew "zsh-history-substring-search"
 cask "rectangle", greedy: true
 cask "1password-cli", greedy: true
 cask "microsoft-remote-desktop", greedy: true
@@ -50,6 +51,7 @@ brew "ripgrep"
 brew "lazygit"
 brew "lazydocker"
 brew "terraform-ls"
+brew "kubeconform"
 
 # -- Fonts
 tap "homebrew/cask-fonts"
