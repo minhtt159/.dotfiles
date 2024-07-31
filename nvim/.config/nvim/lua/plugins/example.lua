@@ -5,33 +5,30 @@ return {
     keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
   },
   -- "gc" to comment visual regions/lines
-  {
-    "numToStr/Comment.nvim",
-    opts = {},
-  },
+  -- {
+  --   "numToStr/Comment.nvim",
+  --   opts = {},
+  -- },
   {
     "lucidph3nx/nvim-sops",
     event = { "BufEnter" },
     keys = {
-      { "<leader>ef", vim.cmd.SopsEncrypt, desc = "[E]ncrypt [F]ile" },
-      { "<leader>df", vim.cmd.SopsDecrypt, desc = "[D]ecrypt [F]ile" },
+      -- TODO: I'm gonna do this later
+      -- { "<leader>sef", vim.cmd.SopsEncrypt, desc = "[S]ops [E]ncrypt [F]ile" },
+      -- { "<leader>sdf", vim.cmd.SopsDecrypt, desc = "[S]ops [D]ecrypt [F]ile" },
     },
     opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
-  },
-  { -- Adds git related signs to the gutter, as well as utilities for managing changes
-    "lewis6991/gitsigns.nvim",
-    opts = {
-      signs = {
-        add = { text = "+" },
-        change = { text = "~" },
-        delete = { text = "_" },
-        topdelete = { text = "‾" },
-        changedelete = { text = "~" },
+      enabled = true,
+      debug = false,
+      binPath = "sops", -- assumes its on $PATH
+      defaults = { -- overriding any env vars as needed
+        awsProfile = "AWS_PROFILE",
+        ageKeyFile = "SOPS_AGE_KEY_FILE",
+        gcpCredentialsPath = "GOOGLE_APPLICATION_CREDENTIALS",
       },
     },
+  },
+  {
+    "folke/zen-mode.nvim",
   },
 }

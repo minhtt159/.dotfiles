@@ -13,7 +13,7 @@ brew "terragrunt"
 brew "tfenv"
 # Cloud
 brew "azure-cli"
-brew "Azure/kubelogin/kubelogin"
+brew "azure/kubelogin/kubelogin"
 brew "awscli"
 cask "session-manager-plugin", greedy: true
 # Scanner

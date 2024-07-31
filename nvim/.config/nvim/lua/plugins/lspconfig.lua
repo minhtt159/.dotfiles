@@ -44,9 +44,10 @@ return {
     -- lazyvim.plugins.lsp
     "neovim/nvim-lspconfig",
     dependencies = {
-      -- Useful status updates for LSP.
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { "j-hui/fidget.nvim", opts = {} },
+      { -- status update for LSP
+        "j-hui/fidget.nvim",
+        opts = {},
+      },
     },
     ---@class PluginLspOpts
     opts = {
@@ -61,33 +62,28 @@ return {
         -- powershell_es = {},
         -- azure_pipelines_ls = {},
         terraformls = {},
-        helm_ls = {},
-        yamlls = {},
-      },
-      setup = {
-        ["helm-ls"] = {
+        helm_ls = {
           logLevel = "info",
           valuesFiles = {
             mainValuesFile = "values.yaml",
             lintOverlayValuesFile = "values.lint.yaml",
             additionalValuesFilesGlobPattern = "values*.yaml",
           },
-          yamlls = {
-            enabled = true,
-            diagnosticsLimit = 50,
-            showDiagnosticsDirectly = false,
-            path = "yaml-language-server",
-            config = {
-              schemas = {
-                kubernetes = "templates/**",
-              },
-              completion = true,
-              hover = true,
-              -- any other config from https://github.com/redhat-developer/yaml-language-server#language-server-settings
+        },
+        yamlls = {
+          enabled = true,
+          diagnosticsLimit = 50,
+          showDiagnosticsDirectly = false,
+          path = "yaml-language-server",
+          config = {
+            schemas = {
+              kubernetes = "templates/**",
             },
+            completion = true,
+            hover = true,
+            -- any other config from https://github.com/redhat-developer/yaml-language-server#language-server-settings
           },
         },
-        ["*"] = function(servers, opts) end,
       },
     },
   },

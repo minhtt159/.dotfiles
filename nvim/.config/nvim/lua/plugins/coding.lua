@@ -1,5 +1,5 @@
 return {
-  -- NOTE: only add some custom keymaps if needed
+  -- INFO: only add some custom keymaps if needed
   -- nvim-cmp in lazyvim.plugins.coding
   -- luasnip in lazyvim.plugins.extras.coding.luasnip
   {

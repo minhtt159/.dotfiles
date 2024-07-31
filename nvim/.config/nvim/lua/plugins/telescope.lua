@@ -69,7 +69,7 @@ return {
         --   i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         -- },
       },
-      -- TODO: LazyVim default is better?
+      -- NOTE: LazyVim default is better?
       -- pickers = {
       --   find_files = {
       --     -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
