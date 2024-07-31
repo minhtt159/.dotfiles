@@ -1,24 +1,7 @@
-require("lazyvim.util").lsp.on_attach(function(client, buffer)
-  if client.name == "yamlls" then
-    if vim.api.nvim_get_option_value("filetype", { buf = buffer }) == "helm" then
-      vim.schedule(function()
-        vim.cmd("LspStop ++force yamlls")
-      end)
-    end
-  end
-end)
-
 return {
+  -- NOTE: most of the plugins are installed with
+  -- lazyvim.plugins.extras.lang.helm
   { "towolf/vim-helm", ft = "helm" },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        yamlls = {},
-        helm_ls = {},
-      },
-    },
-  },
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)

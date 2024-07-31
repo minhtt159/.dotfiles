@@ -19,6 +19,8 @@ return {
   },
   {
     "folke/flash.nvim",
+    -- NOTE: Disable flash because conflicted with surrounds
+    enabled = false,
     keys = {
       -- disable the default flash keymap
       -- { "s", mode = { "n", "x", "o" }, false },

@@ -19,10 +19,6 @@ return {
         --   tabline = 1000,
         --   winbar = 1000,
         -- },
-        extensions = {
-          -- "neotree",
-          "lazy",
-        },
       },
     },
   },

@@ -40,31 +40,30 @@ return {
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 
+    -- NOTE: nvim-lspconfig already init with LazyVim by default, so this is the extra configs
+    -- lazyvim.plugins.lsp
     "neovim/nvim-lspconfig",
     dependencies = {
-      -- Automatically install LSPs and related tools to stdpath for neovim
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { "j-hui/fidget.nvim", opts = {} },
     },
     ---@class PluginLspOpts
     opts = {
-      -- ---@type lspconfig.options
-      -- servers = {
-      --   -- pyright will be automatically installed with mason and loaded with lspconfig
-      --   -- pyright = {},
-      --   bashls = {},
-      --   -- gopls = {},
-      --   bicep = {},
-      --   yamlls = {},
-      --   marksman = {},
-      --   powershell_es = {},
-      --   -- azure_pipelines_ls = {},
-      --   terraformls = {},
-      --   helm_ls = {},
-      -- },
+      ---@type lspconfig.options
+      servers = {
+        -- pyright will be automatically installed with mason and loaded with lspconfig
+        -- pyright = {},
+        -- bashls = {},
+        gopls = {},
+        -- bicep = {},
+        -- marksman = {},
+        -- powershell_es = {},
+        -- azure_pipelines_ls = {},
+        terraformls = {},
+        helm_ls = {},
+        yamlls = {},
+      },
       setup = {
         ["helm-ls"] = {
           logLevel = "info",
