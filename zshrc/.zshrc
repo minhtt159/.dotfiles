@@ -124,31 +124,13 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch arm64"
 
-# Flutter
-if command -v flutter >/dev/null 2>&1; then
-  export PATH="$HOME/flutter/bin:$PATH"
-fi
-# Rust
-if command -v cargo >/dev/null 2>&1; then
-  export PATH="$HOME/.cargo/bin:$PATH"
-fi
-# Java
-if command -v java >/dev/null 2>&1; then
-  export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-fi
-# Node Version Manager
-if [ -f /opt/homebrew/opt/nvm/nvm.sh ] ; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-fi
 # Local bin
 export PATH=$HOME/.local/bin:$PATH
 
 # rbenv setup
-if command -v rbenv >/dev/null 2>&1; then
-  eval "$(rbenv init - zsh)"
-fi
+# if command -v rbenv >/dev/null 2>&1; then
+#   eval "$(rbenv init - zsh)"
+# fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -161,6 +143,36 @@ alias ohmyzsh="nvim ~/.oh-my-zsh"
 if command -v brew >/dev/null 2>&1; then
   # Load rupa's z if installed
   [ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
+fi
+
+# -- Flutter
+# if command -v flutter >/dev/null 2>&1; then
+#   export PATH="$HOME/flutter/bin:$PATH"
+# fi
+# -- Rust
+if command -v cargo >/dev/null 2>&1; then
+  export PATH="$HOME/.cargo/bin:$PATH"
+fi
+# -- Java
+if command -v java >/dev/null 2>&1; then
+  export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+fi
+# -- Node Version Manager
+# if [ -f /opt/homebrew/opt/nvm/nvm.sh ] ; then
+#   export NVM_DIR="$HOME/.nvm"
+#   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+#   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# fi
+#
+
+# Flux
+if command -v flux >/dev/null 2>&1; then
+  eval "$(flux completion zsh)"
+fi
+
+# Brew-file
+if [ -f $(brew --prefix)/etc/brew-wrap ];then
+  source $(brew --prefix)/etc/brew-wrap
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
