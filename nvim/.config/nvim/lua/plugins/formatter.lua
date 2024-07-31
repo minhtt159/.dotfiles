@@ -1,7 +1,5 @@
 return {
   { -- Autoformat
-    -- NOTE: Usually, the language will install this plugin
-    -- but put it here just to be safe
     "stevearc/conform.nvim",
     event = "VeryLazy",
     opts = {
