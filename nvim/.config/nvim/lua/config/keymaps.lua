@@ -52,3 +52,7 @@ keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
 -- https://www.lazyvim.org/keymaps
 -- Delete any keymap if not needed
+
+-- LazyVim comment conflict with numtostr/Comment.nvim
+keymap.del("n", "gco")
+keymap.del("n", "gcO")
