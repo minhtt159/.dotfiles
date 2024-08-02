@@ -25,6 +25,7 @@ brew "z"
 brew "stow"
 brew "jq"
 brew "yq"
+cask "rectangle", greedy: true
 brew "zsh-history-substring-search"
 cask "rectangle", greedy: true
 cask "1password-cli", greedy: true
@@ -37,10 +38,8 @@ brew "neovim"
 cask "obsidian"
 cask "zed", greedy: true
 cask "sublime-text", greedy: true
-cask "visual-studio-code", greedy: true
 
 # -- Git
-brew "pre-commit"
 # depend on Python
 brew "commitizen"
 brew "pre-commit"
