@@ -38,3 +38,11 @@ vim.api.nvim_create_autocmd("FileType", {
 -- end
 --
 -- vim.cmd([[au BufRead * lua Docker_fix()]])
+
+vim.filetype.add({
+  extension = {
+    jinja = "jinja",
+    jinja2 = "jinja",
+    j2 = "jinja",
+  },
+})
