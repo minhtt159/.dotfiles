@@ -104,6 +104,10 @@ export PATH=$HOME/.local/bin:$PATH
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 
+if [ -f ~/.dotfiles/Brewfile ]; then
+  alias brewup="brew bundle --file=~/.dotfiles/Brewfile"
+fi
+
 #Include Z
 if command -v brew >/dev/null 2>&1; then
   # Load rupa's z if installed

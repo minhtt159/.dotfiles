@@ -3,10 +3,11 @@
 brew "kubernetes-cli"
 brew "helm"
 brew "helmfile"
+tap "fluxcd/tap"
 brew "fluxcd/tap/flux"
 # UI
 brew "k9s"
-cask "lens"
+cask "lens", greedy: true
 # Automation tools
 brew "kubectx"
 brew "terragrunt"
@@ -35,7 +36,7 @@ cask "pgadmin4", greedy: true
 # -- Editor
 brew "tmux"
 brew "neovim"
-cask "obsidian"
+cask "obsidian", greedy: true
 cask "zed", greedy: true
 cask "sublime-text", greedy: true
 
