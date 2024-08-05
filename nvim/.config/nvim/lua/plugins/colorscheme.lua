@@ -1,6 +1,7 @@
 return {
   {
     "folke/tokyonight.nvim",
+    lazy = true,
     opts = {
       transparent = true,
       styles = {
@@ -11,17 +12,24 @@ return {
   },
   {
     "decaycs/decay.nvim",
-    name = "decay",
+    lazy = false,
     opts = {
       style = "dark",
+      -- enables italics in code keywords & comments.
+      italics = {
+        code = true,
+        comments = true,
+      },
+      -- enables contrast when using nvim tree.
       nvim_tree = {
-        contrast = true, -- or false to disable tree contrast
+        contrast = true,
       },
     },
   },
   { -- https://github.com/catppuccin/nvim?tab=readme-ov-file#configuration
     "catppuccin/nvim",
     priority = 1000,
+    lazy = true,
     opts = {
       term_colors = true,
       transparent_background = true,
@@ -38,7 +46,6 @@ return {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "catppuccin",
-      -- transparent_background = true,
     },
   },
 }
