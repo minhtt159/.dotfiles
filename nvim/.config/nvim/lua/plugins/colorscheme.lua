@@ -19,8 +19,8 @@ return {
       },
     },
   },
-  {
-    "catppuccin",
+  { -- https://github.com/catppuccin/nvim?tab=readme-ov-file#configuration
+    "catppuccin/nvim",
     priority = 1000,
     opts = {
       term_colors = true,
@@ -32,6 +32,13 @@ return {
           crust = "#000000",
         },
       },
+    },
+  },
+  { -- Set colorscheme to catppuccin
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin",
+      -- transparent_background = true,
     },
   },
 }

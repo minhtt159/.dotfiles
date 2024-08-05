@@ -36,18 +36,20 @@ return {
     "folke/which-key.nvim",
     enabled = true,
   },
-  { -- Adds git related signs to the gutter, as well as utilities for managing changes
-    "lewis6991/gitsigns.nvim",
-    opts = {
-      signs = {
-        add = { text = "+" },
-        change = { text = "~" },
-        delete = { text = "_" },
-        topdelete = { text = "‾" },
-        changedelete = { text = "~" },
-      },
-    },
-  },
+  -- { -- NOTE: use mini.diff instead of gitsigns
+  --
+  --   -- Adds git related signs to the gutter, as well as utilities for managing changes
+  --   "lewis6991/gitsigns.nvim",
+  --   opts = {
+  --     signs = {
+  --       add = { text = "+" },
+  --       change = { text = "~" },
+  --       delete = { text = "_" },
+  --       topdelete = { text = "‾" },
+  --       changedelete = { text = "~" },
+  --     },
+  --   },
+  -- },
   { -- change trouble config
     "folke/trouble.nvim",
     opts = { use_diagnostic_signs = true },
