@@ -26,6 +26,8 @@ brew "z"
 brew "stow"
 brew "jq"
 brew "yq"
+brew "rust"
+brew "python@3.12"
 cask "rectangle", greedy: true
 brew "zsh-history-substring-search"
 cask "rectangle", greedy: true
