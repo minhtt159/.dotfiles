@@ -99,18 +99,19 @@ return {
       },
     },
   },
-  {
-    "echasnovski/mini.diff",
-    opts = {
-      view = {
-        signs = {
-          add = "+",
-          change = "~",
-          delete = "_",
-          topdelete = "‾",
-          changedelete = "~",
-        },
-      },
-    },
-  },
+  -- { -- NOTE: use mini.diff plugin will disable gitsigns
+  --
+  --   "echasnovski/mini.diff",
+  --   opts = {
+  --     view = {
+  --       signs = {
+  --         add = "+",
+  --         change = "~",
+  --         delete = "_",
+  --         topdelete = "‾",
+  --         changedelete = "~",
+  --       },
+  --     },
+  --   },
+  -- },
 }

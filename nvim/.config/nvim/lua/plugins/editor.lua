@@ -36,20 +36,28 @@ return {
     "folke/which-key.nvim",
     enabled = true,
   },
-  -- { -- NOTE: use mini.diff instead of gitsigns
-  --
-  --   -- Adds git related signs to the gutter, as well as utilities for managing changes
-  --   "lewis6991/gitsigns.nvim",
-  --   opts = {
-  --     signs = {
-  --       add = { text = "+" },
-  --       change = { text = "~" },
-  --       delete = { text = "_" },
-  --       topdelete = { text = "‾" },
-  --       changedelete = { text = "~" },
-  --     },
-  --   },
-  -- },
+  {
+    -- Adds git related signs to the gutter, as well as utilities for managing changes
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      signs = {
+        add = { text = "+" },
+        change = { text = "~" },
+        delete = { text = "_" },
+        topdelete = { text = "‾" },
+        changedelete = { text = "~" },
+        untracked = { text = "┆" },
+      },
+      signs_staged = {
+        add = { text = "+" },
+        change = { text = "~" },
+        delete = { text = "_" },
+        topdelete = { text = "‾" },
+        changedelete = { text = "~" },
+        untracked = { text = "┆" },
+      },
+    },
+  },
   { -- change trouble config
     "folke/trouble.nvim",
     opts = { use_diagnostic_signs = true },
@@ -60,5 +68,4 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = { signs = true },
   },
-  -- NOTE: It's gonna import telescope & fzf
 }

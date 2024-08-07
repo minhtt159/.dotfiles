@@ -1,7 +1,6 @@
 return {
   -- INFO: only add some custom keymaps if needed
   -- nvim-cmp in lazyvim.plugins.coding
-  -- luasnip in lazyvim.plugins.extras.coding.luasnip
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -20,6 +19,7 @@ return {
       --     fallback()
       -- end,
     },
+    ---@module 'cmp'
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       -- See `:help cmp`
