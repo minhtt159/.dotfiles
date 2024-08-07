@@ -41,19 +41,19 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.terraform" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
-    -- LSP None-ls
+    -- Extras LSP
+    { import = "lazyvim.plugins.extras.lsp.neoconf" },
     { import = "lazyvim.plugins.extras.lsp.none-ls" },
-    -- Formatting will automatically add the necessary LSPs
+    -- Extras Formatting
     { import = "lazyvim.plugins.extras.formatting" },
-    -- Editor
-    { import = "lazyvim.plugins.extras.editor.mini-files" },
-    -- { import = "lazyvim.plugins.extras.editor.mini-diff" },
     -- import/override with your plugins
     { import = "plugins" },
     -- Custom language plugins
     { import = "plugins.lang" },
     -- Custom coding plugins
     { import = "plugins.coding" },
+    -- Custom plugins
+    { import = "plugins.mini" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

@@ -22,8 +22,8 @@ opt.breakindent = true
 
 -- Personal choice
 opt.scrolloff = 10 -- Minimum of rows
--- opt.textwidth = 80 -- Text width
--- opt.colorcolumn = "80" -- 80 char limit
+opt.textwidth = 100 -- Text width
+opt.colorcolumn = "+1" -- Mark 1 column after textwidth
 opt.wrap = true -- Wrap line like for not to scroll, f**k connection string
 opt.linebreak = true -- Break line at word
 
@@ -43,7 +43,7 @@ opt.hlsearch = true -- Highlight; to clear highlight use keymaps
 opt.cursorline = true
 
 -- -- Color setting
--- opt.termguicolors = true
+opt.termguicolors = true
 opt.signcolumn = "yes"
 
 -- -- Backspace behaviour

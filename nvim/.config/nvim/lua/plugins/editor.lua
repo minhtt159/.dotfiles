@@ -38,6 +38,7 @@ return {
   },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
+    -- will be disabled when mini-diffs is enabled
     "lewis6991/gitsigns.nvim",
     opts = {
       signs = {
