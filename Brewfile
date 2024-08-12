@@ -27,6 +27,7 @@ brew "stow"
 brew "jq"
 brew "yq"
 brew "rust"
+brew "go"
 brew "python@3.12"
 cask "rectangle", greedy: true
 brew "zsh-history-substring-search"
@@ -52,8 +53,10 @@ brew "fzf"
 brew "ripgrep"
 brew "lazygit"
 brew "lazydocker"
-brew "terraform-ls"
 brew "kubeconform"
+# -- LSP Tools
+brew "terraform-ls"
+brew "ruff"
 
 # -- Fonts
 tap "homebrew/cask-fonts"
