@@ -1,3 +1,4 @@
+# zmodload zsh/zprof
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -25,8 +26,15 @@ zstyle ':omz:update' frequency 7
 # DISABLE_MAGIC_FUNCTIONS="true"
 
 # Other env_vars before load plugins
-export NVM_LAZY_LOAD=true
-export NVM_COMPLETION=true
+# -- ZSH-NVM
+# export NVM_LAZY_LOAD=true
+# export NVM_LAZY_LOAD_EXTRA_COMMANDS=('nvim','tmux')
+# export NVM_COMPLETION=true
+# -- ZSH builtin
+NVM_HOMEBREW=$(brew --prefix nvm)
+zstyle ':omz:plugins:nvm' lazy yes
+zstyle ':omz:plugins:nvm' lazy-cmd prettier typescript nvim tmux
+# -- EVALCACHE
 export ZSH_EVALCACHE_DIR="$HOME/.local/.zsh-evalcache"
 
 # Standard plugins can be found in $ZSH/plugins/
@@ -38,8 +46,9 @@ plugins=(
   dotenv
   git
   kubectl
+  nvm
   #NOTE: these are custom plugins, remember to download it
-  zsh-nvm
+  # zsh-nvm
   evalcache
 )
 

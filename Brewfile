@@ -37,6 +37,7 @@ cask "rectangle", greedy: true
 cask "1password-cli", greedy: true
 cask "microsoft-remote-desktop", greedy: true
 cask "pgadmin4", greedy: true
+cask "tg-pro", greedy: true
 
 # -- Editor
 brew "tmux"
