@@ -22,15 +22,17 @@ brew "trivy"
 
 # -- General
 brew "direnv"
-brew "z"
 brew "stow"
 brew "jq"
 brew "yq"
+brew "coreutils"
+# -- Languages
 brew "rust"
 brew "go"
 brew "python@3.12"
-cask "rectangle", greedy: true
-brew "zsh-history-substring-search"
+brew "nvm"
+# -- Other Apps
+cask "karabiner-elements", greedy: true
 cask "rectangle", greedy: true
 cask "1password-cli", greedy: true
 cask "microsoft-remote-desktop", greedy: true
@@ -39,9 +41,15 @@ cask "pgadmin4", greedy: true
 # -- Editor
 brew "tmux"
 brew "neovim"
+cask "wezterm", greedy: true
 cask "obsidian", greedy: true
 cask "zed", greedy: true
 cask "sublime-text", greedy: true
+# -- Zsh plugins
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "zsh-history-substring-search"
+brew "zsh-syntax-highlighting"
 
 # -- Git
 # depend on Python
@@ -59,6 +67,5 @@ brew "terraform-ls"
 brew "ruff"
 
 # -- Fonts
-tap "homebrew/cask-fonts"
 cask "font-hack-nerd-font", greedy: true
 
