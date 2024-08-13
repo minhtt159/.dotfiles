@@ -48,7 +48,6 @@ plugins=(
   kubectl
   nvm
   #NOTE: these are custom plugins, remember to download it
-  # zsh-nvm
   evalcache
 )
 
@@ -97,18 +96,18 @@ if command -v rbenv >/dev/null 2>&1; then
 fi
 
 # -- Flutter
-# if command -v flutter >/dev/null 2>&1; then
-#   export PATH="$HOME/flutter/bin:$PATH"
-# fi
+if command -v flutter >/dev/null 2>&1; then
+  export PATH="$HOME/flutter/bin:$PATH"
+fi
 
 # -- Rust
 if command -v cargo >/dev/null 2>&1; then
-  export PATH="$HOME/.cargo/bin:$PATH"
+  path+=("$HOME/.cargo/bin")
 fi
 
 # -- Java
 if command -v java >/dev/null 2>&1; then
-  export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+  path+=("$(brew --prefix)/opt/openjdk/bin")
 fi
 
 # kubectl
