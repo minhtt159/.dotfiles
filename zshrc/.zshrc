@@ -14,6 +14,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(history)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_DIR_BACKGROUND=0
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
 ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
@@ -88,6 +89,9 @@ alias ohmyzsh="nvim ~/.oh-my-zsh"
 if [ -f ~/.dotfiles/Brewfile ]; then
   alias brewup="brew bundle --file=~/.dotfiles/Brewfile"
 fi
+
+# Suppress direnv output
+export DIRENV_LOG_FORMAT=""
 
 # -- Ruby
 if command -v rbenv >/dev/null 2>&1; then
