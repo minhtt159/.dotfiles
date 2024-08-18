@@ -27,10 +27,6 @@ zstyle ':omz:update' frequency 7
 # DISABLE_MAGIC_FUNCTIONS="true"
 
 # Other env_vars before load plugins
-# -- ZSH-NVM
-# export NVM_LAZY_LOAD=true
-# export NVM_LAZY_LOAD_EXTRA_COMMANDS=('nvim','tmux')
-# export NVM_COMPLETION=true
 # -- ZSH builtin
 NVM_HOMEBREW=$(brew --prefix nvm)
 zstyle ':omz:plugins:nvm' lazy yes
@@ -77,6 +73,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='nvim'
 fi
+alias v="nvim"
 
 # Compilation flags
 # export ARCHFLAGS="-arch arm64"
@@ -101,7 +98,7 @@ fi
 
 # -- Flutter
 if command -v flutter >/dev/null 2>&1; then
-  export PATH="$HOME/flutter/bin:$PATH"
+  path+=("$HOME/flutter/bin")
 fi
 
 # -- Rust
@@ -136,7 +133,7 @@ fi
 
 # ZSH completion
 if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  fpath+=$(brew --prefix)/share/zsh-completions
   autoload -Uz compinit
   compinit
 fi

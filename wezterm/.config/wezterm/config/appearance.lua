@@ -37,6 +37,7 @@ return {
   use_fancy_tab_bar = false,
   tab_max_width = 25,
   show_tab_index_in_tab_bar = false,
+  show_tabs_in_tab_bar = true,
   switch_to_last_active_tab_when_closing_tab = true,
 
   -- window
