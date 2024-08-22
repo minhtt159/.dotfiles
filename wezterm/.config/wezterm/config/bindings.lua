@@ -35,6 +35,7 @@ local keys = {
     mods = mod.SUPER,
     action = wezterm.action.QuickSelectArgs({
       label = "open url",
+      -- https://google.com
       patterns = {
         "\\((https?://\\S+)\\)",
         "\\[(https?://\\S+)\\]",
@@ -54,6 +55,10 @@ local keys = {
   { key = "LeftArrow", mods = mod.SUPER, action = act.SendString("\x1bOH") },
   { key = "RightArrow", mods = mod.SUPER, action = act.SendString("\x1bOF") },
   { key = "Backspace", mods = mod.SUPER, action = act.SendString("\x15") },
+  -- Make Option-Left equivalent to Alt-b which many line editors interpret as backward-word
+  { key = "LeftArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bb" }) },
+  -- Make Option-Right equivalent to Alt-f; forward-word
+  { key = "RightArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bf" }) },
 
   -- copy/paste --
   { key = "c", mods = "CTRL|SHIFT", action = act.CopyTo("Clipboard") },
