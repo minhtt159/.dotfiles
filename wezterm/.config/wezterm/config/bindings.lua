@@ -8,11 +8,14 @@ local mod = {}
 if platform.is_mac then
   mod.SUPER = "SUPER"
   mod.SUPER_REV = "SUPER|CTRL"
+  mod.OPT = "OPT"
 elseif platform.is_win or platform.is_linux then
-  mod.SUPER = "ALT" -- to not conflict with Windows key shortcuts
+  mod.SUPER = "ALT"
   mod.SUPER_REV = "ALT|CTRL"
+  mod.OPT = "CTRL"
 end
 
+-- stylua: ignore
 local keys = {
   -- DEBUG
   { key = "L", mods = "CTRL", action = wezterm.action.ShowDebugOverlay },
@@ -52,13 +55,11 @@ local keys = {
   },
 
   -- cursor movement --
-  { key = "LeftArrow", mods = mod.SUPER, action = act.SendString("\x1bOH") },
+  { key = "LeftArrow",  mods = mod.SUPER, action = act.SendString("\x1bOH") },
+  { key = "LeftArrow",  mods = mod.OPT,   action = act.SendString("\x1bb") },
   { key = "RightArrow", mods = mod.SUPER, action = act.SendString("\x1bOF") },
-  { key = "Backspace", mods = mod.SUPER, action = act.SendString("\x15") },
-  -- Make Option-Left equivalent to Alt-b which many line editors interpret as backward-word
-  { key = "LeftArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bb" }) },
-  -- Make Option-Right equivalent to Alt-f; forward-word
-  { key = "RightArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bf" }) },
+  { key = "RightArrow", mods = mod.OPT,   action = act.SendString("\x1bf") },
+  { key = "Backspace",  mods = mod.SUPER, action = act.SendString("\x15") },
 
   -- copy/paste --
   { key = "c", mods = "CTRL|SHIFT", action = act.CopyTo("Clipboard") },
@@ -66,8 +67,8 @@ local keys = {
 
   -- tabs --
   -- tabs: spawn+close
-  { key = "t", mods = mod.SUPER, action = act.SpawnTab("DefaultDomain") },
-  -- { key = 't',          mods = mod.SUPER_REV, action = act.SpawnTab({ DomainName = 'WSL:Ubuntu' }) },
+  -- { key = 't', mods = mod.SUPER_REV, action = act.SpawnTab({ DomainName = 'WSL:Ubuntu' }) },
+  { key = "t", mods = mod.SUPER,     action = act.SpawnTab("DefaultDomain") },
   { key = "w", mods = mod.SUPER_REV, action = act.CloseCurrentTab({ confirm = false }) },
 
   -- tabs: navigation
