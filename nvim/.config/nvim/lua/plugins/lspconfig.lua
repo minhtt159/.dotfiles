@@ -41,7 +41,6 @@ return {
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 
     -- NOTE: nvim-lspconfig already init with LazyVim by default, so this is the extra configs
-    -- lazyvim.plugins.lsp
     "neovim/nvim-lspconfig",
     dependencies = {
       { -- status update for LSP
@@ -50,24 +49,7 @@ return {
       },
     },
     opts = {
-      servers = {
-        -- pyright will be automatically installed with mason and loaded with lspconfig
-        -- pyright = {},
-        -- bashls = {},
-        -- bicep = {},
-        -- marksman = {},
-        -- powershell_es = {},
-        -- azure_pipelines_ls = {},
-        terraformls = {},
-        helm_ls = {
-          logLevel = "info",
-          valuesFiles = {
-            mainValuesFile = "values.yaml",
-            lintOverlayValuesFile = "values.lint.yaml",
-            additionalValuesFilesGlobPattern = "values*.yaml",
-          },
-        },
-      },
+      servers = {},
     },
   },
 }

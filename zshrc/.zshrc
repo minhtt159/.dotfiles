@@ -1,4 +1,10 @@
 # zmodload zsh/zprof
+#NOTE: This breaks Lens
+# If not in tmux, start tmux.
+# if [[ -z ${TMUX+X}${ZSH_SCRIPT+X}${ZSH_EXECUTION_STRING+X} ]]; then
+#   exec tmux
+# fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -12,7 +18,12 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(history)
+# POWERLEVEL9K_MODE=ascii
+# POWERLEVEL9K_DISABLE_HOT_RELOAD=true 
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(history)
+POWERLEVEL9K_VCS_MAX_SYNC_LATENCY_SECONDS=0.003
+# POWERLEVEL9K_INSTANT_PROMPT=quiet
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_DIR_BACKGROUND=0
 
@@ -91,40 +102,40 @@ fi
 export DIRENV_LOG_FORMAT=""
 
 # -- Ruby
-if command -v rbenv >/dev/null 2>&1; then
+if type rbenv &>/dev/null; then
   # eval "$(rbenv init - zsh)"
   _evalcache rbenv init - zsh
 fi
 
 # -- Flutter
-if command -v flutter >/dev/null 2>&1; then
+if type flutter &>/dev/null; then
   path+=("$HOME/flutter/bin")
 fi
 
 # -- Rust
-if command -v cargo >/dev/null 2>&1; then
+if type cargo &>/dev/null; then
   path+=("$HOME/.cargo/bin")
 fi
 
 # -- Java
-if command -v java >/dev/null 2>&1; then
+if type java &>/dev/null; then
   path+=("$(brew --prefix)/opt/openjdk/bin")
 fi
 
 # kubectl
-if command -v kubectl >/dev/null 2>&1; then
+if type kubectl &>/dev/null; then
   # eval "$(kubectl completion zsh)"
   _evalcache kubectl completion zsh
 fi
 
 # Flux
-if command -v flux >/dev/null 2>&1; then
+if type flux &>/dev/null; then
   # eval "$(flux completion zsh)"
   _evalcache flux completion zsh
 fi
 
 # SOPS age for k3s
-if command -v sops >/dev/null 2>&1; then
+if type sops &>/dev/null; then
   export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt
 fi
 

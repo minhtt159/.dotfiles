@@ -10,7 +10,8 @@ return {
   webgpu_preferred_adapter = gpu_adapters:pick_best(),
 
   -- color scheme
-  colors = colors,
+  -- NOTE: This color break catppuccin nvim
+  -- colors = colors,
   -- color_scheme = "terminal.sexy",
 
   -- background

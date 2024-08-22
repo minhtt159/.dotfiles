@@ -31,6 +31,19 @@ return {
       opts.completion = {
         completeopt = "menu,menuone,noinsert" .. (auto_select and "" or ",noselect"),
       }
+      -- Windows stuffs
+      opts.window = {
+        completion = cmp.config.window.bordered({}),
+        documentation = cmp.config.window.bordered({}),
+      }
+      -- Set view to follow cursor while typing
+      opts.view = {
+        entries = {
+          name = "custom",
+          select = "near_cursor",
+          -- follow_cursor = true,
+        },
+      }
     end,
   },
 }

@@ -10,7 +10,4 @@ return {
       },
     },
   },
-  {
-    "towolf/vim-helm",
-  },
 }

@@ -86,4 +86,8 @@ require("lazy").setup({
       },
     },
   },
+  -- NOTE: floating window default boarder
+  ui = {
+    border = "rounded",
+  },
 })
