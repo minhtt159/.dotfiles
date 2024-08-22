@@ -52,4 +52,12 @@ return {
       servers = {},
     },
   },
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ui = {
+        border = "rounded",
+      },
+    },
+  },
 }

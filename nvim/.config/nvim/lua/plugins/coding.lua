@@ -41,7 +41,6 @@ return {
         entries = {
           name = "custom",
           select = "near_cursor",
-          -- follow_cursor = true,
         },
       }
     end,

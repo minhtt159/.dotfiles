@@ -28,16 +28,17 @@ return {
       -- { "DaikyXendo/nvim-material-icon" },
     },
     keys = {
-      -- add a keymap to browse plugin files
-      {
-        "<leader>fp",
-        LazyVim.pick("find_files", { cwd = require("lazy.core.config").options.root }),
-        desc = "Find Plugin File",
-      },
-      { "<leader>fc", LazyVim.pick.config_files(), desc = "Find Config File" },
+      -- Browse plugin files
+      -- {
+      --   "<leader>fp",
+      --   LazyVim.pick("find_files", { cwd = require("lazy.core.config").options.root }),
+      --   desc = "Find Plugin File",
+      -- },
+      -- Browse config files
+      -- { "<leader>fc", LazyVim.pick.config_files(), desc = "Find Config File" },
       -- Live Grep - require ripgrep
-      { "<leader>/", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
-      -- { "<leader>fg", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
+      -- { "<leader>/", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
+
       -- Thanks ThePrimeagen
       {
         "<leader>fws",
