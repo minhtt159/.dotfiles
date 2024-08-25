@@ -255,7 +255,7 @@ local keys = {
 
   -- Reload configuration
   --   { key = 'r', mods = 'SHIFT|CTRL', action = act.ReloadConfiguration },
-  --   { key = 'r', mods = 'SUPER', action = act.Re
+  --   { key = 'r', mods = 'SUPER', action = act.ReloadConfiguration },
   --   { key = 'R', mods = 'CTRL', action = act.ReloadConfiguration },
   --   { key = 'R', mods = 'SHIFT|CTRL', action = act.ReloadConfiguration },loadConfiguration },
 }
@@ -285,12 +285,6 @@ local mouse_bindings = {
     event = { Up = { streak = 1, button = "Left" } },
     mods = "CTRL",
     action = act.OpenLinkAtMouseCursor,
-  },
-  -- Disable the 'Down' event of CTRL-Click to avoid weird program behaviors
-  {
-    event = { Down = { streak = 1, button = "Left" } },
-    mods = "CTRL",
-    action = act.Nop,
   },
 }
 

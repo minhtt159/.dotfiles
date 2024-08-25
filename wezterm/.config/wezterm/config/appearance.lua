@@ -1,6 +1,6 @@
-local colors = require("colors.custom")
+-- local colors = require("colors.custom")
 local gpu_adapters = require("utils.gpu_adapter")
-local wezterm = require("wezterm")
+-- local wezterm = require("wezterm")
 
 return {
   animation_fps = 60,
@@ -12,20 +12,16 @@ return {
   -- color scheme
   -- NOTE: This color break catppuccin nvim
   -- colors = colors,
-  -- color_scheme = "terminal.sexy",
+  -- color_scheme = "Catppuccin Mocha",
 
   -- background
   background = {
-    -- {
-    --   source = { File = wezterm.GLOBAL.background },
-    --   horizontal_align = "Center",
-    -- },
     {
       -- source = { Color = colors.background },
       source = { Color = "black" },
       height = "100%",
       width = "100%",
-      opacity = 0.90,
+      opacity = 0.93,
     },
   },
 
@@ -55,7 +51,7 @@ return {
     -- font_size = fonts.font_size,
   },
   inactive_pane_hsb = {
-    saturation = 0.9,
-    brightness = 0.65,
+    saturation = 0.8,
+    brightness = 0.3,
   },
 }
