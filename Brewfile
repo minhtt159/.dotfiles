@@ -35,7 +35,6 @@ brew "nvm"
 cask "karabiner-elements", greedy: true
 cask "rectangle", greedy: true
 cask "1password-cli", greedy: true
-cask "microsoft-remote-desktop", greedy: true
 cask "pgadmin4", greedy: true
 cask "tg-pro", greedy: true
 
@@ -45,7 +44,6 @@ brew "neovim"
 cask "wezterm", greedy: true
 cask "obsidian", greedy: true
 cask "zed", greedy: true
-cask "sublime-text", greedy: true
 # -- Zsh plugins
 brew "zsh-autosuggestions"
 brew "zsh-completions"
@@ -69,4 +67,5 @@ brew "ruff"
 
 # -- Fonts
 cask "font-hack-nerd-font", greedy: true
+cask "font-jetbrains-mono-nerd-font", greedy: true
 

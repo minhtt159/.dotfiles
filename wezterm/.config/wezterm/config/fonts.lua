@@ -1,9 +1,13 @@
 local platform = require("utils.platform")
 local wezterm = require("wezterm")
 
-local font = "JetBrainsMono Nerd Font"
--- local font = "Hack Nerd Font"
-local font_size = platform().is_mac and 15.5 or 10
+-- local font = "JetBrainsMono Nerd Font"
+local font = "Hack Nerd Font"
+-- local font = "Iosevka Nerd Font"
+-- local font = "SauceCodePro Nerd Font"
+
+local font_size = platform().is_mac and 16 or 10
+-- >- <- >= <= == ~= !=
 
 return {
   font = wezterm.font(font),
