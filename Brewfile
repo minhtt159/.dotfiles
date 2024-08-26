@@ -26,6 +26,8 @@ brew "stow"
 brew "jq"
 brew "yq"
 brew "coreutils"
+brew "sops"
+brew "age"
 # -- Languages
 brew "rust"
 brew "go"

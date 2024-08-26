@@ -11,18 +11,17 @@ return {
     "lucidph3nx/nvim-sops",
     event = { "BufEnter" },
     keys = {
-      -- TODO: I'm gonna do this later
-      -- { "<leader>sef", vim.cmd.SopsEncrypt, desc = "[S]ops [E]ncrypt [F]ile" },
-      -- { "<leader>sdf", vim.cmd.SopsDecrypt, desc = "[S]ops [D]ecrypt [F]ile" },
+      { "<leader>see", vim.cmd.SopsEncrypt, desc = "[S]ops [E]ncrypt [F]ile" },
+      { "<leader>sed", vim.cmd.SopsDecrypt, desc = "[S]ops [D]ecrypt [F]ile" },
     },
     opts = {
       enabled = true,
       debug = false,
       binPath = "sops", -- assumes its on $PATH
       defaults = { -- overriding any env vars as needed
-        awsProfile = "AWS_PROFILE",
-        ageKeyFile = "SOPS_AGE_KEY_FILE",
-        gcpCredentialsPath = "GOOGLE_APPLICATION_CREDENTIALS",
+        -- awsProfile = "AWS_PROFILE",
+        -- ageKeyFile = "SOPS_AGE_KEY_FILE",
+        -- gcpCredentialsPath = "GOOGLE_APPLICATION_CREDENTIALS",
       },
     },
   },
