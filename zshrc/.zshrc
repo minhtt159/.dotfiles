@@ -92,6 +92,11 @@ setopt HIST_IGNORE_DUPS
 setopt SHARE_HISTORY
 
 # ~~~~~~~~~~~~~~~~~~~~~~ PATH ~~~~~~~~~~~~~~~~~~~~~~~
+# Docker Desktop
+if [ -d "/Applications/Docker.app" ]; then
+  path+=("$HOME/.docker/bin")
+fi
+
 # -- Ruby
 if type rbenv &>/dev/null; then
   # eval "$(rbenv init - zsh)"
