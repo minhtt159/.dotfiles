@@ -57,7 +57,8 @@ plugins=(
   dotenv
   git
   kubectl
-  nvm
+  nvm # node
+  asdf # generic version manager
   #NOTE: these are custom plugins, remember to download it
   evalcache
 )
@@ -124,6 +125,12 @@ if type flux &>/dev/null; then
   # eval "$(flux completion zsh)"
   _evalcache flux completion zsh
 fi
+
+# Elixir
+# if type elixir &>/dev/null; then
+#  eval "$(elixir --completion zsh)"
+#  _evalcache elixir --completion zsh
+#  fi
 
 # SOPS age for k3s
 if type sops &>/dev/null; then
