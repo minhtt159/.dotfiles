@@ -4,6 +4,7 @@
     "diagnostics": false,
     "metrics": false
   },
+  "soft_wrap": "editor_width",
   "base_keymap": "VSCode",
   "theme": "Catppuccin Mocha",
   "ui_font_size": 15,

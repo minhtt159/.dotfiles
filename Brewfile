@@ -10,7 +10,7 @@ brew "k9s"
 cask "lens", greedy: true
 # Automation tools
 brew "kubectx"
-brew "terragrunt"
+brew "tgenv"
 brew "tfenv"
 # Cloud
 brew "azure-cli"
