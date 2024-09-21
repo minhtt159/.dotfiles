@@ -27,12 +27,15 @@ brew "jq"
 brew "yq"
 brew "coreutils"
 brew "sops"
+brew "curl"
+brew "git"
 brew "age"
 # -- Languages
 brew "rust"
 brew "go"
 brew "python@3.12"
 brew "nvm"
+brew "asdf"
 # -- Other Apps
 cask "karabiner-elements", greedy: true
 cask "rectangle", greedy: true
