@@ -9,25 +9,28 @@ return {
     build = ":TSUpdate",
     opts = {
       ensure_installed = {
+        -- Essentials
         "bash",
-        "html",
-        "javascript",
+        "vim",
         "json",
+        "yaml",
         "lua",
+        "query",
+        -- Editor
         "markdown",
         "markdown_inline",
-        "python",
-        "query",
-        "regex",
-        "tsx",
-        "typescript",
-        "vim",
-        "yaml",
-        "tsx",
-        "typescript",
-        "rust",
+        -- Langs
         "c",
+        "python",
+        "regex",
+        "rust",
         "dockerfile",
+        -- Web bros
+        "html",
+        "tsx",
+        "typescript",
+        "javascript",
+        "typescript",
       },
       -- Autoinstall languages that are not installed
       sync_install = false,

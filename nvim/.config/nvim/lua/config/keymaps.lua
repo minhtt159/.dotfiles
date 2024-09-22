@@ -11,8 +11,9 @@ local keymap = vim.keymap
 keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Directory view" })
 
 -- The Primeagen magic
-keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move this line down 1" })
-keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move this line up 1" })
+-- keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move this line down 1" })
+-- keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move this line up 1" })
+-- NOTE: Telescope has Alt+J and Alt+K
 
 -- Clear highlight
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear highlight" })

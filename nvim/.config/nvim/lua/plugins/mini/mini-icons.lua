@@ -1,5 +1,7 @@
 return {
-  { -- https://www.lazyvim.org/plugins/ui#miniicons
+  -- NOTE: Enabled by default, but keep opts here for customization
+  -- https://www.lazyvim.org/plugins/ui#miniicons
+  {
     "echasnovski/mini.icons",
     lazy = true,
     opts = {

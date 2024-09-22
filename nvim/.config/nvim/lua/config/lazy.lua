@@ -34,6 +34,10 @@ require("lazy").setup({
       -- { import = "lazyvim.plugins.extras.editor.telescope" },
     },
     -- import any extras modules here
+    { import = "lazyvim.plugins.extras.editor.leap" },
+    { import = "lazyvim.plugins.extras.editor.mini-files" },
+    { import = "lazyvim.plugins.extras.ui.mini-indentscope" },
+    -- Lang
     { import = "lazyvim.plugins.extras.lang.ansible" },
     { import = "lazyvim.plugins.extras.lang.cmake" },
     { import = "lazyvim.plugins.extras.lang.docker" },

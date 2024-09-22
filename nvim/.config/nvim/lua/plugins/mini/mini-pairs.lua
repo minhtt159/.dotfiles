@@ -1,5 +1,7 @@
 return {
-  { -- https://www.lazyvim.org/plugins/coding#minipairs
+  -- NOTE: Enabled by default, but keep opts here for customization
+  -- https://www.lazyvim.org/plugins/coding#minipairs
+  {
     "echasnovski/mini.pairs",
     opts = {
       modes = { insert = true, command = true, terminal = false },

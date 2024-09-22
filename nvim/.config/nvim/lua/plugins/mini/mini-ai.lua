@@ -1,5 +1,7 @@
 return {
-  { -- https://www.lazyvim.org/plugins/coding#miniai
+  -- NOTE: Enabled by default, but keep opts here for customization
+  -- https://www.lazyvim.org/plugins/coding#miniai
+  {
     -- Better Around/Inside textobjects
     --
     -- Examples:
