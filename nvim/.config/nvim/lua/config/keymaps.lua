@@ -1,5 +1,7 @@
 -- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Default keymaps that are always sets
+-- https://www.lazyvim.org/keymaps
+-- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
 vim.g.mapleader = " "
@@ -17,7 +19,7 @@ keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Directory view" })
 
 -- Clear highlight
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear highlight" })
-keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight" })
+keymap.set("n", "<Esc>", ":nohl<CR>", { desc = "Clear highlight" })
 
 -- Diagnostic keymaps
 -- LazyVim -> <leader>cd
