@@ -65,9 +65,6 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   zsh-history-substring-search
-  #asdf # generic version manager
-  #NOTE: these are custom plugins, remember to download it
-  #evalcache
 )
 
 # ~~~~~~~~~~~~~~~~~~~~~~ Oh-my-zsh ~~~~~~~~~~~~~~~~~~~~~~

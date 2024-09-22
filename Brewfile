@@ -1,6 +1,7 @@
 # -- DevOps tools
 # Kubernetes
 brew "kubernetes-cli"
+brew "kubectx"
 brew "helm"
 brew "helmfile"
 tap "fluxcd/tap"
@@ -8,8 +9,6 @@ brew "fluxcd/tap/flux"
 # UI
 brew "k9s"
 cask "lens", greedy: true
-# Automation tools
-brew "kubectx"
 # Cloud
 brew "azure-cli"
 brew "azure/kubelogin/kubelogin"
@@ -30,6 +29,8 @@ brew "git"
 brew "age"
 # -- Languages
 brew "asdf"
+brew "go-task"
+brew "cmake"
 # -- Other Apps
 cask "karabiner-elements", greedy: true
 cask "rectangle", greedy: true
