@@ -24,7 +24,7 @@ export DIRENV_LOG_FORMAT=""
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # POWERLEVEL9K_MODE=ascii
-# POWERLEVEL9K_DISABLE_HOT_RELOAD=true 
+# POWERLEVEL9K_DISABLE_HOT_RELOAD=true
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(history)
 POWERLEVEL9K_VCS_MAX_SYNC_LATENCY_SECONDS=0.003
@@ -42,10 +42,6 @@ zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 7
 
 # Other env_vars before load plugins
-# -- ZSH builtin
-NVM_HOMEBREW=$(brew --prefix nvm)
-zstyle ':omz:plugins:nvm' lazy yes
-zstyle ':omz:plugins:nvm' lazy-cmd prettier typescript nvim tmux
 # -- EVALCACHE
 export ZSH_EVALCACHE_DIR="$HOME/.local/.zsh-evalcache"
 
@@ -57,7 +53,6 @@ plugins=(
   dotenv
   git
   kubectl
-  nvm # node
   asdf # generic version manager
   #NOTE: these are custom plugins, remember to download it
   evalcache
@@ -96,27 +91,6 @@ setopt SHARE_HISTORY
 # Docker Desktop
 if [ -d "/Applications/Docker.app" ]; then
   path+=("$HOME/.docker/bin")
-fi
-
-# -- Ruby
-if type rbenv &>/dev/null; then
-  # eval "$(rbenv init - zsh)"
-  _evalcache rbenv init - zsh
-fi
-
-# -- Flutter
-if type flutter &>/dev/null; then
-  path+=("$HOME/flutter/bin")
-fi
-
-# -- Rust
-if type cargo &>/dev/null; then
-  path+=("$HOME/.cargo/bin")
-fi
-
-# -- Java
-if type java &>/dev/null; then
-  path+=("$(brew --prefix)/opt/openjdk/bin")
 fi
 
 # kubectl

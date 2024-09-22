@@ -10,8 +10,6 @@ brew "k9s"
 cask "lens", greedy: true
 # Automation tools
 brew "kubectx"
-brew "tgenv"
-brew "tfenv"
 # Cloud
 brew "azure-cli"
 brew "azure/kubelogin/kubelogin"
@@ -31,10 +29,6 @@ brew "curl"
 brew "git"
 brew "age"
 # -- Languages
-brew "rust"
-brew "go"
-brew "python@3.12"
-brew "nvm"
 brew "asdf"
 # -- Other Apps
 cask "karabiner-elements", greedy: true
