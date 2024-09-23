@@ -60,6 +60,7 @@ plugins=(
 
 # ~~~~~~~~~~~~~~~~~~~~~~ Oh-my-zsh ~~~~~~~~~~~~~~~~~~~~~~
 
+export PATH=/opt/homebrew/bin:$PATH
 source $ZSH/oh-my-zsh.sh
 
 # ~~~~~~~~~~~~~~~~ Custom zsh plugins from Brew ~~~~~~~~~~~~~~~~
