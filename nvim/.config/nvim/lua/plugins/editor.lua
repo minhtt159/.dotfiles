@@ -1,4 +1,4 @@
-return {
+return { -- https://www.lazyvim.org/plugins/editor
   {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
@@ -17,14 +17,9 @@ return {
       },
     },
   },
-  {
-    -- NOTE: flash is disabled by leap
+  { -- NOTE: flash is disabled by leap
     "folke/flash.nvim",
     enabled = false,
-  },
-  { -- Useful plugin to show you pending keybinds.
-    "folke/which-key.nvim",
-    enabled = true,
   },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
