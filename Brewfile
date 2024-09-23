@@ -25,6 +25,7 @@ brew "yq"
 brew "coreutils"
 brew "sops"
 brew "curl"
+brew "wget"
 brew "git"
 brew "age"
 # -- Languages
@@ -61,9 +62,6 @@ brew "ripgrep"
 brew "lazygit"
 brew "lazydocker"
 brew "kubeconform"
-# -- LSP Tools
-brew "terraform-ls"
-brew "ruff"
 
 # -- Fonts
 cask "font-hack-nerd-font", greedy: true
