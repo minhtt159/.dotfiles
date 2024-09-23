@@ -60,7 +60,7 @@ plugins=(
 
 # ~~~~~~~~~~~~~~~~~~~~~~ Oh-my-zsh ~~~~~~~~~~~~~~~~~~~~~~
 
-export PATH=/opt/homebrew/bin:$PATH
+eval "$(/opt/homebrew/bin/brew shellenv)"
 source $ZSH/oh-my-zsh.sh
 
 # ~~~~~~~~~~~~~~~~ Custom zsh plugins from Brew ~~~~~~~~~~~~~~~~
