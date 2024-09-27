@@ -1,44 +1,39 @@
-![](./symbol.png)
+```
+-----------------------------------------
+ x x x x x x x             x x x x x x x
+ ! { ' " } ? x             x ; [ ] ( ) x
+ # ^ = - $ * x   ~ x x x   x . L D U R =
+ @ < | - > /       x x       * \ & ` ~ S
+ ~ & x x x     % : x x x x     x x x x x
+-----------------------------------------
+```
 
-```
------------------------------------------
- x ` ( ) ; , x             x x x x x x x
- ! { ' " } ? x             x ; ( ) [ ] x
- # ^ = _ $ * x   x x x x   x . : = > ; x
- @ < | - > /       x x       * \ , . / x
- x & [ ] +     % : x x x x     x x x x x
------------------------------------------
-```
 Reference: https://sunaku.github.io/moergo-glove80-keyboard.html#symbol-layer
 
-## Generic
+# RULE !!!
 
-| 0 | 2 | Meaning | 
-| --- | --- | --- |
-| D  | _ | snake_case |
-| E |  " | double quote |
-| W |  ' | single quote  |
-| CV | -> | functional |
-| ZC | <- ||
-| SV | => ||
-| ZS | <= ||
-| ZX | <\| || 
-| XV | \|> ||
-| ZB | </ | HTML |
+This layout was built specifically for Kinesis Advantage 360.
+
+This layout is intended for 3x6 layer,
+but also can reduce to 3x5 or extend to 4x6 if needed. (e.g. Charybdis)
+
+Most of the symbol keys are in homerow and 2 adjacent rows.
+
+These keys are positioned to support in VIM action, also language like Go/Python/Yaml/Bash.
 
 ## Math
 
 | 0 | 2 | Meaning | 
 | --- | --- | --- |
-| U or 2 | (  | open |
-| I or 3 | )  | close |
+| O or 9 | ( | open |
+| P or 0 | ) | close |
 | S  | = | eq sign | 
 | Tab S | != | not eq |
 | AS | ^= | bitwise XOR |
 | X | \| | OR |
-| ` | & | AND |
+| ` or , | & | AND |
 | C  | -  |  |
-| → | + |  |
+| S_S | + |  |
   
 ## VIM stuffs
 
@@ -47,7 +42,6 @@ Reference: https://sunaku.github.io/moergo-glove80-keyboard.html#symbol-layer
 | A and F | ^ and $ | start/end of current line |
 | Esc and G | # and * | search behind/forward for word under cursor |
 | S | = | indent current line |
-| 2 3 | ( ) | jump to next sentence |
 | Q R | { } | jump to next paragraph |
 | Z V | < > | decrease/increase indentation |
 | T B | ? / | search behind/ahead for regex |
@@ -60,22 +54,21 @@ Reference: https://sunaku.github.io/moergo-glove80-keyboard.html#symbol-layer
 | 0 | 2 | Meaning |
 | --- | --- | --- | 
 | HN | .* | match all |
-| H/ | ./ | directory |
+| HB | ./ | directory |
 | HT | .? | optional |
 
 ## Vertical
 
 | 0 | 2 | Meaning |
 | --- | --- | --- | 
-| Esc Tab | #! | Shebang |
-| 1 S_1 | !~ | not match - but idk |
+| Esc Tab | #! | Sbang |
 | BG or GB | /* */ | comment block |
 
 ## Adjacent 
 
 | 0 | 2 | Meaning |
 | --- | --- | --- | 
-| JK | := | Golang assign |
+| Delete S | := | Golang assign |
 | 234 or UIY | (); | function call |
 | 2E | (" | function call string |
 
@@ -85,7 +78,6 @@ Reference: https://sunaku.github.io/moergo-glove80-keyboard.html#symbol-layer
 | --- | --- | --- | 
 | FT | $? | last exit status |
 | Tab F | !$ | last argument |
-| FD | $_ | value of last argument |
 | FQ | ${ | open variable |
 | FZ | $< | makefile first source |
 | FA | $^ | makefile all sources |
