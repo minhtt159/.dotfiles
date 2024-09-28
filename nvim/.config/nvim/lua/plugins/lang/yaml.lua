@@ -14,7 +14,6 @@ return {
             },
             completion = true,
             hover = true,
-            -- any other config from https://github.com/redhat-developer/yaml-language-server#language-server-settings
           },
         },
       },

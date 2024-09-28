@@ -7,7 +7,6 @@ return { -- https://www.lazyvim.org/plugins/editor
           visible = true,
           hide_dotfiles = false,
           hide_gitignored = true,
-          hide_by_name = {},
           never_show = {
             ".git",
             ".DS_Store",

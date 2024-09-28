@@ -23,65 +23,65 @@ These keys are positioned to support in VIM action, also language like Go/Python
 
 ## Math
 
-| 0 | 2 | Meaning | 
-| --- | --- | --- |
-| O or 9 | ( | open |
-| P or 0 | ) | close |
-| S  | = | eq sign | 
-| Tab S | != | not eq |
-| AS | ^= | bitwise XOR |
-| X | \| | OR |
-| ` or , | & | AND |
-| C  | -  |  |
-| S_S | + |  |
-  
+| 0      | 2   | Meaning     |
+| ------ | --- | ----------- |
+| O or 9 | (   | open        |
+| P or 0 | )   | close       |
+| S      | =   | eq sign     |
+| Tab S  | !=  | not eq      |
+| AS     | ^=  | bitwise XOR |
+| X      | \|  | OR          |
+| ` or , | &   | AND         |
+| C      | -   |             |
+| S_S    | +   |             |
+
 ## VIM stuffs
 
-| 0 | 2 | Meaning |
-| --- | --- | --- | 
-| A and F | ^ and $ | start/end of current line |
-| Esc and G | # and * | search behind/forward for word under cursor |
-| S | = | indent current line |
-| Q R | { } | jump to next paragraph |
-| Z V | < > | decrease/increase indentation |
-| T B | ? / | search behind/ahead for regex |
-| L_Space | % | jump to matching delimeter |
-| BSPC | : | command mode |
-| L_Space BSPC | :% | command across the whole buffer |
+| 0            | 2        | Meaning                                     |
+| ------------ | -------- | ------------------------------------------- |
+| A and F      | ^ and $  | start/end of current line                   |
+| Esc and G    | # and \* | search behind/forward for word under cursor |
+| S            | =        | indent current line                         |
+| Q R          | { }      | jump to next paragraph                      |
+| Z V          | < >      | decrease/increase indentation               |
+| T B          | ? /      | search behind/ahead for regex               |
+| L_Space      | %        | jump to matching delimeter                  |
+| BSPC         | :        | command mode                                |
+| L_Space BSPC | :%       | command across the whole buffer             |
 
 ## Regex
 
-| 0 | 2 | Meaning |
-| --- | --- | --- | 
-| HN | .* | match all |
-| HB | ./ | directory |
-| HT | .? | optional |
+| 0   | 2   | Meaning   |
+| --- | --- | --------- |
+| HN  | .\* | match all |
+| HB  | ./  | directory |
+| HT  | .?  | optional  |
 
 ## Vertical
 
-| 0 | 2 | Meaning |
-| --- | --- | --- | 
-| Esc Tab | #! | Sbang |
-| BG or GB | /* */ | comment block |
+| 0        | 2       | Meaning       |
+| -------- | ------- | ------------- |
+| Esc Tab  | #!      | Sbang         |
+| BG or GB | /\* \*/ | comment block |
 
-## Adjacent 
+## Adjacent
 
-| 0 | 2 | Meaning |
-| --- | --- | --- | 
-| Delete S | := | Golang assign |
-| 234 or UIY | (); | function call |
-| 2E | (" | function call string |
+| 0          | 2   | Meaning              |
+| ---------- | --- | -------------------- |
+| Delete S   | :=  | Golang assign        |
+| 234 or UIY | (); | function call        |
+| 2E         | ("  | function call string |
 
 ## Bash
 
-| 0 | 2 | Meaning |
-| --- | --- | --- | 
-| FT | $? | last exit status |
-| Tab F | !$ | last argument |
-| FQ | ${ | open variable |
-| FZ | $< | makefile first source |
-| FA | $^ | makefile all sources |
-| F Shift | $@ | makefile all target |
-| V` | >& | fd redirect |
-| `Z | &< | fd redirect |
-| VVV | >>> | write to file |
+| 0       | 2   | Meaning               |
+| ------- | --- | --------------------- |
+| FT      | $?  | last exit status      |
+| Tab F   | !$  | last argument         |
+| FQ      | ${  | open variable         |
+| FZ      | $<  | makefile first source |
+| FA      | $^  | makefile all sources  |
+| F Shift | $@  | makefile all target   |
+| V`      | >&  | fd redirect           |
+| `Z      | &<  | fd redirect           |
+| VVV     | >>> | write to file         |
