@@ -58,8 +58,6 @@ require("lazy").setup({
     { import = "plugins" },
     -- Custom language plugins
     { import = "plugins.lang" },
-    -- Custom coding plugins
-    { import = "plugins.coding" },
     -- Custom plugins
     { import = "plugins.mini" },
   },
