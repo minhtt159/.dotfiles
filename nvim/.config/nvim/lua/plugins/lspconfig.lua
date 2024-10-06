@@ -28,15 +28,12 @@ return {
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 
     -- NOTE: nvim-lspconfig already init with LazyVim by default, so this is the extra configs
+    -- https://www.lazyvim.org/plugins/lsp#nvim-lspconfig
     "neovim/nvim-lspconfig",
     dependencies = {
       { -- status update for LSP
         "j-hui/fidget.nvim",
-        opts = {},
       },
-    },
-    opts = {
-      servers = {},
     },
   },
   {
