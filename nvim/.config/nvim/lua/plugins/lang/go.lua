@@ -15,23 +15,4 @@ return {
     ft = { "go", "gomod" },
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
-  {
-    -- LSP Config for Go
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        gopls = {
-          keys = {
-            -- Workaround for the lack of a DAP strategy in neotest-go
-            -- https://github.com/nvim-neotest/neotest-go/issues/12
-            {
-              "<leader>td",
-              "<cmd>lua require('dap-go').debug_test()<CR>",
-              desc = "Debug Nearest (Go)",
-            },
-          },
-        },
-      },
-    },
-  },
 }

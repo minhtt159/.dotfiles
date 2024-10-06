@@ -30,8 +30,6 @@ brew "git"
 brew "age"
 # -- Languages
 brew "asdf"
-brew "go-task"
-brew "cmake"
 # -- Other Apps
 cask "karabiner-elements", greedy: true
 cask "rectangle", greedy: true
