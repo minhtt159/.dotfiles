@@ -28,6 +28,7 @@ brew "curl"
 brew "wget"
 brew "git"
 brew "age"
+brew "go-task"
 # -- Languages
 brew "asdf"
 # -- Other Apps
