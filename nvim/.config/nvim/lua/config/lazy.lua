@@ -41,7 +41,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.coding.copilot" },
     -- Lang
     { import = "lazyvim.plugins.extras.lang.ansible" },
-    { import = "lazyvim.plugins.extras.lang.cmake" },
+    -- neocmakelsp compile too slow
+    -- { import = "lazyvim.plugins.extras.lang.cmake" },
     { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.go" },
     { import = "lazyvim.plugins.extras.lang.helm" },
