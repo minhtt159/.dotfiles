@@ -43,7 +43,6 @@ brew "tmux"
 brew "neovim"
 cask "wezterm", greedy: true
 cask "obsidian", greedy: true
-cask "zed", greedy: true
 # -- Zsh plugins
 brew "zsh-autosuggestions"
 brew "zsh-completions"

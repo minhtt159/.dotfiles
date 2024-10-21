@@ -10,13 +10,7 @@
                         "product_id": 33398,
                         "vendor_id": 9306
                     },
-                    "ignore": false,
-                    "simple_modifications": [
-                        {
-                            "from": { "key_code": "caps_lock" },
-                            "to": [{ "key_code": "left_control" }]
-                        }
-                    ]
+                    "ignore": false
                 }
             ],
             "name": "Default profile",
@@ -815,7 +809,13 @@
                     }
                 ]
             },
-            "name": "HM"
+            "name": "HM",
+            "simple_modifications": [
+                {
+                    "from": { "key_code": "caps_lock" },
+                    "to": [{ "key_code": "left_control" }]
+                }
+            ]
         }
     ]
 }
