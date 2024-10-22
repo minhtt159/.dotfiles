@@ -11,7 +11,6 @@ brew "k9s"
 cask "lens", greedy: true
 # Cloud
 brew "azure-cli"
-brew "azure/kubelogin/kubelogin"
 brew "awscli"
 cask "session-manager-plugin", greedy: true
 # Scanner

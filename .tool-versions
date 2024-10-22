@@ -4,3 +4,4 @@ python 3.12.7
 rust 1.81.0
 terraform 1.9.7
 terragrunt 0.66.9
+kubelogin 0.1.4
