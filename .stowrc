@@ -1,4 +1,5 @@
 --target=~/.config
 --ignore=.stowrc
---ignore=DS_Store
---ignore=not_stow/
+--ignore=.DS_Store
+--ignore=root
+--ignore=md
