@@ -89,7 +89,7 @@ setopt HIST_IGNORE_DUPS
 setopt SHARE_HISTORY
 
 # ~~~~~~~~~~~~~~~~~~~~~~ PATH ~~~~~~~~~~~~~~~~~~~~~~~
-export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME="$HOME/.config/asdf/.tool-versions"
+export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".config/asdf/.tool-versions"
 
 # Docker Desktop
 if [ -d "/Applications/Docker.app" ]; then
