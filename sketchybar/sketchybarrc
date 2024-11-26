@@ -23,8 +23,11 @@ FONT="Hack Nerd Font"
 bar=(
   position=top
   height=40
-  blur_radius=30
+  blur_radius=20
+  # margin=10
+  sticky=on
   color=$BAR_COLOR
+  # color=$GREEN
 )
 sketchybar --bar "${bar[@]}"
 
