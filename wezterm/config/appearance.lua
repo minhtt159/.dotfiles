@@ -1,4 +1,4 @@
--- local colors = require("colors.custom")
+local colors = require("colors.catppuccin")
 local gpu_adapters = require("utils.gpu_adapter")
 -- local wezterm = require("wezterm")
 
@@ -9,16 +9,14 @@ return {
   webgpu_power_preference = "HighPerformance",
   webgpu_preferred_adapter = gpu_adapters:pick_best(),
 
-  -- color scheme
-  -- NOTE: This color break catppuccin nvim
-  -- colors = colors,
-  -- color_scheme = "Catppuccin Mocha",
+  -- color_scheme
+  color_scheme = colors.color_scheme,
 
   -- background
   background = {
     {
-      -- source = { Color = colors.background },
-      source = { Color = "black" },
+      source = { Color = colors.color_schemes["OLEDppuccin"].background },
+      -- source = { Color = "black" },
       height = "100%",
       width = "100%",
       opacity = 0.93,

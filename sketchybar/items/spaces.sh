@@ -7,9 +7,10 @@ for sid in $(aerospace list-workspaces --all); do
         --subscribe "space.$sid" aerospace_workspace_change \
         --set "space.$sid" \
               icon="$sid" \
+              icon.width=20 \
               icon.padding_left=10 \
               icon.padding_right=10 \
-              icon.highlight_color=$RED \
+              icon.highlight_color=$ICON_COLOR \
               background.color=$BLACK \
               background.corner_radius=15 \
               background.height=30 \
