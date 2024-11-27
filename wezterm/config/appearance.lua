@@ -1,6 +1,4 @@
-local colors = require("colors.catppuccin")
 local gpu_adapters = require("utils.gpu_adapter")
--- local wezterm = require("wezterm")
 
 return {
   animation_fps = 60,
@@ -9,14 +7,14 @@ return {
   webgpu_power_preference = "HighPerformance",
   webgpu_preferred_adapter = gpu_adapters:pick_best(),
 
-  -- color_scheme
-  color_scheme_dirs = { "~/.config/wezterm/colors/" },
+  -- NOTE: Figure out the way to append OLEDppuccin to color_schemes
+  -- color_scheme = "Catppuccin Mocha",
+  color_scheme = "GruvBox",
 
   -- background
   background = {
     {
-      source = { Color = colors.color_schemes["OLEDppuccin"].background },
-      -- source = { Color = "black" },
+      source = { Color = "#000000" },
       height = "100%",
       width = "100%",
       opacity = 0.93,
@@ -39,9 +37,9 @@ return {
     left = 5,
     right = 10,
     top = 5,
-    bottom = 5,
+    bottom = 0,
   },
-  window_close_confirmation = "AlwaysPrompt", -- "NeverPrompt",
+  window_close_confirmation = "NeverPrompt",
   window_frame = {
     active_titlebar_bg = "#090909",
     -- font = fonts.font,

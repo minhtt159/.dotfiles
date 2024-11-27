@@ -4,6 +4,7 @@ return {
     priority = 1000,
     lazy = true,
     opts = {
+      flavour = "mocha",
       term_colors = true,
       transparent_background = true,
       color_overrides = {
