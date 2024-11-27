@@ -7,9 +7,8 @@ return {
   webgpu_power_preference = "HighPerformance",
   webgpu_preferred_adapter = gpu_adapters:pick_best(),
 
-  -- NOTE: Figure out the way to append OLEDppuccin to color_schemes
-  -- color_scheme = "Catppuccin Mocha",
-  color_scheme = "GruvBox",
+  -- color_scheme = "GruvboxDarkHard",
+  color_scheme = "OLEDppuccin",
 
   -- background
   background = {
