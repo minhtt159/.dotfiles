@@ -1,0 +1,6 @@
+**/*
+
+!.gitignore
+!config.yaml
+!skins
+!catppuccin*

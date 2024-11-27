@@ -28,11 +28,11 @@ brew "wget"
 brew "git"
 brew "age"
 brew "go-task"
+brew "btop"
 # -- Languages
 brew "asdf"
 # -- Other Apps
 cask "karabiner-elements", greedy: true
-cask "rectangle", greedy: true
 cask "1password-cli", greedy: true
 cask "pgadmin4", greedy: true
 cask "tg-pro", greedy: true
@@ -63,4 +63,6 @@ brew "kubeconform"
 # -- Fonts
 cask "font-hack-nerd-font", greedy: true
 cask "font-jetbrains-mono-nerd-font", greedy: true
+cask "font-sf-pro", greedy: true
+cask "sf-symbols", greedy: true
 
