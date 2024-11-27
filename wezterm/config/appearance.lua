@@ -10,7 +10,7 @@ return {
   webgpu_preferred_adapter = gpu_adapters:pick_best(),
 
   -- color_scheme
-  color_scheme = colors.color_scheme,
+  color_scheme_dirs = { "~/.config/wezterm/colors/" },
 
   -- background
   background = {
@@ -28,21 +28,20 @@ return {
 
   -- tab bar
   enable_tab_bar = true,
-  hide_tab_bar_if_only_one_tab = false,
+  hide_tab_bar_if_only_one_tab = true,
   use_fancy_tab_bar = false,
   tab_max_width = 25,
-  show_tab_index_in_tab_bar = false,
-  show_tabs_in_tab_bar = true,
+  show_tab_index_in_tab_bar = true,
   switch_to_last_active_tab_when_closing_tab = true,
 
   -- window
   window_padding = {
     left = 5,
     right = 10,
-    top = 12,
-    bottom = 7,
+    top = 5,
+    bottom = 5,
   },
-  window_close_confirmation = "NeverPrompt",
+  window_close_confirmation = "AlwaysPrompt", -- "NeverPrompt",
   window_frame = {
     active_titlebar_bg = "#090909",
     -- font = fonts.font,

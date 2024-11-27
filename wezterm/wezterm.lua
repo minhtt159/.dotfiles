@@ -8,6 +8,7 @@ require("events.new-tab-button").setup()
 
 return Config:init()
   :append(require("config.appearance"))
+  :append(require("colors.catppuccin"))
   :append(require("config.bindings"))
   :append(require("config.domains"))
   :append(require("config.fonts"))
