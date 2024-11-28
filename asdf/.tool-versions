@@ -3,5 +3,5 @@ nodejs 22.9.0
 python 3.12.7
 rust 1.81.0
 terraform 1.9.7
-terragrunt 0.66.9
+terragrunt 0.69.2
 kubelogin 0.1.4

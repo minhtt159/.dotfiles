@@ -94,7 +94,7 @@ setopt SHARE_HISTORY
 export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".config/asdf/.tool-versions"
 
 # K9s
-export K9S_CONFIG_DIR="$HOME/.config/k9s"
+export K9S_CONFIG_DIR=".config/k9s"
 
 # Docker Desktop
 if [ -d "/Applications/Docker.app" ]; then

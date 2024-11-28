@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 
+-- ref: https://github.com/catppuccin/wezterm/blob/main/dist/catppuccin-mocha.toml
 local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
 custom.background = "#000000"
 custom.tab_bar.background = "#040404"

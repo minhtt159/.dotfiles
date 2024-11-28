@@ -79,7 +79,7 @@ local keys = {
   { key = "F3", mods = mod.DEFAULT, action = act.ShowLauncher },
   { key = "F4", mods = mod.DEFAULT, action = act.ShowLauncherArgs({ flags = "FUZZY|TABS" }) },
   { key = "F5", mods = mod.DEFAULT, action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }) },
-  { key = "F11", mods = mod.DEFAULT, action = act.ToggleFullScreen },
+  -- { key = "F11", mods = mod.DEFAULT, action = act.ToggleFullScreen },
   { key = "F12", mods = mod.DEFAULT, action = act.ShowDebugOverlay },
 
   --------- FIND THINGS ---------
