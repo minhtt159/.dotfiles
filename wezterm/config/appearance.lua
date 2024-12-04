@@ -44,7 +44,7 @@ return {
     -- font = fonts.font,
     -- font_size = fonts.font_size,
   },
-  window_decorations = "None",
+  -- window_decorations = "None",
   inactive_pane_hsb = {
     saturation = 0.8,
     brightness = 0.3,

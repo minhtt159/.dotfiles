@@ -92,6 +92,7 @@ setopt SHARE_HISTORY
 
 # ASDF
 export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".config/asdf/.tool-versions"
+. ~/.asdf/plugins/golang/set-env.zsh
 
 # K9s
 export K9S_CONFIG_DIR=".config/k9s"
