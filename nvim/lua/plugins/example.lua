@@ -1,13 +1,4 @@
 return {
-  -- add symbols-outline
-  -- {
-  --   "simrat39/symbols-outline.nvim",
-  --   keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-  -- },
-  {
-    "folke/zen-mode.nvim",
-    enabled = true,
-  },
   {
     "lucidph3nx/nvim-sops",
     event = { "BufEnter" },

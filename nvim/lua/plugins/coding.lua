@@ -1,6 +1,6 @@
 return {
   -- INFO: only add some custom keymaps if needed
-  -- https://www.lazyvim.org/plugins/coding#nvim-cmp
+  -- https://www.lazyvim.org/plugins/coding
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
