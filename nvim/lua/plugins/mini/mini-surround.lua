@@ -2,6 +2,7 @@
 -- surrounding characters like brackets or quotes, this allows you
 -- to select the text inside, change or modify the surrounding characters,
 -- and more.
+-- ref: https://www.lazyvim.org/extras/coding/mini-surround
 return {
   "echasnovski/mini.surround",
   recommended = true,
@@ -31,6 +32,7 @@ return {
       -- highlight = "gsh", -- Highlight surrounding
       -- replace = "gsr", -- Replace surrounding
       -- update_n_lines = "gsn", -- Update `n_lines`
+      -- NOTE: Sometime, these keybinds are shifted around :)
       add = "gza", -- Add surrounding in Normal and Visual modes
       delete = "gzd", -- Delete surrounding
       -- find = "gzf", -- Find surrounding (to the right)

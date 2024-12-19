@@ -29,14 +29,16 @@ require("lazy").setup({
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
-      -- These plugins are included with lazyvim.plugins.editor
     },
+    -- Personal override
+    { import = "lazyvim.plugins.extras.editor.telescope" },
+    { import = "lazyvim.plugins.extras.coding.blink" }, -- NOTE: Trying out blink instead of nvim-cmp
     -- import any extras modules here
     { import = "lazyvim.plugins.extras.editor.leap" },
-    { import = "lazyvim.plugins.extras.editor.mini-files" },
-    { import = "lazyvim.plugins.extras.ui.mini-indentscope" },
     { import = "lazyvim.plugins.extras.coding.luasnip" },
+    -- AI
     { import = "lazyvim.plugins.extras.ai.copilot" },
+    { import = "lazyvim.plugins.extras.ai.copilot-chat" },
     -- Lang
     { import = "lazyvim.plugins.extras.lang.ansible" },
     { import = "lazyvim.plugins.extras.lang.docker" },
@@ -49,12 +51,15 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lsp.neoconf" },
     { import = "lazyvim.plugins.extras.lsp.none-ls" },
     -- Extras Formatting
-    { import = "lazyvim.plugins.extras.formatting" },
+    { import = "lazyvim.plugins.extras.formatting.black" },
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
     -- import/override with your plugins
     { import = "plugins" },
     -- Custom language plugins
     { import = "plugins.lang" },
-    -- Custom plugins
+    -- Extra mini
+    { import = "lazyvim.plugins.extras.editor.mini-files" },
+    -- Custom mini
     { import = "plugins.mini" },
   },
   defaults = {
@@ -70,7 +75,10 @@ require("lazy").setup({
     enabled = true,
     notify = false,
   },
-  checker = { enabled = true }, -- automatically check for plugin updates
+  checker = {
+    enabled = true,
+    notify = false,
+  }, -- automatically check for plugin updates
   performance = {
     rtp = {
       -- disable some rtp plugins

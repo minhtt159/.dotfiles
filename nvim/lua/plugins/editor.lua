@@ -1,4 +1,5 @@
-return { -- https://www.lazyvim.org/plugins/editor
+return {
+  -- NOTE: https://www.lazyvim.org/plugins/editor
   {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
@@ -15,10 +16,6 @@ return { -- https://www.lazyvim.org/plugins/editor
         },
       },
     },
-  },
-  { -- NOTE: flash is disabled by leap
-    "folke/flash.nvim",
-    enabled = false,
   },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes

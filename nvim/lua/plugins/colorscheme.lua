@@ -7,14 +7,15 @@ return {
     opts = {
       flavour = "mocha",
       term_colors = true,
+      -- NOTE: These 2 options "kinda" do the same thing, but not really.
       transparent_background = true,
-      -- color_overrides = {
-      --   mocha = {
-      --     base = "#000000",
-      --     mantle = "#000000",
-      --     crust = "#000000",
-      --   },
-      -- },
+      color_overrides = {
+        mocha = {
+          base = "#000000",
+          mantle = "#000000",
+          crust = "#000000",
+        },
+      },
     },
   },
   { -- Set colorscheme to catppuccin
