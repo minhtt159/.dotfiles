@@ -14,13 +14,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- disable completion on markdown files by default
-vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("disable-cmp-by-ft", { clear = true }),
-  pattern = { "gitcommit", "markdown" },
-  callback = function()
-    require("cmp").setup({ enabled = false })
-  end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--   group = vim.api.nvim_create_augroup("disable-cmp-by-ft", { clear = true }),
+--   pattern = { "gitcommit", "markdown" },
+--   callback = function()
+--     require("cmp").setup({ enabled = false })
+--   end,
+-- })
 
 -- -- match for docker compose file
 -- function Docker_fix()
@@ -46,3 +46,5 @@ vim.filetype.add({
     j2 = "jinja",
   },
 })
+
+-- vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#ffffff", bg = "#1e1e1e" }) -- Customize border color
