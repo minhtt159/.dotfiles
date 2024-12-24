@@ -17,25 +17,4 @@ return {
       },
     },
   },
-  {
-    "saghen/blink.cmp",
-    version = "v0.7.6",
-    ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
-    opts = {
-      completion = {
-        menu = {
-          border = "rounded",
-        },
-      },
-      documentation = {
-        border = "rounded",
-      },
-      signature = {
-        window = {
-          border = "rounded",
-        },
-      },
-    },
-  },
 }
