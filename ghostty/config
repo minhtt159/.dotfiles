@@ -1,0 +1,2 @@
+config-file = ?colorscheme.conf
+config-file = ?font.conf
