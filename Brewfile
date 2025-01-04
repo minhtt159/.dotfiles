@@ -36,6 +36,9 @@ cask "karabiner-elements", greedy: true
 cask "1password-cli", greedy: true
 cask "pgadmin4", greedy: true
 cask "tg-pro", greedy: true
+cask "nikitabobko/tap/aerospace", greedy: true
+tap "FelixKratz/formulae"
+brew "sketchybar"
 
 # -- Editor
 brew "tmux"
