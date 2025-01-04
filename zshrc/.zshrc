@@ -7,63 +7,39 @@
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-export ZSH="$HOME/.oh-my-zsh"
 export LANG=en_US.UTF-8
 # Compilation flags
 # export ARCHFLAGS="-arch arm64"
 # Suppress direnv output
 export DIRENV_LOG_FORMAT=""
 
-# ~~~~~~~~~~~~~~~~~~~~~~ p10k configs ~~~~~~~~~~~~~~~~~~~~~~
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# POWERLEVEL9K_MODE=ascii
-# POWERLEVEL9K_DISABLE_HOT_RELOAD=true
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(history)
-POWERLEVEL9K_VCS_MAX_SYNC_LATENCY_SECONDS=0.003
-# POWERLEVEL9K_INSTANT_PROMPT=quiet
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_DIR_BACKGROUND=0
-
 # ~~~~~~~~~~~~~~~~~~~~~~ zsh configs ~~~~~~~~~~~~~~~~~~~~~~
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
-ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
-DISABLE_MAGIC_FUNCTIONS="true"
-
-# Auto-update behavior
-zstyle ':omz:update' mode auto
-zstyle ':omz:update' frequency 7
+# ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
+# ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Other env_vars before load plugins
 # -- EVALCACHE
-export ZSH_EVALCACHE_DIR="$HOME/.local/.zsh-evalcache"
+#export ZSH_EVALCACHE_DIR="$HOME/.local/.zsh-evalcache"
 
-plugins=(
-  1password
-  z
-  brew
-  direnv # this might be slow
-  dotenv
-  git
-  kubectl
-  asdf # generic version manager
-  #NOTE: these are custom plugins, remember to download it
-  evalcache
-)
+# plugins=(
+#   1password
+#   z
+#   brew
+#   direnv # this might be slow
+#   dotenv
+#   git
+#   kubectl
+#   asdf # generic version manager
+#   #NOTE: these are custom plugins, remember to download it
+#   evalcache
+# )
 
-# ~~~~~~~~~~~~~~~~~~~~~~ Oh-my-zsh ~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~ Brew completion ~~~~~~~~~~~~~~~~~~~~~~
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-source $ZSH/oh-my-zsh.sh
+autoload -Uz compinit
+compinit
 
 # ~~~~~~~~~~~~~~~~ Custom zsh plugins from Brew ~~~~~~~~~~~~~~~~
 
@@ -93,11 +69,12 @@ setopt SHARE_HISTORY
 # ~~~~~~~~~~~~~~~~~~~~~~ PATH ~~~~~~~~~~~~~~~~~~~~~~~
 
 # ASDF
-export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".config/asdf/.tool-versions"
+# export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".config/asdf/.tool-versions"
+. $(brew --prefix asdf)/libexec/asdf.sh
 . ~/.asdf/plugins/golang/set-env.zsh
 
 # K9s
-export K9S_CONFIG_DIR=".config/k9s"
+# export K9S_CONFIG_DIR=".config/k9s"
 
 # Docker Desktop
 if [ -d "/Applications/Docker.app" ]; then
@@ -106,14 +83,14 @@ fi
 
 # kubectl
 if type kubectl &>/dev/null; then
-  # eval "$(kubectl completion zsh)"
-  _evalcache kubectl completion zsh
+  eval "$(kubectl completion zsh)"
+  #_evalcache kubectl completion zsh
 fi
 
 # Flux
 if type flux &>/dev/null; then
-  # eval "$(flux completion zsh)"
-  _evalcache flux completion zsh
+  eval "$(flux completion zsh)"
+  #_evalcache flux completion zsh
 fi
 
 # Elixir
@@ -128,7 +105,7 @@ if type sops &>/dev/null; then
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # ~~~~~~~~~~~~~~~~ Prompt & Completion ~~~~~~~~~~~~~~~~
 
@@ -139,8 +116,6 @@ if type brew &>/dev/null; then
   compinit
   promptinit
 fi
-
-zstyle ':completion:*' menu select
 
 # export FZF_DEFAULT_OPTS=" \
 # --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
@@ -156,7 +131,7 @@ alias reload="source ~/.zshrc"
 alias hc="history -c"
 alias hg="history | grep "
 alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
+# alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias kdebug='kubectl run bb --image=alpine --rm -it -- sh'
 
 # My custom Brew thingy

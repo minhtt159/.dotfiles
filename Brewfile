@@ -41,6 +41,7 @@ cask "tg-pro", greedy: true
 brew "tmux"
 brew "neovim"
 cask "wezterm", greedy: true
+cask "ghostty", greedy: true
 cask "obsidian", greedy: true
 # -- Zsh plugins
 brew "zsh-autosuggestions"
