@@ -59,6 +59,7 @@ brew "pre-commit"
 
 # -- Neovim tools
 brew "fzf"
+brew "fd"
 brew "ripgrep"
 brew "lazygit"
 brew "lazydocker"
