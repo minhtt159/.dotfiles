@@ -16,13 +16,7 @@ export LANG=en_US.UTF-8
 # Compilation flags
 # export ARCHFLAGS="-arch arm64"
 
-# Suppress direnv output
-export DIRENV_LOG_FORMAT=""
-
 # ~~~~~~~~~~~~~~~~~~~~~~ zsh configs ~~~~~~~~~~~~~~~~~~~~~~
-# ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
-# ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
-
 # Other env_vars before load plugins
 # -- EVALCACHE
 #export ZSH_EVALCACHE_DIR="$HOME/.local/.zsh-evalcache"
@@ -36,15 +30,32 @@ export DIRENV_LOG_FORMAT=""
 # ~~~~~~~~~~~~~~~~~~~~~~ Brew ~~~~~~~~~~~~~~~~~~~~~~
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-source "$HOME/.config/zsh-z/zsh-z.plugin.zsh"
+
+[ -f $HOME/.config/zsh-z/zsh-z.plugin.zsh ] && source "$HOME/.config/zsh-z/zsh-z.plugin.zsh"
 autoload -Uz compinit
 compinit
 
-# ~~~~~~~~~~~~~~~~ Custom zsh plugins from Brew ~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~ ZSH plugins from Brew ~~~~~~~~~~~~~~~~
 
+# export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
+# ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+# ~~~~~~~~~~~~~~~~ Prompt & Completion ~~~~~~~~~~~~~~~~
+
+zstyle ':completion:*' menu select
+#NOTE: https://github.com/zsh-users/zsh-completions#manual-installation
+if type brew &>/dev/null; then
+  fpath+=$(brew --prefix)/share/zsh-completions
+  fpath+=$(brew --prefix)/share/zsh/site-functions
+  autoload -Uz compinit promptinit
+  compinit
+  promptinit
+fi
 
 # ~~~~~~~~~~~~~~~~~~~~~~ EDITOR ~~~~~~~~~~~~~~~~~~~~~~
 if [[ -n $SSH_CONNECTION ]]; then
@@ -69,10 +80,19 @@ setopt SHARE_HISTORY
 
 ### FZF ###
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
+# export FZF_DEFAULT_OPTS=" \
+# --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+# --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+# --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+# --color=selected-bg:#45475a \
+# --multi"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ### Direnv ###
 if type direnv &> /dev/null; then
+  # Suppress direnv output
+  export DIRENV_LOG_FORMAT=""
   eval "$(direnv hook zsh)"
 fi
 
@@ -116,25 +136,6 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# ~~~~~~~~~~~~~~~~ Prompt & Completion ~~~~~~~~~~~~~~~~
-
-zstyle ':completion:*' menu select
-
-if type brew &>/dev/null; then
-  fpath+=$(brew --prefix)/share/zsh-completions
-  fpath+=$(brew --prefix)/share/zsh/site-functions
-  autoload -Uz compinit promptinit
-  compinit
-  promptinit
-fi
-
-# export FZF_DEFAULT_OPTS=" \
-# --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
-# --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-# --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
-# --color=selected-bg:#45475a \
-# --multi"
 
 # ~~~~~~~~~~~~~~~~~~~~~~ Aliases ~~~~~~~~~~~~~~~~~~~~~~
 # For a full list of active aliases, run `alias`.
