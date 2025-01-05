@@ -5,18 +5,23 @@
 #   exec tmux
 # fi
 
+# XDG collections
 export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
 
+# Language
 export LANG=en_US.UTF-8
+
 # Compilation flags
 # export ARCHFLAGS="-arch arm64"
+
 # Suppress direnv output
 export DIRENV_LOG_FORMAT=""
 
 # ~~~~~~~~~~~~~~~~~~~~~~ zsh configs ~~~~~~~~~~~~~~~~~~~~~~
 # ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
 # ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
-# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Other env_vars before load plugins
 # -- EVALCACHE
@@ -24,20 +29,14 @@ export DIRENV_LOG_FORMAT=""
 
 # plugins=(
 #   1password
-#   z
-#   brew
-#   direnv # this might be slow
 #   dotenv
 #   git
-#   kubectl
-#   asdf # generic version manager
-#   #NOTE: these are custom plugins, remember to download it
-#   evalcache
 # )
 
-# ~~~~~~~~~~~~~~~~~~~~~~ Brew completion ~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~ Brew ~~~~~~~~~~~~~~~~~~~~~~
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
+source "$HOME/.config/zsh-z/zsh-z.plugin.zsh"
 autoload -Uz compinit
 compinit
 
@@ -68,10 +67,21 @@ setopt SHARE_HISTORY
 
 # ~~~~~~~~~~~~~~~~~~~~~~ PATH ~~~~~~~~~~~~~~~~~~~~~~~
 
+### FZF ###
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+### Direnv ###
+if type direnv &> /dev/null; then
+  eval "$(direnv hook zsh)"
+fi
+
 # ASDF
-# export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".config/asdf/.tool-versions"
-. $(brew --prefix asdf)/libexec/asdf.sh
-. ~/.asdf/plugins/golang/set-env.zsh
+if type asdf &> /dev/null; then
+  # export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".config/asdf/.tool-versions"
+  . $(brew --prefix asdf)/libexec/asdf.sh
+  . ~/.asdf/plugins/golang/set-env.zsh
+fi
 
 # K9s
 # export K9S_CONFIG_DIR=".config/k9s"
@@ -108,6 +118,8 @@ fi
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # ~~~~~~~~~~~~~~~~ Prompt & Completion ~~~~~~~~~~~~~~~~
+
+zstyle ':completion:*' menu select
 
 if type brew &>/dev/null; then
   fpath+=$(brew --prefix)/share/zsh-completions
