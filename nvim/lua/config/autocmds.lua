@@ -22,6 +22,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 --   end,
 -- })
 
+local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+    require("go.format").goimports() -- goimports + gofmt
+  end,
+  group = format_sync_grp,
+})
+
 -- -- match for docker compose file
 -- function Docker_fix()
 --   local filename = vim.fn.expand("%:t")
