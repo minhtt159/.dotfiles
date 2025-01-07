@@ -142,6 +142,7 @@ alias x="exit"
 alias reload="source ~/.zshrc"
 alias hc="history -c"
 alias hg="history | grep "
+alias ls="eza -la --icons --git"
 alias zshconfig="nvim ~/.zshrc"
 # alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias kdebug='kubectl run bb --image=alpine --rm -it -- sh'

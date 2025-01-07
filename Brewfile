@@ -29,6 +29,7 @@ brew "git"
 brew "age"
 brew "go-task"
 brew "btop"
+brew "eza"
 # -- Languages
 brew "asdf"
 # -- Other Apps
