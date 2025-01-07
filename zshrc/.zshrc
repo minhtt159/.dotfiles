@@ -152,6 +152,17 @@ if [ -f ~/.dotfiles/Brewfile ]; then
   alias brewup="brew bundle --file=~/.dotfiles/Brewfile"
 fi
 
+# aliases
+asdfup() {
+  asdf plugin-update --all
+  for plugin in $(asdf plugin list); do
+    latest=$(asdf latest "$plugin")
+    asdf install "$plugin" "$latest"
+    # asdf global "$plugin" "$latest"
+  done
+}
+
+alias asdfup="asdfup"
 PROMPT='%(?.%F{14}⏺.%F{9}⏺)%f %2~ %# '
 # Autoload zsh's `add-zsh-hook` and `vcs_info` functions
 # (-U autoload w/o substition, -z use zsh style)
