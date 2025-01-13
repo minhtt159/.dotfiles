@@ -99,10 +99,9 @@ fi
 if type asdf &> /dev/null; then
   # export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".config/asdf/.tool-versions"
   . $(brew --prefix asdf)/libexec/asdf.sh
-  . ~/.asdf/plugins/golang/set-env.zsh
-  . "~/.asdf/installs/rust/1.83.0/env"
+  . "$HOME/.asdf/plugins/golang/set-env.zsh"
 
-  asdfup() {
+  function asdfup {
     asdf plugin-update --all
     for plugin in $(asdf plugin list); do
       latest=$(asdf latest "$plugin")
@@ -111,7 +110,6 @@ if type asdf &> /dev/null; then
     done
   }
   alias asdfup="asdfup"
-  echo "added alias"
 fi
 
 # K9s
