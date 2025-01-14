@@ -1,7 +1,7 @@
-golang 1.23.2
-nodejs 22.9.0
-python 3.12.7
-rust 1.81.0
-terraform 1.9.7
-terragrunt 0.66.9
-kubelogin 0.1.4
+golang 1.23.4
+nodejs 23.6.0
+python 3.13.1t
+rust 1.84.0
+terraform 1.10.4
+terragrunt 0.72.0
+kubelogin 0.1.6

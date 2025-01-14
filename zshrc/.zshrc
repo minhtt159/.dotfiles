@@ -106,7 +106,7 @@ if type asdf &> /dev/null; then
     for plugin in $(asdf plugin list); do
       latest=$(asdf latest "$plugin")
       asdf install "$plugin" "$latest"
-      # asdf global "$plugin" "$latest"
+      asdf global "$plugin" "$latest"
     done
   }
   alias asdfup="asdfup"
