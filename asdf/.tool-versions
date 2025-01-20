@@ -1,7 +1,7 @@
-golang 1.23.4
+golang 1.23.5
 nodejs 23.6.0
 python 3.13.1t
 rust 1.84.0
 terraform 1.10.4
-terragrunt 0.72.0
+terragrunt 0.72.2
 kubelogin 0.1.6
