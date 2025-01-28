@@ -11,7 +11,7 @@ return {
       debug = false,
       binPath = "sops", -- assumes its on $PATH
       defaults = { -- overriding any env vars as needed
-        -- awsProfile = "AWS_PROFILE",
+        awsProfile = "", -- I'm not using Secrets Manager
         -- ageKeyFile = "SOPS_AGE_KEY_FILE",
         -- gcpCredentialsPath = "GOOGLE_APPLICATION_CREDENTIALS",
       },
