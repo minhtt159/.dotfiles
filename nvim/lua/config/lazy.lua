@@ -53,12 +53,12 @@ require("lazy").setup({
     -- Extras Formatting
     { import = "lazyvim.plugins.extras.formatting.black" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
+    -- Extra mini
+    { import = "lazyvim.plugins.extras.editor.mini-files" },
     -- import/override with your plugins
     { import = "plugins" },
     -- Custom language plugins
     { import = "plugins.lang" },
-    -- Extra mini
-    { import = "lazyvim.plugins.extras.editor.mini-files" },
     -- Custom mini
     { import = "plugins.mini" },
   },
