@@ -83,3 +83,4 @@ opt.inccommand = "split"
 -- LazyVim picker
 vim.g.lazyvim_picker = "telescope"
 vim.g.lazyvim_blink_main = false
+vim.g.snacks_animate = false
