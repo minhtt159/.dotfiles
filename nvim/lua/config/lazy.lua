@@ -32,13 +32,13 @@ require("lazy").setup({
     },
     -- Personal override
     { import = "lazyvim.plugins.extras.editor.telescope" },
-    { import = "lazyvim.plugins.extras.coding.blink" }, -- NOTE: Trying out blink instead of nvim-cmp
+    -- { import = "lazyvim.plugins.extras.coding.blink" },
     -- import any extras modules here
     { import = "lazyvim.plugins.extras.editor.leap" },
     { import = "lazyvim.plugins.extras.coding.luasnip" },
     -- AI
-    { import = "lazyvim.plugins.extras.ai.copilot" },
-    { import = "lazyvim.plugins.extras.ai.copilot-chat" },
+    -- { import = "lazyvim.plugins.extras.ai.copilot" },
+    -- { import = "lazyvim.plugins.extras.ai.copilot-chat" },
     -- Lang
     { import = "lazyvim.plugins.extras.lang.ansible" },
     { import = "lazyvim.plugins.extras.lang.docker" },
