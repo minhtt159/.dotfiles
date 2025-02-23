@@ -88,7 +88,9 @@ setopt SHARE_HISTORY
 # --multi"
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+if type rustup &>/dev/null; then 
+  path+=("$HOMEBREW_PREFIX/opt/rustup/bin")
+fi
 
 ### Direnv ###
 if type direnv &> /dev/null; then
@@ -125,7 +127,7 @@ fi
 
 # SOPS age for k3s
 if type sops &>/dev/null; then
-  export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt
+  export SOPS_AGE_KEY_FILE="$XDG_CONFIG_HOME/sops/age/keys.txt"
 fi
 
 # ~~~~~~~~~~~~~~~~~~~~~~ Aliases ~~~~~~~~~~~~~~~~~~~~~~
@@ -168,3 +170,8 @@ zstyle ':vcs_info:*:*' check-for-changes true
 
 # Set the right prompt to the vcs_info message
 RPROMPT='%F{8}⎇ $vcs_info_msg_0_%f'
+
+# Added by LM Studio CLI (lms)
+if [ -d "$HOME/.lmstudio" ]; then
+  export PATH="$PATH:$HOME/.lmstudio/bin"
+fi
