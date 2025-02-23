@@ -45,28 +45,6 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-# ~~~~~~~~~ SOURCE ~~~~~~~~
-
-# ASDF
-if type asdf &> /dev/null; then
-  # export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".config/asdf/.tool-versions"
-  export ASDF_DATA_DIR="$HOME/.asdf"
-  export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-  fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
-  . "$HOME/.asdf/plugins/golang/set-env.zsh"
-
-  function asdfup {
-    asdf plugin update --all
-    for plugin in $(asdf plugin list); do
-      latest=$(asdf latest "$plugin")
-      asdf install "$plugin" "$latest"
-      asdf set -u "$plugin" "$latest"
-    done
-  }
-  alias asdfup="asdfup"
-fi
-
-
 # ~~~~~~~~~~~~~~~~ Prompt & Completion ~~~~~~~~~~~~~~~~
 
 zstyle ':completion:*' menu select
@@ -109,6 +87,8 @@ setopt SHARE_HISTORY
 # --color=selected-bg:#45475a \
 # --multi"
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
 
 ### Direnv ###
 if type direnv &> /dev/null; then

@@ -2,6 +2,7 @@
 # Kubernetes
 brew "kubernetes-cli"
 brew "kubectx"
+brew "kubelogin"
 brew "helm"
 brew "helmfile"
 tap "fluxcd/tap"
@@ -13,6 +14,8 @@ cask "lens", greedy: true
 brew "azure-cli"
 brew "awscli"
 cask "session-manager-plugin", greedy: true
+brew "terraform"
+brew "terragrunt"
 # Scanner
 brew "trivy"
 
@@ -31,7 +34,10 @@ brew "go-task"
 brew "btop"
 brew "eza"
 # -- Languages
-brew "asdf"
+brew "rustup"
+brew "python@3.12"
+brew "node@23"
+brew "golang"
 # -- Other Apps
 cask "karabiner-elements", greedy: true
 cask "1password-cli", greedy: true
