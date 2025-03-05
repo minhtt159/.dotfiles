@@ -2,7 +2,7 @@
 # Kubernetes
 brew "kubernetes-cli"
 brew "kubectx"
-brew "kubelogin"
+brew "Azure/kubelogin/kubelogin"
 brew "helm"
 brew "helmfile"
 tap "fluxcd/tap"

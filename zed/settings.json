@@ -8,7 +8,7 @@
   "base_keymap": "VSCode",
   "theme": "Catppuccin Mocha",
   "ui_font_size": 15,
-  "buffer_font_size": 14,
+  "buffer_font_size": 14.0,
   "buffer_font_family": "Hack Nerd Font",
   "git_status": true,
   "tab_size": 2,
