@@ -50,7 +50,6 @@ brew "sketchybar"
 # -- Editor
 brew "tmux"
 brew "neovim"
-cask "wezterm", greedy: true
 cask "ghostty", greedy: true
 cask "obsidian", greedy: true
 # -- Zsh plugins
