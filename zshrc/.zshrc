@@ -105,6 +105,9 @@ fi
 # Docker Desktop
 if [ -d "/Applications/Docker.app" ]; then
   path+=("$HOME/.docker/bin")
+  fpath+=$HOME/.docker/completions
+  autoload -Uz compinit
+  compinit
 fi
 
 # kubectl
