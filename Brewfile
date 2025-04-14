@@ -14,7 +14,8 @@ cask "lens", greedy: true
 brew "azure-cli"
 brew "awscli"
 cask "session-manager-plugin", greedy: true
-brew "terraform"
+tap "hashicorp/tap"
+brew "hashicorp/tap/terraform"
 brew "terragrunt"
 # Scanner
 brew "trivy"

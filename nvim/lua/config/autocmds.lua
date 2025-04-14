@@ -31,6 +31,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = format_sync_grp,
 })
 
+require("lspconfig").terraformls.setup({})
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*.tf", "*.tfvars" },
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+})
+
 -- -- match for docker compose file
 -- function Docker_fix()
 --   local filename = vim.fn.expand("%:t")
