@@ -2,20 +2,24 @@
 # Kubernetes
 brew "kubernetes-cli"
 brew "kubectx"
-brew "Azure/kubelogin/kubelogin"
 brew "helm"
 brew "helmfile"
+# Azure
+brew "Azure/kubelogin/kubelogin"
+brew "azure-cli"
+# Flux
 tap "fluxcd/tap"
 brew "fluxcd/tap/flux"
 # UI
 brew "k9s"
 cask "lens", greedy: true
-# Cloud
-brew "azure-cli"
+# AWS 
 brew "awscli"
 cask "session-manager-plugin", greedy: true
+# Terraform
 tap "hashicorp/tap"
 brew "hashicorp/tap/terraform"
+brew "hashicorp/tap/terraform-ls"
 brew "terragrunt"
 # Scanner
 brew "trivy"
@@ -60,7 +64,6 @@ brew "zsh-history-substring-search"
 brew "zsh-syntax-highlighting"
 
 # -- Git
-# depend on Python
 brew "commitizen"
 brew "pre-commit"
 
