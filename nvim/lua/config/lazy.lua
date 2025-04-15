@@ -31,7 +31,7 @@ require("lazy").setup({
       import = "lazyvim.plugins",
     },
     -- Personal override
-    { import = "lazyvim.plugins.extras.editor.telescope" },
+    -- { import = "lazyvim.plugins.extras.editor.telescope" },
     -- { import = "lazyvim.plugins.extras.coding.blink" },
     -- import any extras modules here
     { import = "lazyvim.plugins.extras.editor.leap" },
@@ -55,6 +55,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     -- Extra mini
     { import = "lazyvim.plugins.extras.editor.mini-files" },
+    { import = "lazyvim.plugins.extras.coding.mini-surround" },
     -- import/override with your plugins
     { import = "plugins" },
     -- Custom language plugins
