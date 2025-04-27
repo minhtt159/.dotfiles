@@ -40,7 +40,6 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.ai.copilot" },
     -- { import = "lazyvim.plugins.extras.ai.copilot-chat" },
     -- Lang
-    { import = "lazyvim.plugins.extras.lang.ansible" },
     { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.go" },
     { import = "lazyvim.plugins.extras.lang.helm" },
@@ -54,8 +53,10 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.formatting.black" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     -- Extra mini
-    { import = "lazyvim.plugins.extras.editor.mini-files" },
+    --  GZA$"
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
+    --  Show hexcode color
+    { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     -- import/override with your plugins
     { import = "plugins" },
     -- Custom language plugins
