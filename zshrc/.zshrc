@@ -88,7 +88,14 @@ setopt SHARE_HISTORY
 # --multi"
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if type rustup &>/dev/null; then 
+if type go &>/dev/null; then
+  export GOPATH=$HOME/golang
+  export GOROOT=$HOMEBREW_PREFIX/opt/go/libexec
+  export PATH=$PATH:$GOPATH/bin
+  export PATH=$PATH:$GOROOT/bin
+fi
+
+if type rustup &>/dev/null; then
   path+=("$HOMEBREW_PREFIX/opt/rustup/bin")
 fi
 

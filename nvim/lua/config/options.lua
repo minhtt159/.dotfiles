@@ -80,7 +80,8 @@ opt.showmode = false
 -- Preview substitutions live, as you type!
 opt.inccommand = "split"
 
--- LazyVim picker
--- vim.g.lazyvim_picker = "telescope"
+-- LazyVim
+vim.g.lazyvim_picker = "snacks"
 vim.g.lazyvim_blink_main = false
 vim.g.snacks_animate = false
+opt.statuscolumn = "%!v:lua.require'snacks.statuscolumn'.get()"

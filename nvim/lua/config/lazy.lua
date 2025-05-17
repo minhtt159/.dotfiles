@@ -57,6 +57,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
     --  Show hexcode color
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
+    -- Mini Diff
+    -- { import = "lazyvim.plugins.extras.editor.mini-diff" },
     -- import/override with your plugins
     { import = "plugins" },
     -- Custom language plugins
