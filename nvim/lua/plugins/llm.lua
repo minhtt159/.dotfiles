@@ -10,15 +10,20 @@ return {
       -- Save and load conversation history
       "ravitemer/codecompanion-history.nvim",
       {
-        "ravitemer/mcphub.nvim", -- Manage MCP servers
-        -- cmd = "MCPHub",
-        -- build = "npm install -g mcp-hub@latest",
-        -- config = true,
+        "ravitemer/mcphub.nvim",
+        dependencies = {
+          "nvim-lua/plenary.nvim",
+        },
+        build = "npm install -g mcp-hub@latest", -- Installs `mcp-hub` node binary globally
+        config = function()
+          require("mcphub").setup()
+        end,
       },
     },
     init = function()
       require("plugins.llm_plugins.llm_fidget").init({})
-      -- vim.cmd([[cab cc CodeCompanion]])
+      -- Use cc as `CodeCompanion` in cmdline
+      vim.cmd([[cab cc CodeCompanion]])
       --require("plugins.custom.spinner"):init()
     end,
     keys = {
@@ -119,12 +124,16 @@ return {
       },
       display = {
         action_palette = {
-          provider = "default",
+          provider = "default", -- Can be "default", "telescope", "mini_pick" or "snacks". If not specified, the plugin will autodetect installed providers.
+          opts = {
+            show_default_actions = true, -- Show the default actions in the action palette?
+            show_default_prompt_library = true, -- Show the default prompt library in the action palette?
+          },
         },
         chat = {
           -- show_references = true,
           -- show_header_separator = false,
-          show_settings = true,
+          -- show_settings = true,
         },
         diff = {
           enabled = true,
@@ -133,8 +142,7 @@ return {
         },
       },
       opts = {
-        -- Set debug logging
-        log_level = "DEBUG",
+        log_level = "DEBUG", -- TRACE|DEBUG|ERROR|INFO
       },
       adapters = {
         custom = function()
@@ -150,16 +158,15 @@ return {
               -- optional: attaches to the end of the URL to form the endpoint to retrieve models
               models_endpoint = "/v1/models",
             },
-            schema = {
-              model = {
-                default = function()
-                  return "qwen2.5-7b-instruct-1m"
-                end,
-              },
-            },
+            -- schema = {
+            --   model = {
+            --     default = "qwen2.5-7b-instruct-1m",
+            --   },
+            -- },
           })
         end,
         opts = {
+          show_model_choices = true,
           show_defaults = false,
           stream = true,
         },
