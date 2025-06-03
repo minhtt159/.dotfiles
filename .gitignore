@@ -4,6 +4,7 @@
 
 # Zed database
 **/*.mdb
+**/*.zed.json
 
 # Brewlock
 Brewfile.lock.json

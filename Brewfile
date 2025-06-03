@@ -41,7 +41,7 @@ brew "eza"
 # -- Languages
 brew "rustup"
 brew "python@3.12"
-brew "node@23"
+brew "node"
 brew "golang"
 # -- Other Apps
 cask "karabiner-elements", greedy: true

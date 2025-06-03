@@ -88,11 +88,15 @@ setopt SHARE_HISTORY
 # --multi"
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+if type psql &>/dev/null; then
+  path+=( "$HOMEBREW_PREFIX/opt/libpq/bin" )
+fi
+
 if type go &>/dev/null; then
   export GOPATH=$HOME/golang
   export GOROOT=$HOMEBREW_PREFIX/opt/go/libexec
-  export PATH=$PATH:$GOPATH/bin
-  export PATH=$PATH:$GOROOT/bin
+  path+=( "$GOPATH/bin" )
+  path+=( "$GOROOT/bin" )
 fi
 
 if type rustup &>/dev/null; then
