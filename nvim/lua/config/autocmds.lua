@@ -31,33 +31,34 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = format_sync_grp,
 })
 
--- require("lspconfig").terraformls.setup({})
--- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
---   pattern = { "*.tf", "*.tfvars" },
---   callback = function()
---     vim.lsp.buf.format()
---   end,
--- })
+-- Custom format for Templ
+local custom_format = function()
+  if vim.bo.filetype == "templ" then
+    local bufnr = vim.api.nvim_get_current_buf()
+    local filename = vim.api.nvim_buf_get_name(bufnr)
+    local cmd = "templ fmt " .. vim.fn.shellescape(filename)
 
--- -- match for docker compose file
--- function Docker_fix()
---   local filename = vim.fn.expand("%:t")
---   local compose_pattern = "%g?compose.ya?ml"
---   local dockerfile_pattern = "%g?Dockerfile%g?"
---   -- Loop
---   if string.find(filename, compose_pattern) ~= nil then
---     vim.bo.filetype = "yaml.docker-compose"
---   elseif string.find(filename, dockerfile_pattern) ~= nil then
---     vim.bo.filetype = "dockerfile"
---   end
---   -- debug
---   -- print(filename, string.find(filename, dockerfile_pattern))
--- end
---
--- vim.cmd([[au BufRead * lua Docker_fix()]])
+    vim.fn.jobstart(cmd, {
+      on_exit = function()
+        -- Reload the buffer only if it's still the current buffer
+        if vim.api.nvim_get_current_buf() == bufnr then
+          vim.cmd("e!")
+        end
+      end,
+    })
+  else
+    vim.lsp.buf.format()
+  end
+end
+
+vim.api.nvim_create_autocmd(
+  "BufWritePre",
+  { pattern = { "*.templ" }, callback = custom_format, group = format_sync_grp }
+)
 
 vim.filetype.add({
   extension = {
+    templ = "templ",
     jinja = "jinja",
     jinja2 = "jinja",
     j2 = "jinja",

@@ -16,4 +16,38 @@ return {
     ft = { "go", "gomod" },
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        tailwindcss = {
+          -- NOTE: eventually I will have a different JS.lua
+          filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+          init_options = {
+            userLanguages = {
+              templ = "html",
+            },
+          },
+        },
+        htmx = {
+          filetypes = { "html", "templ" },
+        },
+        html = {
+          filetypes = { "html", "templ" },
+        },
+      },
+    },
+  },
+  {
+    "mason-org/mason.nvim",
+    opts = {
+      ensure_installed = {
+        -- https://templ.guide/developer-tools/ide-support#neovim--050
+        "templ",
+        "htmx-lsp", -- htmx
+        "html-lsp", -- html
+        "tailwindcss-language-server", -- tailwindcss
+      },
+    },
+  },
 }

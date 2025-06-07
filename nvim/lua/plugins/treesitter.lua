@@ -25,10 +25,10 @@ return {
         "rust",
         "dockerfile",
         -- Web bros
+        "templ",
         "html",
         "tsx",
-        "typescript",
-        "javascript",
+        -- "javascript",
         "typescript",
       },
       -- Autoinstall languages that are not installed
