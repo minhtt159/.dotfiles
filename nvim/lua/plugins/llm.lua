@@ -52,6 +52,8 @@ return {
           enabled = true,
           opts = {
             keymap = "gh",
+            save_chat_keymap = "sc",
+            auto_save = false,
             auto_generate_title = true,
             continue_last_chat = false,
             delete_on_clearing_chat = false,
