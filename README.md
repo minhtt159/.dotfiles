@@ -21,3 +21,8 @@ curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.
 ```sh
 git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
 ```
+
+# TODO
+
+- [] Get k9s load the correct file
+- []

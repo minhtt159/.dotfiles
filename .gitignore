@@ -11,3 +11,6 @@ Brewfile.lock.json
 
 # Karabiner
 automatic_backups
+
+# btop
+btop.conf

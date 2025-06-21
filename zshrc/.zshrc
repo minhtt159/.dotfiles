@@ -31,27 +31,31 @@ export LANG=en_US.UTF-8
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-[ -f $HOME/.config/zsh-z/zsh-z.plugin.zsh ] && source "$HOME/.config/zsh-z/zsh-z.plugin.zsh"
+# HOMEBREW_CELLAR=/opt/homebrew/Cellar
+# HOMEBREW_PREFIX=/opt/homebrew
+# HOMEBREW_REPOSITORY=/opt/homebrew
+
+[ -f $XDG_CONFIG_HOME/zsh-z/zsh-z.plugin.zsh ] && source "$XDG_CONFIG_HOME/zsh-z/zsh-z.plugin.zsh"
 autoload -Uz compinit
 compinit
 
 # ~~~~~~~~~~~~~~~~ ZSH plugins from Brew ~~~~~~~~~~~~~~~~
 
 # export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
 # ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # ~~~~~~~~~~~~~~~~ Prompt & Completion ~~~~~~~~~~~~~~~~
 
 zstyle ':completion:*' menu select
 #NOTE: https://github.com/zsh-users/zsh-completions#manual-installation
 if type brew &>/dev/null; then
-  fpath+=$(brew --prefix)/share/zsh-completions
-  fpath+=$(brew --prefix)/share/zsh/site-functions
+  fpath+=$HOMEBREW_PREFIX/share/zsh-completions
+  fpath+=$HOMEBREW_PREFIX/share/zsh/site-functions
   autoload -Uz compinit promptinit
   compinit
   promptinit
