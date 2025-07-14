@@ -12,7 +12,7 @@ tap "fluxcd/tap"
 brew "fluxcd/tap/flux"
 # UI
 brew "k9s"
-cask "lens", greedy: true
+cask "freelens", greedy: true
 # AWS 
 brew "awscli"
 cask "session-manager-plugin", greedy: true
