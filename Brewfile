@@ -3,6 +3,8 @@ tap "fluxcd/tap"
 tap "hashicorp/tap"
 tap "Azure/kubelogin"
 tap "FelixKratz/formulae"
+tap "nikitabobko/tap"
+tap "siderolabs/tap"
 
 # ========================== DEVOPS & CLOUD ==========================
 # Kubernetes
@@ -16,12 +18,15 @@ brew "k9s"
 brew "Azure/kubelogin/kubelogin"
 brew "azure-cli"
 
-# AWS 
+# AWS
 brew "awscli"
 cask "session-manager-plugin", greedy: true
 
 # Flux CD
 brew "fluxcd/tap/flux"
+
+# Talos
+brew "siderolabs/tap/talosctl"
 
 # Terraform
 brew "hashicorp/tap/terraform"
@@ -48,6 +53,8 @@ brew "age"
 brew "go-task"
 brew "btop"
 brew "eza"
+brew "rclone"
+brew "unar"
 
 # ======================= PROGRAMMING LANGUAGES ========================
 brew "rustup"
@@ -58,9 +65,12 @@ brew "golang"
 # ========================== APPLICATIONS ===============================
 cask "karabiner-elements", greedy: true
 cask "1password-cli", greedy: true
+cask "1password", greedy: true
 cask "pgadmin4", greedy: true
 cask "tg-pro", greedy: true
 cask "nikitabobko/tap/aerospace", greedy: true
+cask "docker-desktop", greedy: true
+cask "postman", greedy: true
 
 # Editors & Terminal
 brew "tmux"
@@ -89,6 +99,7 @@ brew "ripgrep"
 brew "lazygit"
 brew "lazydocker"
 brew "kubeconform"
+brew "hadolint"
 
 # ============================= FONTS ===============================
 cask "font-hack-nerd-font", greedy: true

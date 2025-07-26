@@ -152,50 +152,50 @@ if [[ -f ~/.dotfiles/Brewfile ]]; then
   brewup() {
     local brewfile="$HOME/.dotfiles/Brewfile"
     echo "🍺 Enhanced Homebrew update starting..."
-    
+ 
     # Check if Homebrew is installed
     if ! command -v brew &>/dev/null; then
       echo "❌ Homebrew not installed. Please install it first."
       return 1
     fi
-    
+ 
     # Update Homebrew itself
     echo "📦 Updating Homebrew..."
     if ! brew update; then
       echo "⚠️  Homebrew update failed, continuing anyway..."
     fi
-    
+ 
     # Install/update packages from Brewfile
     echo "🔄 Processing Brewfile..."
     if ! brew bundle --file="$brewfile"; then
       echo "⚠️  Some packages failed to install/update"
     fi
-    
+ 
     # Clean up unused dependencies
     echo "🧹 Cleaning up unused packages..."
     brew bundle cleanup --file="$brewfile" --force --quiet
-    
+ 
     # Update all formulas and casks (including greedy casks)
     echo "⬆️  Upgrading all packages..."
     if ! brew upgrade --greedy; then
       echo "⚠️  Some packages failed to upgrade"
     fi
-    
+ 
     # Run maintenance tasks
     echo "🔧 Running maintenance..."
     brew cleanup --prune=7 --quiet
-    
+ 
     # Check system health (suppress minor warnings)
     echo "🩺 Running health check..."
     if ! brew doctor --quiet; then
       echo "⚠️  Minor issues detected (check 'brew doctor' for details)"
     fi
-    
+ 
     # Display summary
     echo "📊 Update summary:"
     echo "   Installed packages: $(brew list --formula | wc -l | tr -d ' ') formulas"
     echo "   Installed casks: $(brew list --cask | wc -l | tr -d ' ') casks"
-    
+ 
     echo "✅ Brewup completed successfully!"
   }
 fi
