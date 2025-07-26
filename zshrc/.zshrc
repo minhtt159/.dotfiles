@@ -30,23 +30,16 @@ done
 zstyle ':completion:*' menu select
 
 # ~~~~~~~~~~~~~~~~~~~~~~ Plugin Loading (Conditional) ~~~~~~~~~~~~~~~~~~~~~~
-# Only load plugins if they exist
-if [[ -f "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
-  source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-fi
+# Function to load plugins if they exist
+load_plugin() {
+  [[ -f "$1" ]] && source "$1"
+}
 
-if [[ -f "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
-  source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-fi
-
-if [[ -f "$HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh" ]]; then
-  source "$HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
-fi
-
-# zsh-z plugin
-if [[ -f "$XDG_CONFIG_HOME/zsh-z/zsh-z.plugin.zsh" ]]; then
-  source "$XDG_CONFIG_HOME/zsh-z/zsh-z.plugin.zsh"
-fi
+# Load zsh plugins
+load_plugin "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+load_plugin "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+load_plugin "$HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+load_plugin "$XDG_CONFIG_HOME/zsh-z/zsh-z.plugin.zsh"
 
 # ~~~~~~~~~~~~~~~~~~~~~~ Completion Setup ~~~~~~~~~~~~~~~~~~~~~~
 # Add homebrew completions if available
