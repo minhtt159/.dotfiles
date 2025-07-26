@@ -71,6 +71,7 @@ setopt SHARE_HISTORY
 # Go environment
 if command -v go &>/dev/null; then
   export GOPATH="$HOME/go"
+  export GOBIN="$GOPATH/bin"
   export GOROOT="$HOMEBREW_PREFIX/opt/go/libexec"
   path+=("$GOPATH/bin" "$GOROOT/bin")
 fi
