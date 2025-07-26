@@ -152,7 +152,7 @@ return {
           return require("codecompanion.adapters").extend("openai_compatible", {
             formatted_name = "My Custom",
             env = {
-              url = "tictacwindows:1234",
+              url = "<REDACTED>",
               -- optional: if your endpoint is authenticated
               -- api_key = "OpenAI_API_KEY",
               -- optional: default value, override if different

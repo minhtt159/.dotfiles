@@ -34,8 +34,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.leap" },
     { import = "lazyvim.plugins.extras.coding.luasnip" },
     -- AI
-    -- { import = "lazyvim.plugins.extras.ai.copilot" },
-    -- { import = "lazyvim.plugins.extras.ai.copilot-chat" },
+    { import = "lazyvim.plugins.extras.ai.copilot" },
+    { import = "lazyvim.plugins.extras.ai.copilot-chat" },
     -- Lang
     -- { import = "lazyvim.plugins.extras.lang.docker" }, -- ../plugins/lang/docker.lua
     { import = "lazyvim.plugins.extras.lang.go" },

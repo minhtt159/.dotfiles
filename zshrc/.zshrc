@@ -97,7 +97,7 @@ if type psql &>/dev/null; then
 fi
 
 if type go &>/dev/null; then
-  export GOPATH=$HOME/golang
+  export GOPATH=$HOME/go
   export GOROOT=$HOMEBREW_PREFIX/opt/go/libexec
   path+=( "$GOPATH/bin" )
   path+=( "$GOROOT/bin" )
