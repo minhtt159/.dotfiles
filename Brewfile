@@ -1,30 +1,40 @@
-# -- DevOps tools
+# =============================== TAPS ===============================
+tap "fluxcd/tap"
+tap "hashicorp/tap"
+tap "Azure/kubelogin"
+tap "FelixKratz/formulae"
+
+# ========================== DEVOPS & CLOUD ==========================
 # Kubernetes
 brew "kubernetes-cli"
 brew "kubectx"
 brew "helm"
 brew "helmfile"
+brew "k9s"
+
 # Azure
 brew "Azure/kubelogin/kubelogin"
 brew "azure-cli"
-# Flux
-tap "fluxcd/tap"
-brew "fluxcd/tap/flux"
-# UI
-brew "k9s"
-cask "freelens", greedy: true
+
 # AWS 
 brew "awscli"
 cask "session-manager-plugin", greedy: true
+
+# Flux CD
+brew "fluxcd/tap/flux"
+
 # Terraform
-tap "hashicorp/tap"
 brew "hashicorp/tap/terraform"
 brew "hashicorp/tap/terraform-ls"
 brew "terragrunt"
-# Scanner
+
+# Security & Scanning
 brew "trivy"
 
-# -- General
+# Container Tools
+cask "freelens", greedy: true
+
+# ========================== SYSTEM & UTILITIES =========================
 brew "direnv"
 brew "stow"
 brew "jq"
@@ -38,36 +48,41 @@ brew "age"
 brew "go-task"
 brew "btop"
 brew "eza"
-# -- Languages
+
+# ======================= PROGRAMMING LANGUAGES ========================
 brew "rustup"
 brew "python@3.12"
 brew "node"
 brew "golang"
-# -- Other Apps
+
+# ========================== APPLICATIONS ===============================
 cask "karabiner-elements", greedy: true
 cask "1password-cli", greedy: true
 cask "pgadmin4", greedy: true
 cask "tg-pro", greedy: true
 cask "nikitabobko/tap/aerospace", greedy: true
-tap "FelixKratz/formulae"
-brew "sketchybar"
 
-# -- Editor
+# Editors & Terminal
 brew "tmux"
 brew "neovim"
 cask "ghostty", greedy: true
 cask "obsidian", greedy: true
-# -- Zsh plugins
+
+# SketchyBar
+brew "sketchybar"
+
+# ======================= ZSH PLUGINS & SHELL =======================
 brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "zsh-history-substring-search"
 brew "zsh-syntax-highlighting"
 
-# -- Git
+# ======================== DEVELOPMENT TOOLS =========================
+# Git Tools
 brew "commitizen"
 brew "pre-commit"
 
-# -- Neovim tools
+# Editor Tools (Neovim ecosystem)
 brew "fzf"
 brew "fd"
 brew "ripgrep"
@@ -75,7 +90,7 @@ brew "lazygit"
 brew "lazydocker"
 brew "kubeconform"
 
-# -- Fonts
+# ============================= FONTS ===============================
 cask "font-hack-nerd-font", greedy: true
 cask "font-jetbrains-mono-nerd-font", greedy: true
 cask "font-sf-pro", greedy: true

@@ -14,3 +14,6 @@ automatic_backups
 
 # btop
 btop.conf
+
+# Backup files
+**/*.backup
