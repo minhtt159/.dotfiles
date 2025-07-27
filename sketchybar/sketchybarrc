@@ -22,7 +22,7 @@ FONT="Hack Nerd Font"
 
 bar=(
   position=top
-  height=32
+  height=25
   margin=0
   corner_radius=0
   color=$BAR_COLOR
@@ -50,7 +50,7 @@ default=(
   label.font="SF Pro:Medium:13.0"
   icon.color=$ICON_COLOR
   label.color=$LABEL_COLOR
-  background.height=24
+  background.height=20
   background.corner_radius=4
   background.padding_left=2
   background.padding_right=2
