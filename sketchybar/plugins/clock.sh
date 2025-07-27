@@ -1,8 +1,12 @@
 #!/bin/sh
 
-# The $NAME variable is passed from sketchybar and holds the name of
-# the item invoking this script:
-# https://felixkratz.github.io/SketchyBar/config/events#events-and-scripting
+# Source colors
+source "$HOME/.config/sketchybar/colors.sh"
 
-sketchybar --set "$NAME" label="$(date '+%d/%m %H:%M')"
+# Get current date and time
+DATE_TIME=$(date '+%a %d %b %H:%M')
 
+# Update the clock item with enhanced styling
+sketchybar --set "$NAME" \
+           label="$DATE_TIME" \
+           label.color="$LABEL_COLOR"

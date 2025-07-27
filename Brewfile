@@ -5,6 +5,7 @@ tap "Azure/kubelogin"
 tap "FelixKratz/formulae"
 tap "nikitabobko/tap"
 tap "siderolabs/tap"
+tap "mongodb/brew"
 
 # ========================== DEVOPS & CLOUD ==========================
 # Kubernetes
@@ -13,6 +14,7 @@ brew "kubectx"
 brew "helm"
 brew "helmfile"
 brew "k9s"
+brew "cilium-cli"
 
 # Azure
 brew "Azure/kubelogin/kubelogin"
@@ -71,12 +73,19 @@ cask "tg-pro", greedy: true
 cask "nikitabobko/tap/aerospace", greedy: true
 cask "docker-desktop", greedy: true
 cask "postman", greedy: true
+cask "microsoft-azure-storage-explorer", greedy: true
+cask "windows-app", greedy: true
+cask "mongodb-compass", greedy: true
+brew "mongosh"
 
 # Editors & Terminal
 brew "tmux"
 brew "neovim"
 cask "ghostty", greedy: true
 cask "obsidian", greedy: true
+cask "visual-studio-code", greedy: true
+cask "sublime-text", greedy: true
+cask "zed", greedy: true
 
 # SketchyBar
 brew "sketchybar"

@@ -11,6 +11,36 @@ MAIL_OPEN=􀍜
 BELL=􀋚
 BELL_DOT=􀝗
 
+# System Icons
+CPU=󰻠
+MEMORY=󰍛
+DISK=󰋊
+NETWORK=󰛳
+WIFI=󰖩
+ETHERNET=󰈀
+VPN=󰖂
+OFFLINE=󰌙
+
+# Media Icons
+VOLUME_100=󰕾
+VOLUME_66=󰖀
+VOLUME_33=󰕿
+VOLUME_10=󰕿
+VOLUME_0=󰖁
+MUTED=󰖁
+
+# Battery Icons
+BATTERY_100=󰁹
+BATTERY_75=󰂂
+BATTERY_50=󰂀
+BATTERY_25=󰁾
+BATTERY_0=󰁺
+BATTERY_CHARGING=󰂄
+
+# Time Icons
+CLOCK=󰥔
+CALENDAR=󰃭
+
 # Git Icons
 GIT_ISSUE=􀍷
 GIT_DISCUSSION=􀒤
