@@ -1,12 +1,12 @@
 # SketchyBar Configuration - Optimized
 
-This is an optimized SketchyBar configuration with modern design and enhanced functionality.
+This is an optimized SketchyBar configuration with modern design and enhanced functionality, specifically tuned for MacBook Pro displays.
 
 ## Features
 
 ### Visual Improvements
 - **Modern Color Scheme**: Catppuccin-inspired color palette with proper transparency
-- **Enhanced Bar**: Rounded corners, subtle shadow, better spacing
+- **Adaptive Bar Height**: 32px height optimized for MacBook Pro 14" and 16" displays
 - **Consistent Styling**: All widgets have unified background, corner radius, and spacing
 - **Better Typography**: Uses SF Pro font family for better readability
 
@@ -24,17 +24,27 @@ This is an optimized SketchyBar configuration with modern design and enhanced fu
 #### Right Side (in order)
 - **CPU Usage**: Real-time CPU usage with color-coded levels
 - **Memory Usage**: Memory usage percentage with color indicators
-- **Network Status**: WiFi/Ethernet connection status
+- **Network Status**: Intelligent WiFi/Ethernet connection detection
+  - Cross-platform network interface detection
+  - Shows WiFi network name when available
+  - Fallback support for various Linux distributions
 - **Volume**: System volume with visual levels and color coding
 - **Battery**: Battery percentage with color-coded states and charging indicator
 - **Clock**: Enhanced date and time display
 
 ### Color Coding
-- **Green**: Good status (low CPU/memory usage, full battery, etc.)
+- **Green**: Good status (low CPU/memory usage, full battery, connected)
 - **Yellow**: Warning status (medium usage levels)
 - **Orange**: Moderate concern
-- **Red**: Critical status (high usage, low battery)
+- **Red**: Critical status (high usage, low battery, offline)
 - **Blue**: Charging/active states
+
+## Display Compatibility
+
+The configuration is optimized for:
+- **MacBook Pro 14" and 16"**: 32px bar height with proper gap management
+- **External Monitors**: Consistent 32px gap from Aerospace window manager
+- **Built-in Displays**: No top gap to account for macOS menu bar space
 
 ## Installation
 

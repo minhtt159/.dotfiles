@@ -7,8 +7,8 @@ sketchybar --add item memory right \
                         icon.color=$ACCENT_COLOR \
                         label.font="SF Pro:Medium:13.0" \
                         background.color=$SURFACE0 \
-                        background.corner_radius=8 \
-                        background.height=30 \
+                        background.corner_radius=4 \
+                        background.height=24 \
                         background.drawing=on \
                         script="$PLUGIN_DIR/memory.sh" \
            --subscribe memory system_woke

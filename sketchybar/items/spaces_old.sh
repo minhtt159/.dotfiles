@@ -13,14 +13,14 @@ for sid in $(aerospace list-workspaces --all); do
               icon.highlight_color=$ICON_COLOR \
               background.color=$BLACK \
               background.corner_radius=15 \
-              background.height=30 \
+              background.height=24 \
               background.drawing=off \
               click_script="aerospace workspace $sid" \
               script="$CONFIG_DIR/plugins/aerospacer.sh $sid"
 done
 
               # label.font="sketchybar-app-font:Regular:16.0" \
-              # label.background.height=30                    \
+              # label.background.height=24                    \
               # label.background.drawing=on                   \
               # label.background.color=0xff494d64             \
               # label.background.corner_radius=9              \

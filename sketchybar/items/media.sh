@@ -7,8 +7,8 @@ sketchybar --add item media center \
                        label.font="SF Pro:Medium:13.0" \
                        label.max_chars=30 \
                        background.color=$SURFACE0 \
-                       background.corner_radius=8 \
-                       background.height=30 \
+                       background.corner_radius=4 \
+                       background.height=24 \
                        background.drawing=off \
                        script="$PLUGIN_DIR/media.sh" \
                        update_freq=5 \
