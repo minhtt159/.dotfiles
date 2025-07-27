@@ -70,6 +70,27 @@ sketchybar --reload
 - `items/`: Widget definitions
 - `plugins/`: Widget scripts and logic
 
+## Enhanced Workspace Management
+
+The configuration includes sophisticated Aerospace workspace integration with:
+
+**Visual Features:**
+- **Chinese numerals** (一二三四五...) for elegant workspace indicators
+- **Multi-monitor support** with automatic monitor detection
+- **Smart highlighting**: Active workspace with borders, shadows, and accent colors
+- **Occupancy indicators**: Different styling for empty vs occupied workspaces
+- **Smooth animations** using tanh curves for workspace transitions
+
+**Workspace States:**
+- **Active workspace**: Bright accent color background with white borders and shadow effects
+- **Occupied workspace**: Subtle background with border highlighting 
+- **Empty workspace**: Minimal styling with muted colors
+
+**Multi-Monitor Support:**
+- Automatically detects available monitors using `aerospace list-monitors`
+- Creates workspace indicators for all monitors
+- Maintains consistent styling across displays
+
 ## Performance
 
 All widgets are optimized with appropriate update frequencies:
