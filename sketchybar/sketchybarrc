@@ -64,6 +64,11 @@ sketchybar --default "${default[@]}"
 source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/front_app.sh"
 
+##### Adding Center Items #####
+# Media player widget in the center
+
+source "$ITEM_DIR/media.sh"
+
 ##### Adding Right Items #####
 # In the same way as the left items we can add items to the right side.
 # Additional position (e.g. center) are available, see:
