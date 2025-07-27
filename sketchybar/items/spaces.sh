@@ -7,7 +7,7 @@ source "$CONFIG_DIR/icons.sh"
 sketchybar --add event aerospace_workspace_change
 
 # Workspace configuration with elegant design
-WORKSPACE_ICONS="一 二 三 四 五 六 七 八 九 十"
+WORKSPACE_ICONS="1 2 3 4 5 6 7 8 9 10"
 
 get_workspace_icon() {
   local index=$1
