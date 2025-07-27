@@ -26,8 +26,28 @@ for dump in ~/.zcompdump(N.mh+24); do
 done
 [[ -z "$dump" ]] && compinit -C
 
-# Completion styling
+# Enhanced completion styling for better UX
 zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
+# Ensure cache directory exists
+[[ ! -d ~/.zsh/cache ]] && mkdir -p ~/.zsh/cache
+
+# Group completions by category
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:descriptions' format '%B%d%b'
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format 'No matches for: %d'
+
+# Process completion improvements
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
+zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
 
 # ~~~~~~~~~~~~~~~~~~~~~~ Plugin Loading (Conditional) ~~~~~~~~~~~~~~~~~~~~~~
 # Function to load plugins if they exist
@@ -40,6 +60,17 @@ load_plugin "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 load_plugin "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 load_plugin "$HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
 load_plugin "$XDG_CONFIG_HOME/zsh-z/zsh-z.plugin.zsh"
+
+# ~~~~~~~~~~~~~~~~~~~~~~ Zsh-Autosuggestions Configuration ~~~~~~~~~~~~~~~~~~~~~~
+# Configure autosuggestions for seamless history integration
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#555555,bold"
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ZSH_AUTOSUGGEST_USE_ASYNC=true
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
+# History-based suggestions prioritization
+ZSH_AUTOSUGGEST_HISTORY_IGNORE="(ls|cd|pwd|exit|clear)"
 
 # ~~~~~~~~~~~~~~~~~~~~~~ Completion Setup ~~~~~~~~~~~~~~~~~~~~~~
 # Add homebrew completions if available
@@ -55,17 +86,43 @@ else
   export EDITOR='nvim'
 fi
 
-# Vi mode
-set -o vi
-
-# ~~~~~~~~~~~~~~~~~~~~~ History ~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~ History Configuration ~~~~~~~~~~~~~~~~~~~~~~
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 
+# Enhanced history options for better autosuggestions
 setopt HIST_IGNORE_SPACE
 setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
 setopt SHARE_HISTORY
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+
+# ~~~~~~~~~~~~~~~~~~~~~~ Key Bindings ~~~~~~~~~~~~~~~~~~~~~~
+# Vi mode
+set -o vi
+
+# Key bindings for zsh-autosuggestions (tmux/neovim safe)
+bindkey '^Y' autosuggest-accept              # Ctrl+Y: Accept suggestion
+bindkey '^[[1;3C' autosuggest-accept         # Alt+Right: Accept suggestion
+bindkey '^[[1;3D' autosuggest-clear          # Alt+Left: Clear suggestion
+bindkey '^K' autosuggest-execute             # Ctrl+K: Accept and execute
+
+# History substring search bindings (compatible with tmux)
+bindkey '^P' history-substring-search-up     # Ctrl+P: Search up
+bindkey '^N' history-substring-search-down   # Ctrl+N: Search down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+# Additional useful bindings
+bindkey '^A' beginning-of-line               # Ctrl+A: Beginning of line
+bindkey '^E' end-of-line                     # Ctrl+E: End of line
+bindkey '^U' kill-whole-line                 # Ctrl+U: Kill whole line
+bindkey '^W' backward-kill-word              # Ctrl+W: Kill word backward
 
 # ~~~~~~~~~~~~~~~~~~~~~~ PATH Configuration ~~~~~~~~~~~~~~~~~~~~~~
 # Go environment
@@ -143,10 +200,15 @@ alias x="exit"
 alias reload="source ~/.zshrc"
 alias hc="history -c"
 alias hg="history | grep"
+alias hs="history | grep -i"  # Case-insensitive history search
 alias ls="eza -la --icons --git"
 alias zshconfig="nvim ~/.zshrc"
 alias kdebug='kubectl run bb --image=alpine --rm -it -- sh'
 alias v="nvim"
+
+# History management aliases for multi-tmux workflow
+alias hshare="fc -RI"  # Force reload history from file
+alias hsync="fc -W && fc -R"  # Write current session history and reload all
 
 # Enhanced Brewfile management
 if [[ -f ~/.dotfiles/Brewfile ]]; then
