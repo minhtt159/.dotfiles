@@ -1,10 +1,13 @@
 #!/usr/bin/env sh
 
-# Some items refresh on a fixed cycle, e.g. the clock runs its script once
-# every 10s. Other items respond to events they subscribe to, e.g. the
-# volume.sh script is only executed once an actual change in system audio
-# volume is registered. More info about the event system can be found here:
-# https://felixkratz.github.io/SketchyBar/config/events
-
 sketchybar --add item clock right \
-	--set clock update_freq=30 script="$PLUGIN_DIR/clock.sh"
+           --set clock update_freq=30 \
+                       icon=󰥔 \
+                       icon.font="SF Pro:Semibold:16.0" \
+                       icon.color=$ACCENT_COLOR \
+                       label.font="SF Pro:Medium:13.0" \
+                       background.color=$SURFACE0 \
+                       background.corner_radius=8 \
+                       background.height=30 \
+                       background.drawing=on \
+                       script="$PLUGIN_DIR/clock.sh"

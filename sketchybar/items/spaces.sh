@@ -7,30 +7,27 @@ for sid in $(aerospace list-workspaces --all); do
         --subscribe "space.$sid" aerospace_workspace_change \
         --set "space.$sid" \
               icon="$sid" \
-              icon.width=20 \
-              icon.padding_left=10 \
-              icon.padding_right=10 \
-              icon.highlight_color=$ICON_COLOR \
-              background.color=$BLACK \
-              background.corner_radius=15 \
-              background.height=30 \
-              background.drawing=off \
+              icon.font="SF Pro:Bold:14.0" \
+              icon.width=28 \
+              icon.padding_left=8 \
+              icon.padding_right=8 \
+              icon.color=$GREY \
+              icon.highlight_color=$ACCENT_COLOR \
+              background.color=$SURFACE0 \
+              background.corner_radius=12 \
+              background.height=28 \
+              background.border_width=1 \
+              background.border_color=$SURFACE1 \
+              background.drawing=on \
               click_script="aerospace workspace $sid" \
               script="$CONFIG_DIR/plugins/aerospacer.sh $sid"
 done
 
-              # label.font="sketchybar-app-font:Regular:16.0" \
-              # label.background.height=30                    \
-              # label.background.drawing=on                   \
-              # label.background.color=0xff494d64             \
-              # label.background.corner_radius=9              \
-              # label.drawing=off \
- 
-# sketchybar   --add item       separator left                          \
-#              --set separator  icon=                                  \
-#                               icon.font="Hack Nerd Font:Regular:16.0" \
-#                               background.padding_left=15              \
-#                               background.padding_right=15             \
-#                               label.drawing=off                       \
-#                               associated_display=active               \
-#                               icon.color=$WHITE
+# Add separator for better visual separation
+sketchybar --add item separator left \
+           --set separator icon=│ \
+                          icon.font="SF Pro:Medium:16.0" \
+                          icon.color=$SURFACE2 \
+                          background.padding_left=8 \
+                          background.padding_right=8 \
+                          label.drawing=off

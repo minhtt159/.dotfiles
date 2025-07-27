@@ -1,28 +1,42 @@
 #!/usr/bin/env sh
 
-# Color Palette
-BLACK=0xff181926
-WHITE=0xffcad3f5
-RED=0xffed8796
-GREEN=0xffa6da95
-BLUE=0xff8aadf4
-YELLOW=0xffeed49f
-ORANGE=0xfff5a97f
-MAGENTA=0xffc6a0f6
-GREY=0xff939ab7
+# Modern Color Palette - Catppuccin inspired
+BLACK=0xff11111b
+WHITE=0xffcdd6f4
+RED=0xfff38ba8
+GREEN=0xffa6e3a1
+BLUE=0xff89b4fa
+YELLOW=0xfff9e2af
+ORANGE=0xfffab387
+MAGENTA=0xffcba6f7
+GREY=0xff6c7086
+SURFACE0=0xff313244
+SURFACE1=0xff45475a
+SURFACE2=0xff585b70
 TRANSPARENT=0x00000000
 
-# General bar colors
-# BAR_COLOR=0xcc24273a # Grey bar
-# ICON_COLOR=$RED # Color of all icons
-# LABEL_COLOR=$BLUE # Color of all labels
+# Enhanced bar colors with transparency
+BAR_COLOR=0xe01e1e2e # Modern semi-transparent dark
+ICON_COLOR=$WHITE
+LABEL_COLOR=$WHITE
 
-# Original bar colors
-BAR_COLOR=0x40000000 # Original bar color
-ICON_COLOR=0xffffffff
-LABEL_COLOR=0xffffffff
+# Accent colors for different states
+ACCENT_COLOR=$BLUE
+SUCCESS_COLOR=$GREEN
+WARNING_COLOR=$YELLOW
+ERROR_COLOR=$RED
 
-POPUP_BACKGROUND_COLOR=0xffffffff
-POPUP_BORDER_COLOR=0xffffffff
+# Popup colors
+POPUP_BACKGROUND_COLOR=0xf01e1e2e
+POPUP_BORDER_COLOR=$SURFACE1
 
+# Shadow and highlight
 SHADOW_COLOR=$BLACK
+HIGHLIGHT_COLOR=$SURFACE1
+
+# Battery colors
+BATTERY_100=$GREEN
+BATTERY_75=$YELLOW
+BATTERY_50=$ORANGE
+BATTERY_25=$RED
+BATTERY_CHARGING=$BLUE
