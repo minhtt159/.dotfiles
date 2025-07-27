@@ -108,13 +108,15 @@ set -o vi
 
 # Key bindings for zsh-autosuggestions (tmux/neovim safe)
 bindkey '^Y' autosuggest-accept              # Ctrl+Y: Accept suggestion
-bindkey '^[[1;3C' autosuggest-accept         # Alt+Right: Accept suggestion  
+bindkey '^[[1;3C' autosuggest-accept         # Alt+Right: Accept suggestion
 bindkey '^[[1;3D' autosuggest-clear          # Alt+Left: Clear suggestion
 bindkey '^K' autosuggest-execute             # Ctrl+K: Accept and execute
 
 # History substring search bindings (compatible with tmux)
 bindkey '^P' history-substring-search-up     # Ctrl+P: Search up
 bindkey '^N' history-substring-search-down   # Ctrl+N: Search down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 # Additional useful bindings
 bindkey '^A' beginning-of-line               # Ctrl+A: Beginning of line
