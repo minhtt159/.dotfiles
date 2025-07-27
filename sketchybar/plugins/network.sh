@@ -27,7 +27,7 @@ get_active_interface() {
 check_connectivity() {
   # Try multiple methods to check connectivity
   if command -v ping >/dev/null 2>&1; then
-    ping -c 1 -W 3 1.1.1.1 >/dev/null 2>&1 || ping -c 1 -W 3 8.8.8.8 >/dev/null 2>&1
+    ping -c 1 -W 3 1.1.1.1 >/dev/null 2>&1 || ping -c 1 -W 3 1.0.0.1 >/dev/null 2>&1
   elif command -v curl >/dev/null 2>&1; then
     curl -s --max-time 3 http://www.google.com >/dev/null 2>&1
   elif command -v wget >/dev/null 2>&1; then
@@ -36,6 +36,50 @@ check_connectivity() {
     # Fallback: check if any network interface has an IP
     ifconfig 2>/dev/null | grep -q "inet.*broadcast" || ip addr 2>/dev/null | grep -q "inet.*brd"
   fi
+}
+
+# Function to detect VPN connection
+detect_vpn() {
+  local vpn_interface=""
+  local vpn_type=""
+  
+  # Check for VPN interfaces
+  for iface in $(ifconfig 2>/dev/null | grep "^[a-z]" | cut -d: -f1 | grep -E "(utun|tun|ppp|tap|wg)" | head -5); do
+    if ifconfig "$iface" 2>/dev/null | grep -q "inet "; then
+      vpn_interface="$iface"
+      break
+    fi
+  done
+  
+  # Determine VPN type based on interface name
+  if [ -n "$vpn_interface" ]; then
+    case "$vpn_interface" in
+      utun*) vpn_type="IPSec/IKEv2" ;;
+      tun*) vpn_type="OpenVPN/Tunnel" ;;
+      ppp*) vpn_type="PPP VPN" ;;
+      tap*) vpn_type="TAP VPN" ;;
+      wg*) vpn_type="WireGuard" ;;
+      *) vpn_type="VPN" ;;
+    esac
+    echo "$vpn_type"
+    return 0
+  fi
+  
+  # Check for common VPN processes
+  if pgrep -f "openvpn\|wireguard\|pptp\|l2tp\|sstp" >/dev/null 2>&1; then
+    echo "VPN"
+    return 0
+  fi
+  
+  # Check macOS VPN status using scutil
+  if command -v scutil >/dev/null 2>&1; then
+    if scutil --nc list 2>/dev/null | grep -q "Connected"; then
+      echo "VPN"
+      return 0
+    fi
+  fi
+  
+  return 1
 }
 
 # Function to get WiFi network name
@@ -85,9 +129,26 @@ is_wifi_interface() {
 # Main logic
 if check_connectivity; then
   ACTIVE_IFACE=$(get_active_interface)
+  VPN_STATUS=$(detect_vpn)
   
-  if [ -n "$ACTIVE_IFACE" ] && is_wifi_interface "$ACTIVE_IFACE"; then
-    # WiFi connection
+  if [ -n "$VPN_STATUS" ]; then
+    # VPN is active - show VPN status with underlying connection
+    if [ -n "$ACTIVE_IFACE" ] && is_wifi_interface "$ACTIVE_IFACE"; then
+      WIFI_NAME=$(get_wifi_name "$ACTIVE_IFACE")
+      if [ -n "$WIFI_NAME" ]; then
+        ICON="󰖂"  # VPN + WiFi icon
+        LABEL="$VPN_STATUS + $WIFI_NAME"
+      else
+        ICON="󰖂"
+        LABEL="$VPN_STATUS + WiFi"
+      fi
+    else
+      ICON="󰖂"  # VPN + Ethernet icon
+      LABEL="$VPN_STATUS + Ethernet"
+    fi
+    COLOR=$WARNING_COLOR  # Use warning color for VPN to make it noticeable
+  elif [ -n "$ACTIVE_IFACE" ] && is_wifi_interface "$ACTIVE_IFACE"; then
+    # WiFi connection without VPN
     WIFI_NAME=$(get_wifi_name "$ACTIVE_IFACE")
     if [ -n "$WIFI_NAME" ]; then
       ICON="󰖩"
@@ -99,7 +160,7 @@ if check_connectivity; then
       COLOR=$SUCCESS_COLOR
     fi
   else
-    # Wired/Ethernet connection
+    # Wired/Ethernet connection without VPN
     ICON="󰈀"
     LABEL="Ethernet"
     COLOR=$SUCCESS_COLOR

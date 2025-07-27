@@ -18,6 +18,8 @@ DISK=󰋊
 NETWORK=󰛳
 WIFI=󰖩
 ETHERNET=󰈀
+VPN=󰖂
+OFFLINE=󰌙
 
 # Media Icons
 VOLUME_100=󰕾
