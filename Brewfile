@@ -63,6 +63,7 @@ brew "rustup"
 brew "python@3.12"
 brew "node"
 brew "golang"
+brew "lua"
 
 # ========================== APPLICATIONS ===============================
 cask "karabiner-elements", greedy: true
