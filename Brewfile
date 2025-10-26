@@ -15,6 +15,7 @@ brew "helm"
 brew "helmfile"
 brew "k9s"
 brew "cilium-cli"
+brew "crane"
 
 # Azure
 brew "Azure/kubelogin/kubelogin"
@@ -29,6 +30,7 @@ brew "fluxcd/tap/flux"
 
 # Talos
 brew "siderolabs/tap/talosctl"
+brew "siderolabs/tap/omnictl"
 
 # Terraform
 brew "hashicorp/tap/terraform"
@@ -57,6 +59,7 @@ brew "btop"
 brew "eza"
 brew "rclone"
 brew "unar"
+brew "gnupg"
 
 # ======================= PROGRAMMING LANGUAGES ========================
 brew "rustup"

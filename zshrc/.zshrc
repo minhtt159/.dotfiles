@@ -140,7 +140,7 @@ fi
 
 # Rust
 if command -v rustup &>/dev/null; then
-  path+=("$HOMEBREW_PREFIX/opt/rustup/bin")
+  path+=("$HOMEBREW_PREFIX/opt/rustup/bin" "$HOME/.cargo/bin")
 fi
 
 # ~~~~~~~~~~~~~~~~~~~~~~ Lazy Loading & Tool Configuration ~~~~~~~~~~~~~~~~~~~~~~
