@@ -10,7 +10,7 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 
 -- General keymaps
-keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Directory view" })
+-- keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Directory view" })
 
 -- The Primeagen magic
 keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move this line down 1" })
