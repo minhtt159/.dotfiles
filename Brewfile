@@ -1,7 +1,6 @@
 # =============================== TAPS ===============================
 tap "fluxcd/tap"
 tap "hashicorp/tap"
-tap "Azure/kubelogin"
 tap "FelixKratz/formulae"
 tap "nikitabobko/tap"
 tap "siderolabs/tap"
@@ -16,9 +15,9 @@ brew "helmfile"
 brew "k9s"
 brew "cilium-cli"
 brew "crane"
+brew "kubelogin"
 
 # Azure
-brew "Azure/kubelogin/kubelogin"
 brew "azure-cli"
 
 # AWS
