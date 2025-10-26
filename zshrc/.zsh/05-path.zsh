@@ -6,14 +6,14 @@ if command -v go &>/dev/null; then
   export GOPATH="${GOPATH:-$HOME/go}"
   export GOBIN="$GOPATH/bin"
   export GOROOT="$HOMEBREW_PREFIX/opt/go/libexec"
-  path+="$GOPATH/bin"
-  path+="$GOROOT/bin"
+  path+=( "$GOPATH/bin" )
+  path+=( "$GOROOT/bin" )
 fi
 
 # ~~~~~~~~~~~~~~~~~~~~~~ Rust Environment ~~~~~~~~~~~~~~~~~~~~~~
 if command -v rustup &>/dev/null; then
-  path+="$HOMEBREW_PREFIX/opt/rustup/bin"
-  path+="$HOME/.cargo/bin"
+  path+=( "$HOMEBREW_PREFIX/opt/rustup/bin" )
+  path+=( "$HOME/.cargo/bin" )
 fi
 
 # # ~~~~~~~~~~~~~~~~~~~~~~ Python Environment ~~~~~~~~~~~~~~~~~~~~~~
@@ -30,7 +30,7 @@ fi
 
 # ~~~~~~~~~~~~~~~~~~~~~~ PostgreSQL ~~~~~~~~~~~~~~~~~~~~~~
 if [[ -d "$HOMEBREW_PREFIX/opt/libpq/bin" ]]; then
-  path+=("$HOMEBREW_PREFIX/opt/libpq/bin"
+  path+=("$HOMEBREW_PREFIX/opt/libpq/bin")
 fi
 
 # ~~~~~~~~~~~~~~~~~~~~~~ Docker Desktop ~~~~~~~~~~~~~~~~~~~~~~
@@ -45,7 +45,7 @@ fi
 
 # ~~~~~~~~~~~~~~~~~~~~~~ LM Studio ~~~~~~~~~~~~~~~~~~~~~~
 if [[ -d "$HOME/.lmstudio" ]]; then
-  path=+"$HOME/.lmstudio/bin"
+  path+="$HOME/.lmstudio/bin"
 fi
 
 # ~~~~~~~~~~~~~~~~~~~~~~ Direnv Hook ~~~~~~~~~~~~~~~~~~~~~~
