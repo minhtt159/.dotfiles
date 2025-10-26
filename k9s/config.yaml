@@ -8,7 +8,6 @@ k9s:
     reactive: false
     noIcons: false
   liveViewAutoRefresh: false
-  screenDumpDir: ~/.config/k9s/screen-dumps
   refreshRate: 2
   maxConnRetry: 5
   readOnly: false

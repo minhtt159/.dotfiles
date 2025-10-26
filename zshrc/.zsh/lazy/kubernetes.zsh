@@ -76,6 +76,7 @@ _init_k9s() {
   fi
 
   # k9s doesn't provide shell completion, but we can set aliases
+  export K9S_CONFIG_DIR="${XDG_CONFIG_HOME}/k9s"
   alias k9='k9s'
 }
 
