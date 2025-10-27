@@ -49,6 +49,7 @@ _init_terragrunt() {
     return 1
   fi
  
+  _init_terraform
   autoload -U +X bashcompinit && bashcompinit
   complete -o nospace -C $HOMEBREW_PREFIX/bin/terragrunt terragrunt
  
