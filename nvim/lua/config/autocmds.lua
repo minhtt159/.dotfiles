@@ -65,4 +65,10 @@ vim.filetype.add({
   },
 })
 
+vim.filetype.add({
+  pattern = {
+    ["%.gitlab%-ci%.ya?ml"] = "yaml.gitlab",
+  },
+})
+
 -- vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#ffffff", bg = "#1e1e1e" }) -- Customize border color
