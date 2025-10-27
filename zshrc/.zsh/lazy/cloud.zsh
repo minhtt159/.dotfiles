@@ -11,6 +11,8 @@ _init_aws() {
   # AWS CLI completion
   local aws_completer="$HOMEBREW_PREFIX/bin/aws_completer"
   if [[ -f "$aws_completer" ]]; then
+    autoload -U +X bashcompinit && bashcompinit
+    autoload -Uz compinit && compinit
     complete -C "$aws_completer" aws
   fi
 

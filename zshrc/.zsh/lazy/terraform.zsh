@@ -49,8 +49,8 @@ _init_terragrunt() {
     return 1
   fi
  
-  # Ensure terraform is initialized (terragrunt uses terraform completion)
-  _init_terraform
+  autoload -U +X bashcompinit && bashcompinit
+  complete -o nospace -C $HOMEBREW_PREFIX/bin/terragrunt terragrunt
  
   # Common terragrunt aliases
   alias tg='terragrunt'
