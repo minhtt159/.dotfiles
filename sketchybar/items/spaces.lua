@@ -32,7 +32,8 @@ for i, workspace in ipairs(workspaces) do
 	})
 
 	-- Space change function
-	space:subscribe("aerospace_workspace_change_" .. i, function(env)
+	space:subscribe("aerospace_workspace_change", function(env)
+		-- space:subscribe("aerospace_workspace_change_" .. i, function(env)
 		local selected = env.FOCUSED_WORKSPACE == workspace
 		Sbar:animate("tanh", 15, function()
 			space:set({
