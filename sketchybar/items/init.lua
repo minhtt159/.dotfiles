@@ -1,5 +1,5 @@
+-- Left side
 require("items.spaces")
--- require("items.space_indicators")
 require("items.front_app")
-
+-- Right side
 require("items.widgets")
