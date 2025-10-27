@@ -1,7 +1,6 @@
 local icons = require("icons")
 local colors = require("colors")
 local settings = require("settings")
-local Sbar = require("sketchybar")
 
 local battery = Sbar.add("item", "widgets.battery", {
 	position = "right",

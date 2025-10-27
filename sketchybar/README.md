@@ -20,7 +20,11 @@ The SketchyBar configuration has been converted to use Lua for a more modular an
     ln -s $(pwd)/sketchybar ~/.config/sketchybar
     ```
 
-3.  **Start the bar:**
+3.  Install
+
+(git clone https://github.com/FelixKratz/SbarLua.git /tmp/SbarLua && cd /tmp/SbarLua/ && make install && rm -rf /tmp/SbarLua/)
+
+4.  **Start the bar:**
     The bar can be started by running the `sketchybarrc` script directly.
 
     ```sh
