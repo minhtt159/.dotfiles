@@ -20,9 +20,21 @@ The SketchyBar configuration has been converted to use Lua for a more modular an
     ln -s $(pwd)/sketchybar ~/.config/sketchybar
     ```
 
-3.  Install
+3.  **Install**
 
+```sh
 (git clone https://github.com/FelixKratz/SbarLua.git /tmp/SbarLua && cd /tmp/SbarLua/ && make install && rm -rf /tmp/SbarLua/)
+
+```
+
+4. **Font**
+
+Should read the doc on how to install fonts
+
+```sh
+curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.47/sketchybar-app-font.ttf -o $HOME/Library/Fonts/sketchybar-app-font.ttf
+
+```
 
 4.  **Start the bar:**
     The bar can be started by running the `sketchybarrc` script directly.
