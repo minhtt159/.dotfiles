@@ -1,6 +1,4 @@
-#!/usr/bin/env lua
-
--- TODO: Add this to zshrc
+-- Add the sketchybar module to the package cpath
 package.cpath = package.cpath .. ";/Users/" .. os.getenv("USER") .. "/.local/share/sketchybar_lua/?.so"
 
-require("init")
+os.execute("(cd helpers && make)")

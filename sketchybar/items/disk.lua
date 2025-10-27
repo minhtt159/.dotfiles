@@ -1,6 +1,6 @@
-local sbar = require("sketchybar")
+local Sbar = require("sketchybar")
 
-sbar.add("item", "disk", {
+Sbar.add("item", "disk", {
 	position = "right",
 	icon = { string = icons.DISK },
 	label = { string = "0%" },

@@ -1,6 +1,6 @@
-local sbar = require("sketchybar")
+local Sbar = require("sketchybar")
 
-sbar.add("item", "calendar", {
+Sbar.add("item", "calendar", {
 	position = "right",
 	icon = { string = icons.CALENDAR },
 	label = {
