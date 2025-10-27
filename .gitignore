@@ -17,3 +17,5 @@ btop.conf
 
 # Backup files
 **/*.backup
+
+.luarc.json
