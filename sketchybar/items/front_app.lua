@@ -3,8 +3,10 @@ local app_icons = require("helpers.app_icons")
 local settings = require("settings")
 
 local front_app = Sbar.add("item", "front_app", {
-	display = "active",
+	-- NOTE: only add front_app to active display
+	-- display = "active",
 	icon = {
+		-- custom icon from skeychybar-app-font
 		font = "sketchybar-app-font:Regular:16.0",
 	},
 	label = {
@@ -21,11 +23,13 @@ front_app:subscribe("front_app_switched", function(env)
 	-- Lookup app icon string
 	local lookup = app_icons[env.INFO]
 	front_app:set({
-		label = { string = env.INFO },
-		icon = { string = ((lookup == nil) and app_icons["Default"] or lookup) },
+		icon = {
+			-- custom icon from skeychybar-app-font
+			string = ((lookup == nil) and app_icons["Default"] or lookup),
+		},
+		label = {
+			-- Application name
+			string = env.INFO,
+		},
 	})
 end)
-
--- front_app:subscribe("mouse.clicked", function(env)
--- 	Sbar.trigger("swap_menus_and_spaces")
--- end)
