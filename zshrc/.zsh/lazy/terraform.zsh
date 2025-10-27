@@ -9,7 +9,8 @@ _init_terraform() {
   fi
 
   # Load cached completion
-  _cache_completion "terraform" "terraform -install-autocomplete"
+  autoload -U +X bashcompinit && bashcompinit
+  complete -o nospace -C $HOMEBREW_PREFIX/bin/terraform terraform
 
   # Common terraform aliases
   alias tf='terraform'
