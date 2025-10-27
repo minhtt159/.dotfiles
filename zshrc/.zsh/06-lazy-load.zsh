@@ -22,7 +22,7 @@ lazy_load() {
 _cache_completion() {
   local tool_name="$1"
   local completion_cmd="$2"
-  local cache_dir="$HOME/.zsh/cache/completions"
+  local cache_dir="$ZSH_CACHE_DIR/completions"
   local cache_file="$cache_dir/${tool_name}.zsh"
 
   # Create cache directory if it doesn't exist
@@ -40,7 +40,7 @@ _cache_completion() {
 # ~~~~~~~~~~~~~~~~~~~~~~ Utility Functions ~~~~~~~~~~~~~~~~~~~~~~
 # Clear all completion caches
 clear_completion_cache() {
-  local cache_dir="$HOME/.zsh/cache/completions"
+  local cache_dir="$ZSH_CACHE_DIR/completions"
   if [[ -d "$cache_dir" ]]; then
     rm -rf "$cache_dir"/*
     mkdir -p "$cache_dir"
@@ -53,7 +53,7 @@ clear_completion_cache() {
 # Clear cache for specific tool
 clear_tool_cache() {
   local tool_name="$1"
-  local cache_file="$HOME/.zsh/cache/completions/${tool_name}.zsh"
+  local cache_file="$ZSH_CACHE_DIR/completions/${tool_name}.zsh"
 
   if [[ -f "$cache_file" ]]; then
     rm "$cache_file"
