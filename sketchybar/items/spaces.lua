@@ -1,3 +1,4 @@
+-- ref: https://github.com/FelixKratz/SketchyBar/discussions/599#discussioncomment-10337344
 local colors = require("colors")
 
 local function parse_string_to_table(s)
