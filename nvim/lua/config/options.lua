@@ -84,4 +84,4 @@ opt.inccommand = "split"
 vim.g.lazyvim_picker = "snacks"
 vim.g.lazyvim_blink_main = false
 vim.g.snacks_animate = false
-opt.statuscolumn = "%!v:lua.require'snacks.statuscolumn'.get()"
+-- opt.statuscolumn = "%!v:lua.require'snacks.statuscolumn'.get()"

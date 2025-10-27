@@ -59,6 +59,7 @@ brew "eza"
 brew "rclone"
 brew "unar"
 brew "gnupg"
+brew "gzip"
 
 # ======================= PROGRAMMING LANGUAGES ========================
 brew "rustup"
@@ -112,6 +113,7 @@ brew "lazygit"
 brew "lazydocker"
 brew "kubeconform"
 brew "hadolint"
+brew "tree-sitter-cli"
 
 # ============================= FONTS ===============================
 cask "font-hack-nerd-font", greedy: true

@@ -15,7 +15,9 @@ return {
         "yaml",
         "lua",
         "query",
+        "sql",
         -- Editor
+        "comment",
         "markdown",
         "markdown_inline",
         -- Langs
@@ -25,6 +27,7 @@ return {
         "rust",
         "dockerfile",
         -- Web bros
+        "gotmpl",
         "templ",
         "html",
         "tsx",
