@@ -32,9 +32,9 @@ for i, workspace in ipairs(workspaces) do
 	})
 
 	-- Space change function
-	space:subscribe("aerospace_workspace_change", function(env)
+	space:subscribe("aerospace_workspace_change_" .. i, function(env)
 		local selected = env.FOCUSED_WORKSPACE == workspace
-		Sbar:animate("circ", 15, function()
+		Sbar:animate("tanh", 15, function()
 			space:set({
 				icon = { width = selected and 31 or 7 },
 				background = {
