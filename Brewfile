@@ -16,6 +16,7 @@ brew "k9s"
 brew "cilium-cli"
 brew "crane"
 brew "kubelogin"
+brew "kustomize"
 
 # Azure
 brew "azure-cli"
@@ -81,6 +82,7 @@ cask "microsoft-azure-storage-explorer", greedy: true
 cask "windows-app", greedy: true
 cask "mongodb-compass", greedy: true
 brew "mongosh"
+cask "raycast", greedy: true
 
 # Editors & Terminal
 brew "tmux"
