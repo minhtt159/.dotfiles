@@ -70,7 +70,7 @@ brew "golang"
 brew "lua"
 
 # ========================== APPLICATIONS ===============================
-cask "karabiner-elements", greedy: true
+# cask "karabiner-elements", greedy: true
 cask "1password-cli", greedy: true
 cask "1password", greedy: true
 cask "pgadmin4", greedy: true
@@ -91,7 +91,7 @@ cask "ghostty", greedy: true
 cask "obsidian", greedy: true
 cask "visual-studio-code", greedy: true
 cask "sublime-text", greedy: true
-cask "zed", greedy: true
+# cask "zed", greedy: true
 
 # SketchyBar
 brew "sketchybar"

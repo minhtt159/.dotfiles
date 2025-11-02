@@ -1,3 +1,5 @@
 config-file = ?colorscheme.conf
 config-file = ?font.conf
 config-file = ?window.conf
+
+command = $HOME/.config/scripts/open-terminal.zsh
