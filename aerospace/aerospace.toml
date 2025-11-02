@@ -7,7 +7,7 @@ exec-on-workspace-change = ['/opt/homebrew/bin/bash', '-c',
 ]
 
 # Layouts
-accordion-padding = 300
+accordion-padding = 250 # Just enough to see Outlook new email notification
 default-root-container-layout = 'tiles' # 'tiles|accordion'
 default-root-container-orientation = 'auto' # 'horizontal|vertical|auto'
 
