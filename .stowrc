@@ -3,3 +3,4 @@
 --ignore=.DS_Store
 --ignore=md
 --ignore=Brew.*
+--ignore=defaults
