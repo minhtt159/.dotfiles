@@ -53,7 +53,7 @@ cpu:subscribe("cpu_update", function(env)
 	})
 end)
 
-cpu:subscribe("mouse.clicked", function(env)
+cpu:subscribe("mouse.clicked", function(_)
 	Sbar.exec("open -a 'Activity Monitor'")
 end)
 
