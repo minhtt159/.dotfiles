@@ -28,3 +28,7 @@ defaults write com.apple.finder "ShowRemovableMediaOnDesktop" -bool "false"
 
 # -- Spaces
 defaults write com.apple.spaces spans-displays -bool false
+
+# -- Window
+# NOTE: Ctrl + Cmd to drag window to anywhere
+defaults write -g NSWindowShouldDragOnGesture -bool true
