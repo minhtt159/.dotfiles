@@ -130,7 +130,7 @@ if [[ -f "$HOME/.dotfiles/Brewfile" ]]; then
  
     echo "✅ Brewup completed successfully!"
   }
-  
+
   # Quick brew bundle install
   alias brewi="brew bundle --file=$HOME/.dotfiles/Brewfile"
 fi

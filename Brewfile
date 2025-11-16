@@ -10,7 +10,7 @@ tap "mongodb/brew"
 # Kubernetes
 brew "kubernetes-cli"
 brew "kubectx"
-brew "helm"
+brew "helm@3"
 brew "helmfile"
 brew "k9s"
 brew "cilium-cli"
@@ -42,6 +42,9 @@ brew "trivy"
 
 # Container Tools
 cask "freelens", greedy: true
+
+# Cloudflare
+brew "cloudflared"
 
 # ========================== SYSTEM & UTILITIES =========================
 brew "direnv"
