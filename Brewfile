@@ -10,7 +10,7 @@ tap "mongodb/brew"
 # Kubernetes
 brew "kubernetes-cli"
 brew "kubectx"
-brew "helm@3"
+brew "helm"
 brew "helmfile"
 brew "k9s"
 brew "cilium-cli"
