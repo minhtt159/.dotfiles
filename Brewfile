@@ -71,6 +71,7 @@ brew "python@3.12"
 brew "node"
 brew "golang"
 brew "lua"
+brew "protobuf"
 
 # ========================== APPLICATIONS ===============================
 # cask "karabiner-elements", greedy: true
@@ -86,6 +87,7 @@ cask "windows-app", greedy: true
 cask "mongodb-compass", greedy: true
 brew "mongosh"
 cask "raycast", greedy: true
+cask "slack", greedy: true
 
 # Editors & Terminal
 brew "tmux"

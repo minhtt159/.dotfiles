@@ -1,6 +1,5 @@
 return {
-  -- NOTE: most of the plugins are installed with
-  -- lazyvim.plugins.extras.lang.go
+  -- NOTE: most of the plugins are installed with lazyvim.plugins.extras.lang.go
   -- https://www.lazyvim.org/extras/lang/go
   {
     "ray-x/go.nvim",

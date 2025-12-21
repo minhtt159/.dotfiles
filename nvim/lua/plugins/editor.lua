@@ -1,23 +1,6 @@
 return {
   -- NOTE: https://www.lazyvim.org/plugins/editor
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    opts = {
-      filesystem = {
-        filtered_items = {
-          visible = true,
-          hide_dotfiles = false,
-          hide_gitignored = false,
-          never_show = {
-            ".git",
-            ".DS_Store",
-            "thumbs.db",
-          },
-        },
-      },
-    },
-  },
-  {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     -- will be disabled when mini-diffs is enabled
     "lewis6991/gitsigns.nvim",

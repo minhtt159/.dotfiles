@@ -31,7 +31,6 @@ require("lazy").setup({
       import = "lazyvim.plugins",
     },
     -- import any extras modules here
-    { import = "lazyvim.plugins.extras.editor.leap" },
     { import = "lazyvim.plugins.extras.coding.luasnip" },
     -- AI
     { import = "lazyvim.plugins.extras.ai.copilot" },
@@ -60,8 +59,6 @@ require("lazy").setup({
     { import = "plugins" },
     -- Custom language plugins
     { import = "plugins.lang" },
-    -- Custom mini
-    { import = "plugins.mini" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -77,8 +74,8 @@ require("lazy").setup({
     notify = false,
   },
   checker = {
-    enabled = true,
-    notify = false,
+    enabled = true, -- check for plugin updates periodically
+    notify = false, -- notify on update
   }, -- automatically check for plugin updates
   performance = {
     rtp = {
