@@ -32,6 +32,7 @@ require("lazy").setup({
     },
     -- import any extras modules here
     { import = "lazyvim.plugins.extras.coding.luasnip" },
+    { import = "lazyvim.plugins.extras.coding.blink" },
     -- AI
     { import = "lazyvim.plugins.extras.ai.copilot" },
     { import = "lazyvim.plugins.extras.ai.copilot-chat" },
