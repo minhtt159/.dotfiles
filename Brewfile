@@ -67,7 +67,7 @@ brew "gzip"
 
 # ======================= PROGRAMMING LANGUAGES ========================
 brew "rustup"
-brew "python@3.12"
+brew "python"
 brew "node"
 brew "golang"
 brew "lua"
@@ -81,7 +81,6 @@ cask "pgadmin4", greedy: true
 cask "tg-pro", greedy: true
 cask "nikitabobko/tap/aerospace", greedy: true
 cask "docker-desktop", greedy: true
-cask "postman", greedy: true
 cask "microsoft-azure-storage-explorer", greedy: true
 cask "windows-app", greedy: true
 cask "mongodb-compass", greedy: true
@@ -95,8 +94,7 @@ brew "neovim"
 cask "ghostty", greedy: true
 cask "obsidian", greedy: true
 cask "visual-studio-code", greedy: true
-cask "sublime-text", greedy: true
-# cask "zed", greedy: true
+cask "zed", greedy: true
 
 # SketchyBar
 brew "sketchybar"
