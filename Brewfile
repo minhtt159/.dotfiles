@@ -23,7 +23,6 @@ brew "azure-cli"
 
 # AWS
 brew "awscli"
-cask "session-manager-plugin", greedy: true
 
 # Flux CD
 brew "fluxcd/tap/flux"
