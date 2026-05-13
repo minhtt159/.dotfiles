@@ -1,12 +1,8 @@
-# .dotfiles
-
-My personal dotfiles for macOS.
-
-## SketchyBar
+# SketchyBar
 
 The SketchyBar configuration has been converted to use Lua for a more modular and maintainable setup, inspired by `FelixKratz/dotfiles`.
 
-### Installation and Usage
+## Installation and Usage
 
 1.  **Ensure SketchyBar is installed:**
 
@@ -32,8 +28,9 @@ The SketchyBar configuration has been converted to use Lua for a more modular an
 Should read the doc on how to install fonts
 
 ```sh
-curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.47/sketchybar-app-font.ttf -o $HOME/Library/Fonts/sketchybar-app-font.ttf
-
+curl -s https://api.github.com/repos/kvndrsslr/sketchybar-app-font/releases/latest | \
+  jq -r '.assets[] | select(.name == "sketchybar-app-font.ttf").browser_download_url' | \
+  xargs -n1 curl -L -o $HOME/Library/Fonts/sketchybar-app-font.ttf
 ```
 
 4.  **Start the bar:**
@@ -49,7 +46,7 @@ curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.
     ~/.config/sketchybar/sketchybarrc &
     ```
 
-### Structure
+## Structure
 
 - `sketchybar/sketchybarrc`: Main executable script that launches the Lua configuration.
 - `sketchybar/init.lua`: The entry point for the Lua configuration. It loads all other modules.
