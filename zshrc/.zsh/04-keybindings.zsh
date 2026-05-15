@@ -20,7 +20,13 @@ bindkey '^Y' yank                            # Ctrl+Y: Paste (yank)
 # ~~~~~~~~~~~~~~~~~~~~~~ History Navigation ~~~~~~~~~~~~~~~~~~~~~~
 bindkey '^P' history-substring-search-up     # Ctrl+P: Search history up
 bindkey '^N' history-substring-search-down   # Ctrl+N: Search history down
-bindkey '^R' history-incremental-search-backward  # Ctrl+R: Reverse search
+
+# Ctrl+R: Use television if available, otherwise fall back to incremental search
+# Note: tv init zsh (loaded in 02-plugins.zsh) registers its own ctrl-r binding.
+# This fallback only applies when tv is not installed.
+if ! command -v tv &>/dev/null; then
+  bindkey '^R' history-incremental-search-backward  # Ctrl+R: Reverse search
+fi
 
 # Vi mode history navigation
 bindkey -M vicmd 'k' history-substring-search-up
