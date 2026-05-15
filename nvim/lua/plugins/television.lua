@@ -1,52 +1,115 @@
 return {
   {
-    -- NOTE: https://github.com/alexpasmantier/television.nvim
-    "alexpasmantier/television.nvim",
-    version = "*",
-    build = ":TVInstallBinary",
+    -- NOTE: https://github.com/alexpasmantier/tv.nvim
+    -- Thin Lua wrapper around the `tv` binary — tv must be in PATH
+    "alexpasmantier/tv.nvim",
     event = "VeryLazy",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    opts = {
-      backend = {
-        log_level = "warn",
-      },
-      ui = {
-        -- Size of the television floating window (as a fraction of the screen)
-        width = 0.85,
-        height = 0.85,
-        border = "rounded",
-        -- Automatically hide preview panel on narrow screens
-        preview_hidden_above_width = 100,
-      },
-      -- Channels available in the switcher (prefix+T remote control)
-      channels = {
-        "files",
-        "git-repos",
-        "git-branch",
-        "git-log",
-        "git-diff",
-        "diagnostics",
-        "lsp-references",
-        "lsp-definitions",
-        "lsp-symbols",
-        "buffers",
-        "command-history",
-        "env",
-      },
-    },
-    keys = {
-      { "<leader>tv", "<cmd>Television<cr>",                desc = "Television (all channels)" },
-      { "<leader>tf", "<cmd>Television files<cr>",          desc = "Television: Files" },
-      { "<leader>tg", "<cmd>Television text-search<cr>",    desc = "Television: Text Search" },
-      { "<leader>tb", "<cmd>Television buffers<cr>",        desc = "Television: Buffers" },
-      { "<leader>tG", "<cmd>Television git-repos<cr>",      desc = "Television: Git Repos" },
-      { "<leader>tB", "<cmd>Television git-branch<cr>",     desc = "Television: Git Branches" },
-      { "<leader>tl", "<cmd>Television git-log<cr>",        desc = "Television: Git Log" },
-      { "<leader>td", "<cmd>Television diagnostics<cr>",    desc = "Television: Diagnostics" },
-      { "<leader>tr", "<cmd>Television lsp-references<cr>", desc = "Television: LSP References" },
-      { "<leader>ts", "<cmd>Television lsp-symbols<cr>",    desc = "Television: LSP Symbols" },
-    },
+    config = function()
+      local h = require("tv").handlers
+
+      require("tv").setup({
+        -- tv binary is assumed to always be available in PATH (installed via Homebrew)
+        tv_binary = "tv",
+
+        -- Default layout for channels that don't override it
+        layout = "landscape",
+
+        -- Floating window defaults
+        window = {
+          width = 0.85,
+          height = 0.85,
+          border = "rounded",
+          title = " tv ",
+          title_pos = "center",
+        },
+
+        -- Global keybinding to open the channel selector
+        global_keybindings = {
+          channels = "<leader>tv",
+        },
+
+        -- ~~~~~~~~~~~~~~~~~~~~~~ Channel Configuration ~~~~~~~~~~~~~~~~~~~~~~
+        channels = {
+          -- Files
+          files = {
+            keybinding = "<leader>tf",
+            args = { "--no-remote", "--no-status-bar", "--preview-size", "70" },
+            handlers = {
+              ["<CR>"]  = h.open_as_files,
+              ["<C-v>"] = h.open_in_vsplit,
+              ["<C-x>"] = h.open_in_split,
+              ["<C-q>"] = h.send_to_quickfix,
+              ["<C-y>"] = h.copy_to_clipboard,
+            },
+          },
+
+          -- Full-text search (ripgrep)
+          text = {
+            keybinding = "<leader>tg",
+            args = { "--no-remote", "--no-status-bar", "--preview-size", "70" },
+            handlers = {
+              ["<CR>"]  = h.open_at_line,
+              ["<C-v>"] = h.open_in_vsplit,
+              ["<C-x>"] = h.open_in_split,
+              ["<C-q>"] = h.send_to_quickfix,
+            },
+          },
+
+          -- Git
+          ["git-branch"] = {
+            keybinding = "<leader>tB",
+            handlers = {
+              ["<CR>"] = h.execute_shell_command("git checkout $1"),
+            },
+          },
+          ["git-log"] = {
+            keybinding = "<leader>tl",
+            handlers = {
+              ["<CR>"] = h.open_in_scratch,
+            },
+          },
+          ["git-diff"] = {
+            keybinding = "<leader>td",
+            handlers = {
+              ["<CR>"] = h.open_at_line,
+            },
+          },
+          ["git-repos"] = {
+            keybinding = "<leader>tG",
+            handlers = {
+              ["<CR>"] = h.execute_shell_command("nvim $1"),
+            },
+          },
+
+          -- Zsh command history
+          ["zsh-history"] = {
+            keybinding = "<leader>th",
+            handlers = {
+              ["<CR>"] = h.insert_on_new_line,
+              ["<C-i>"] = h.insert_at_cursor,
+              ["<C-y>"] = h.copy_to_clipboard,
+            },
+          },
+
+          -- Environment variables
+          env = {
+            keybinding = "<leader>te",
+            handlers = {
+              ["<CR>"] = h.insert_at_cursor,
+              ["<C-y>"] = h.copy_to_clipboard,
+            },
+          },
+
+          -- Diagnostics (lsp errors/warnings)
+          diagnostics = {
+            keybinding = "<leader>tD",
+            handlers = {
+              ["<CR>"] = h.open_at_line,
+              ["<C-q>"] = h.send_to_quickfix,
+            },
+          },
+        },
+      })
+    end,
   },
 }
