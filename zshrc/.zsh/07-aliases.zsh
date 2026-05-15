@@ -17,6 +17,18 @@ alias hs="history | grep -i"  # Case-insensitive history search
 alias hshare="fc -RI"  # Force reload history from file
 alias hsync="fc -W && fc -R"  # Write current session history and reload all
 
+# ~~~~~~~~~~~~~~~~~~~~~~ Television (tv) Aliases ~~~~~~~~~~~~~~~~~~~~~~
+if command -v tv &>/dev/null; then
+  alias tvf="tv files"             # Browse files
+  alias tvd="tv dirs"              # Browse directories
+  alias tvg="tv git-repos"         # Browse git repos
+  alias tvb="tv git-branch"        # Browse git branches
+  alias tvl="tv git-log"           # Browse git log
+  alias tvh="tv command-history"   # Browse command history
+  alias tve="tv env"               # Browse environment variables
+  alias tvk="tv kubernetes-resources" # Browse k8s resources
+fi
+
 # ~~~~~~~~~~~~~~~~~~~~~~ File Listing (eza) ~~~~~~~~~~~~~~~~~~~~~~
 if command -v eza &>/dev/null; then
   alias ls="eza --icons --git"

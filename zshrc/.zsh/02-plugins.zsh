@@ -35,5 +35,12 @@ load_plugin "$HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-sub
 # ~~~~~~~~~~~~~~~~~~~~~~ Zsh-z (Directory Jumping) ~~~~~~~~~~~~~~~~~~~~~~
 load_plugin "$XDG_CONFIG_HOME/zsh-z/zsh-z.plugin.zsh"
 
+# ~~~~~~~~~~~~~~~~~~~~~~ Television (tv) Shell Integration ~~~~~~~~~~~~~~~~~~~~~~
+# Registers ctrl-t (smart autocomplete) and ctrl-r (command history via tv)
+# Must be loaded last so tv bindings take precedence
+if command -v tv &>/dev/null; then
+  eval "$(tv init zsh)"
+fi
+
 # ~~~~~~~~~~~~~~~~~~~~~~ Cleanup ~~~~~~~~~~~~~~~~~~~~~~
 unfunction load_plugin

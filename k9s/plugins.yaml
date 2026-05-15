@@ -1,0 +1,37 @@
+# k9s plugins powered by television (tv)
+# https://k9scli.io/topics/plugins/
+plugins:
+
+  # Fuzzy-switch kubectl context using television
+  switch-context:
+    shortCut: Ctrl-X
+    description: "Switch Context (tv)"
+    scopes:
+      - all
+    command: bash
+    background: false
+    confirm: false
+    args:
+      - -c
+      - |
+        ctx=$(kubectl config get-contexts -o name | tv --no-preview 2>/dev/null)
+        if [ -n "$ctx" ]; then
+          kubectl config use-context "$ctx"
+        fi
+
+  # Fuzzy-switch current namespace using television
+  switch-namespace:
+    shortCut: Ctrl-N
+    description: "Switch Namespace (tv)"
+    scopes:
+      - all
+    command: bash
+    background: false
+    confirm: false
+    args:
+      - -c
+      - |
+        ns=$(kubectl get ns -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' | tv --no-preview 2>/dev/null)
+        if [ -n "$ns" ]; then
+          kubectl config set-context --current --namespace="$ns"
+        fi
