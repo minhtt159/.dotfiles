@@ -59,25 +59,29 @@ return {
           ["git-branch"] = {
             keybinding = "<leader>tB",
             handlers = {
-              ["<CR>"] = h.execute_shell_command("git checkout $1"),
+              ["<CR>"] = h.execute_shell_command("git checkout {}"),
+              ["<C-y>"] = h.copy_to_clipboard,
             },
           },
           ["git-log"] = {
             keybinding = "<leader>tl",
             handlers = {
               ["<CR>"] = h.open_in_scratch,
+              ["<C-y>"] = h.copy_to_clipboard,
             },
           },
           ["git-diff"] = {
             keybinding = "<leader>td",
             handlers = {
               ["<CR>"] = h.open_at_line,
+              ["<C-q>"] = h.send_to_quickfix,
             },
           },
           ["git-repos"] = {
             keybinding = "<leader>tG",
             handlers = {
-              ["<CR>"] = h.execute_shell_command("nvim $1"),
+              ["<CR>"] = h.execute_shell_command("nvim {}"),
+              ["<C-y>"] = h.copy_to_clipboard,
             },
           },
 
@@ -85,7 +89,7 @@ return {
           ["zsh-history"] = {
             keybinding = "<leader>th",
             handlers = {
-              ["<CR>"] = h.insert_on_new_line,
+              ["<CR>"]  = h.insert_on_new_line,
               ["<C-i>"] = h.insert_at_cursor,
               ["<C-y>"] = h.copy_to_clipboard,
             },
@@ -95,7 +99,7 @@ return {
           env = {
             keybinding = "<leader>te",
             handlers = {
-              ["<CR>"] = h.insert_at_cursor,
+              ["<CR>"]  = h.insert_at_cursor,
               ["<C-y>"] = h.copy_to_clipboard,
             },
           },
@@ -104,7 +108,7 @@ return {
           diagnostics = {
             keybinding = "<leader>tD",
             handlers = {
-              ["<CR>"] = h.open_at_line,
+              ["<CR>"]  = h.open_at_line,
               ["<C-q>"] = h.send_to_quickfix,
             },
           },
