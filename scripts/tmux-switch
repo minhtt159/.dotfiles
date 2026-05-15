@@ -10,10 +10,9 @@ fi
 current=$(tmux display-message -p '#S')
 
 selected=$(
-  tmux list-sessions -F '#{session_name}|#{session_windows} windows|#{session_attached}' \
-    | awk -F'|' '{ attached=($3=="1" ? " (attached)" : ""); printf "%-20s  %s%s\n", $1, $2, attached }' \
-    | tv --input stdin \
-    | awk '{ print $1 }'
+  tmux list-sessions -F '#{session_name}|#{session_windows} windows|#{session_attached}' |
+    awk -F'|' '{ attached=($3=="1" ? " (attached)" : ""); printf "%-20s  %s%s\n", $1, $2, attached }' |
+    tv | awk '{ print $1 }'
 )
 
 if [[ -z "$selected" ]] || [[ "$selected" == "$current" ]]; then
