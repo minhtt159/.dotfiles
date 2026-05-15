@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# tmux-switch: select a tmux session using television (tv)
+# Bound to prefix + s in tmux.conf
+
+# Require an active tmux server
+if ! tmux list-sessions &>/dev/null 2>&1; then
+  exit 0
+fi
+
+current=$(tmux display-message -p '#S')
+
+selected=$(
+  tmux list-sessions -F '#{session_name}|#{session_windows} windows|#{session_attached}' \
+    | awk -F'|' '{ attached=($3=="1" ? " (attached)" : ""); printf "%-20s  %s%s\n", $1, $2, attached }' \
+    | tv --input stdin \
+    | awk '{ print $1 }'
+)
+
+if [[ -z "$selected" ]] || [[ "$selected" == "$current" ]]; then
+  exit 0
+fi
+
+tmux switch-client -t "$selected"
