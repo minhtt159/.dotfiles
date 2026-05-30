@@ -15,15 +15,24 @@ zstyle ':vcs_info:git*' actionformats '%F{14}⏱ %*%f'
 zstyle ':vcs_info:git*' unstagedstr '*'
 zstyle ':vcs_info:git*' stagedstr '+'
 
-# Optimize for performance - only check changes in small repos
+# Hook to run before each prompt
+# Cache the du result per directory so it only runs once when you cd into a repo,
+# not on every single prompt render.
+_vcs_last_dir=""
+_vcs_large_repo=0
+
 _vcs_info_wrapper() {
   if [[ -d .git ]]; then
-    # Check repo size - skip change detection for large repos (>10MB)
-    local git_dir_size=$(du -s .git 2>/dev/null | awk '{print $1}')
-    if [[ ${git_dir_size:-0} -lt 10000 ]]; then
-      zstyle ':vcs_info:*:*' check-for-changes true
-    else
+    if [[ "$PWD" != "$_vcs_last_dir" ]]; then
+      _vcs_last_dir="$PWD"
+      local git_dir_size
+      git_dir_size=$(du -s .git 2>/dev/null | awk '{print $1}')
+      _vcs_large_repo=$(( ${git_dir_size:-0} >= 10000 ))
+    fi
+    if (( _vcs_large_repo )); then
       zstyle ':vcs_info:*:*' check-for-changes false
+    else
+      zstyle ':vcs_info:*:*' check-for-changes true
     fi
   fi
   vcs_info

@@ -63,14 +63,16 @@ brew "rclone"
 brew "unar"
 brew "gnupg"
 brew "gzip"
+brew "libpq"
+brew "bat"
 
 # ======================= PROGRAMMING LANGUAGES ========================
 brew "rustup"
-brew "python"
-brew "node"
 brew "golang"
 brew "lua"
 brew "protobuf"
+brew "nvm"
+brew "uv"
 
 # ========================== APPLICATIONS ===============================
 # cask "karabiner-elements", greedy: true

@@ -16,7 +16,7 @@ load_plugin() {
 if load_plugin "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"; then
   # Configuration
   ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#555555,bold"
-  ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+  ZSH_AUTOSUGGEST_STRATEGY=(history)
   ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
   ZSH_AUTOSUGGEST_USE_ASYNC=true
   ZSH_AUTOSUGGEST_MANUAL_REBIND=1
@@ -34,13 +34,6 @@ load_plugin "$HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-sub
 
 # ~~~~~~~~~~~~~~~~~~~~~~ Zsh-z (Directory Jumping) ~~~~~~~~~~~~~~~~~~~~~~
 load_plugin "$XDG_CONFIG_HOME/zsh-z/zsh-z.plugin.zsh"
-
-# ~~~~~~~~~~~~~~~~~~~~~~ Television (tv) Shell Integration ~~~~~~~~~~~~~~~~~~~~~~
-# Registers ctrl-t (smart autocomplete) and ctrl-r (command history via tv)
-# Must be loaded last so tv bindings take precedence
-if command -v tv &>/dev/null; then
-  eval "$(tv init zsh)"
-fi
 
 # ~~~~~~~~~~~~~~~~~~~~~~ Cleanup ~~~~~~~~~~~~~~~~~~~~~~
 unfunction load_plugin

@@ -99,6 +99,10 @@ alias myip="curl -s ifconfig.me"
 alias localip="ipconfig getifaddr en0"
 alias ports="lsof -i -P -n | grep LISTEN"
 
+# ~~~~~~~~~~~~~~~~~~~~~~ Dev Runtime Updates ~~~~~~~~~~~~~~~~~~~~~~
+alias dev-update="source $HOME/.dotfiles/scripts/dev-update"
+alias devup="dev-update"
+
 # ~~~~~~~~~~~~~~~~~~~~~~ Brewfile Management ~~~~~~~~~~~~~~~~~~~~~~
 if [[ -f "$HOME/.dotfiles/Brewfile" ]]; then
   brewup() {

@@ -1,0 +1,62 @@
+#!/usr/bin/env zsh
+# dev-update: Update all language runtime managers
+# Usage: dev-update [python|node|rust|all]
+
+_devup_python() {
+  echo "🐍 Updating Python (uv)..."
+  if ! command -v uv &>/dev/null; then
+    echo "   ⚠️  uv not found, skipping"
+    return
+  fi
+  echo "   Installed Python versions:"
+  uv python list --only-installed 2>/dev/null | sed 's/^/   /'
+  echo "   ✅ Python done"
+}
+
+_devup_node() {
+  echo "🟩 Updating Node (nvm)..."
+  export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
+  local nvm_sh="$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
+  if [[ ! -s "$nvm_sh" ]]; then
+    echo "   ⚠️  nvm not found, skipping"
+    return
+  fi
+  source "$nvm_sh"
+  nvm install --lts
+  nvm alias default 'lts/*'
+  echo "   Active version: $(node --version 2>/dev/null)"
+  echo "   ✅ Node done"
+}
+
+_devup_rust() {
+  echo "🦀 Updating Rust (rustup)..."
+  if ! command -v rustup &>/dev/null; then
+    echo "   ⚠️  rustup not found, skipping"
+    return
+  fi
+  rustup update
+  echo "   Active toolchain: $(rustup show active-toolchain 2>/dev/null)"
+  echo "   ✅ Rust done"
+}
+
+# ── Main ──────────────────────────────────────────────────────────────────────
+local target="${1:-all}"
+
+case "$target" in
+  python) _devup_python ;;
+  node)   _devup_node ;;
+  rust)   _devup_rust ;;
+  all)
+    _devup_python
+    echo ""
+    _devup_node
+    echo ""
+    _devup_rust
+    echo ""
+    echo "🎉 All runtimes updated!"
+    ;;
+  *)
+    echo "Usage: dev-update [python|node|rust|all]"
+    return 1
+    ;;
+esac

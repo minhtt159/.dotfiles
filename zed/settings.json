@@ -1,4 +1,5 @@
 {
+  "icon_theme": "Zed (Default)",
   "vim_mode": true,
   "telemetry": {
     "diagnostics": false,
@@ -6,7 +7,11 @@
   },
   "soft_wrap": "editor_width",
   "base_keymap": "VSCode",
-  "theme": "Catppuccin Mocha",
+  "theme": {
+    "mode": "dark",
+    "light": "Ayu Dark",
+    "dark": "Ayu Dark"
+  },
   "ui_font_size": 15,
   "buffer_font_size": 14.0,
   "buffer_font_family": "Hack Nerd Font",

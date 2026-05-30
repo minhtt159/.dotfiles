@@ -1,6 +1,6 @@
 # ZSH Autosuggestions Integration
 
-This document explains the zsh-autosuggestions integration implemented in the dotfiles for seamless multi-tmux session workflows.
+This document explains the zsh-autosuggestions integration in the dotfiles for seamless multi-tmux session workflows.
 
 ## Key Features
 
@@ -9,41 +9,48 @@ This document explains the zsh-autosuggestions integration implemented in the do
 - **100,000 history entries** per session
 - **Immediate sharing** across all tmux sessions
 - **Duplicate removal** for cleaner history
-- **Smart filtering** of common commands
+- **Smart filtering** of common commands (`ls`, `cd`, `pwd`, `exit`, `clear`)
 
-### Safe Key Bindings
+### Key Bindings
 
-All key bindings are chosen to avoid conflicts with tmux (Ctrl-B prefix) and neovim:
+All bindings are chosen to avoid conflicts with tmux (Ctrl-B prefix) and neovim.
+Line editing uses **vim mode** (`set -o vi` in `03-options.zsh`).
 
-- `Ctrl+Y` - Accept suggestion
-- `Alt+Right` - Accept suggestion (alternative)
-- `Alt+Left` - Clear suggestion
-- `Ctrl+K` - Accept and execute
-- `Ctrl+P/N` - History search up/down
+| Key | Mode | Action |
+|-----|------|--------|
+| `Ctrl+Space` | Insert | Accept autosuggestion |
+| `Alt+Right` | Insert | Accept autosuggestion (alternative) |
+| `Alt+Left` | Insert | Clear autosuggestion |
+| `Ctrl+P` / `Ctrl+N` | Insert | History search up/down |
+| `k` / `j` | Normal (vicmd) | History search up/down |
+| `/` | Normal (vicmd) | Incremental history search backward |
+| `Ctrl+Right` | Insert | Move forward one word |
+| `Ctrl+Left` | Insert | Move backward one word |
+| `Tab` / `Shift+Tab` | Insert | Complete / reverse complete |
+
+In normal (vicmd) mode, all standard vim motions apply: `0`, `^`, `$`, `w`, `b`, `e`, `d`, `c`, etc.
 
 ### Multi-Tmux Aliases
 
-- `hshare` - Force reload history from file
-- `hsync` - Write and reload all history
-- `hs` - Case-insensitive history search
+- `hshare` — Force reload history from file (see commands from other sessions)
+- `hsync` — Write current session history and reload all
+- `hs` — Case-insensitive history search
 
-## Configuration Files
+## Configuration
 
-- `zshrc/.zshrc` - Main configuration (Homebrew-based setup)
-
-Both files include identical autosuggestions and history configurations for consistency.
+Plugin config lives in `zshrc/.zsh/02-plugins.zsh`, key bindings in `zshrc/.zsh/04-keybindings.zsh`.
 
 ## Usage Tips
 
-1. **History sync between sessions**: Use `hshare` to see commands from other tmux sessions
-2. **Manual sync**: Use `hsync` when you want your commands visible in other sessions immediately
-3. **Quick accept**: `Ctrl+Y` is the fastest way to accept suggestions
-4. **Partial accept**: Use `Alt+Right` for word-by-word acceptance
+1. **History sync between sessions**: Use `hshare` to see commands from other tmux panes
+2. **Manual sync**: Use `hsync` to make your commands visible in other sessions immediately
+3. **Quick accept**: `Ctrl+Space` accepts the full suggestion
+4. **Partial accept**: `Alt+Right` for word-by-word acceptance
 5. **Clear unwanted**: `Alt+Left` clears suggestions that aren't helpful
 
-## Performance Optimizations
+## Performance Notes
 
-- Async autosuggestions prevent blocking
-- Completion caching reduces lookup time
-- History buffer size limited to 20 chars for responsiveness
-- Smart command filtering reduces noise in suggestions
+- **Async mode** (`ZSH_AUTOSUGGEST_USE_ASYNC=true`) — suggestions never block the prompt
+- **History-only strategy** — the completion engine is not invoked on every keypress
+- **Buffer cap** at 20 chars — avoids slow lookups for long commands
+- **Manual rebind** (`ZSH_AUTOSUGGEST_MANUAL_REBIND=1`) — prevents double-binding when `tv` rewrites keymaps after plugin load

@@ -23,6 +23,7 @@ config_files=(
   "$ZSH_CONFIG_DIR/06-lazy-load.zsh"
   "$ZSH_CONFIG_DIR/07-aliases.zsh"
   "$ZSH_CONFIG_DIR/08-prompt.zsh"
+  "$ZSH_CONFIG_DIR/09-compinit.zsh"
 )
 
 for config_file in $config_files; do
