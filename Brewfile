@@ -88,6 +88,7 @@ cask "mongodb-compass", greedy: true
 brew "mongosh"
 cask "raycast", greedy: true
 cask "slack", greedy: true
+cask "claude-code", greedy: true
 
 # Editors & Terminal
 brew "tmux"

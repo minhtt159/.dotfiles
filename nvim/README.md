@@ -36,33 +36,36 @@ nvim/
 Leader key: `<Space>`
 
 ### Navigation (via snacks picker)
-| Key | Action |
-|-----|--------|
-| `<leader><space>` | Find files |
-| `<leader>/` | Grep (live) |
-| `<leader>ff` | Find files |
-| `<leader>fg` | Live grep |
-| `<leader>fb` | Buffers |
+
+| Key               | Action      |
+| ----------------- | ----------- |
+| `<leader><space>` | Find files  |
+| `<leader>/`       | Grep (live) |
+| `<leader>ff`      | Find files  |
+| `<leader>fg`      | Live grep   |
+| `<leader>fb`      | Buffers     |
 
 ### Television (tv.nvim)
-| Key | Action |
-|-----|--------|
-| `<leader>tv` | Channel selector |
-| `<leader>tf` | Files channel |
+
+| Key          | Action            |
+| ------------ | ----------------- |
+| `<leader>tv` | Channel selector  |
+| `<leader>tf` | Files channel     |
 | `<leader>tg` | Text/grep channel |
-| `<leader>tB` | Git branches |
-| `<leader>tl` | Git log |
-| `<leader>td` | Git diff |
-| `<leader>tG` | Git repos |
-| `<leader>th` | Zsh history |
-| `<leader>te` | Env vars |
-| `<leader>tD` | LSP diagnostics |
+| `<leader>tB` | Git branches      |
+| `<leader>tl` | Git log           |
+| `<leader>td` | Git diff          |
+| `<leader>tG` | Git repos         |
+| `<leader>th` | Zsh history       |
+| `<leader>te` | Env vars          |
+| `<leader>tD` | LSP diagnostics   |
 
 ### Custom keymaps
-| Key | Mode | Action |
-|-----|------|--------|
-| `J` / `K` | Visual | Move selected lines down/up |
-| `<Esc>` | Normal | Clear search highlight |
+
+| Key          | Mode   | Action                           |
+| ------------ | ------ | -------------------------------- |
+| `J` / `K`    | Visual | Move selected lines down/up      |
+| `<Esc>`      | Normal | Clear search highlight           |
 | `<leader>cd` | Normal | Show diagnostics float (LazyVim) |
 
 Arrow keys in normal mode print a reminder to use hjkl.
@@ -71,14 +74,14 @@ Arrow keys in normal mode print a reminder to use hjkl.
 
 All managed by mason.nvim. Runtime dependencies:
 
-| Tool | Runtime |
-|------|---------|
-| gopls, gofumpt, goimports, golangci-lint, gomodifytags, impl, templ | Go (compiled) |
-| ruff, black | Python (black uses mason venv) |
+| Tool                                                                                                                                                  | Runtime                          |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| gopls, gofumpt, goimports, golangci-lint, gomodifytags, impl, templ                                                                                   | Go (compiled)                    |
+| ruff, black                                                                                                                                           | Python (black uses mason venv)   |
 | pyright, yaml-language-server, json-lsp, html-lsp, prettier, dockerfile-language-server, docker-compose-language-service, tailwindcss-language-server | **Node** (requires node on PATH) |
-| lua-language-server | Compiled (bash wrapper) |
-| stylua, htmx-lsp, gitlab-ci-ls | Rust (compiled) |
-| shfmt, helm-ls, terraform-ls, tflint | Go (compiled) |
+| lua-language-server                                                                                                                                   | Compiled (bash wrapper)          |
+| stylua, htmx-lsp, gitlab-ci-ls                                                                                                                        | Rust (compiled)                  |
+| shfmt, helm-ls, terraform-ls, tflint                                                                                                                  | Go (compiled)                    |
 
 > Node LSPs use the default nvm node bootstrapped to PATH at shell init (see `zshrc/lazy/node.zsh`).
 > Python LSPs (`pyright`, `ruff`) resolve the interpreter via `VIRTUAL_ENV` when a `.venv` is active.
