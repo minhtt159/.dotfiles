@@ -89,6 +89,7 @@ brew "mongosh"
 cask "raycast", greedy: true
 cask "slack", greedy: true
 cask "claude-code", greedy: true
+cask "claude", greedy: true
 
 # Editors & Terminal
 brew "tmux"
