@@ -13,7 +13,7 @@ This directory contains modular zsh configuration files for better organization 
 ├── 03-options.zsh           # Shell options and history
 ├── 04-keybindings.zsh       # Key bindings
 ├── 05-path.zsh              # PATH configuration
-├── 06-lazy-load.zsh         # Lazy loading framework + eval cache
+├── 06-lazy-load.zsh         # Lazy loading framework + completion cache
 ├── 07-aliases.zsh           # Aliases and utility functions
 ├── 08-prompt.zsh            # Prompt configuration
 ├── 09-compinit.zsh          # Deferred compinit (must run last)
@@ -22,7 +22,8 @@ This directory contains modular zsh configuration files for better organization 
     ├── docker.zsh           # docker, lazydocker
     ├── cloud.zsh            # aws, az
     ├── terraform.zsh        # terraform, terragrunt
-    ├── talos.zsh            # talosctl, omnictl, flux
+    ├── talos.zsh            # talosctl, omnictl
+    ├── flux.zsh             # flux
     ├── node.zsh             # nvm, node, npm, npx (+ .nvmrc auto-switch)
     └── python.zsh           # uv, uvx, python, pip (+ .venv/.python-version auto-switch)
 ```
@@ -59,7 +60,7 @@ Tools in the `lazy/` directory are loaded on-demand:
 
 - **Faster startup**: Tools only initialize when first used
 - **Cached completions**: Completions generated once and cached to disk
-- **Cached evals**: `direnv` and `tv` init output cached by version (see `_cache_eval` in `06-lazy-load.zsh`)
+- **Cached evals**: `direnv` and `tv` init output cached, rebuilt when the tool binary changes (see `_cache_eval` in `00-init.zsh`)
 - **Automatic aliases**: Useful shortcuts created on first use
 - **Easy maintenance**: Each tool's configuration is isolated
 
@@ -127,7 +128,7 @@ Expected startup times with current optimizations:
 Key optimizations in place:
 
 - `compinit` deferred to `09-compinit.zsh` — runs after all fpath additions, cached for 24h
-- `tv init` and `direnv hook` outputs cached via `_cache_eval` (invalidated on version change)
+- `tv init` and `direnv hook` outputs cached via `_cache_eval` (invalidated when the tool binary changes)
 - All heavy tools (kubectl, helm, nvm, docker, etc.) lazy-loaded on first use
 - `vcs_info` `du` check cached per directory, not per prompt render
 

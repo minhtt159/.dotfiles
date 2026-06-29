@@ -11,8 +11,9 @@ _init_aws() {
   # AWS CLI completion
   local aws_completer="$HOMEBREW_PREFIX/bin/aws_completer"
   if [[ -f "$aws_completer" ]]; then
+    # compinit already ran at startup (09-compinit.zsh); only bashcompinit is
+    # needed here for the `complete -C` builtin.
     autoload -U +X bashcompinit && bashcompinit
-    autoload -Uz compinit && compinit
     complete -C "$aws_completer" aws
   fi
 
@@ -28,10 +29,11 @@ _init_az() {
     return 1
   fi
 
-  # Azure CLI completion (uses bash completion)
+  # Azure CLI completion: the script is a zsh-aware argcomplete `#compdef` that
+  # uses native `compdef` (provided by the startup compinit), not bash `complete`,
+  # so bashcompinit is not needed here.
   local az_completion="$HOMEBREW_PREFIX/etc/bash_completion.d/az"
   if [[ -f "$az_completion" ]]; then
-    autoload -U +X bashcompinit && bashcompinit
     source "$az_completion" 2>/dev/null
   fi
 

@@ -115,22 +115,20 @@ if [[ -f "$HOME/.dotfiles/Brewfile" ]]; then
       return 1
     fi
  
-    # Update Homebrew itself
+    # Force fresh metadata (bundle's own auto-update is throttled ~24h)
     echo "📦 Updating Homebrew..."
     brew update || echo "⚠️  Homebrew update failed, continuing anyway..."
- 
-    # Install/update packages from Brewfile
+
+    # Install + upgrade all Brewfile entries — incl. greedy casks (every cask
+    # is greedy: true) — so a separate `brew upgrade --greedy` is redundant.
+    # NO_AUTO_UPDATE: we just ran `brew update`, skip bundle's repeat.
     echo "🔄 Processing Brewfile..."
-    brew bundle --file="$brewfile" || echo "⚠️  Some packages failed to install/update"
- 
-    # Clean up unused dependencies
+    HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --file="$brewfile" || echo "⚠️  Some packages failed to install/update"
+
+    # Remove anything not in the Brewfile (also prunes untracked taps)
     echo "🧹 Cleaning up unused packages..."
     brew bundle cleanup --file="$brewfile" --force --quiet
- 
-    # Update all formulas and casks (including greedy casks)
-    echo "⬆️  Upgrading all packages..."
-    brew upgrade --greedy || echo "⚠️  Some packages failed to upgrade"
- 
+
     # Run maintenance tasks
     echo "🔧 Running maintenance..."
     brew cleanup --prune=7 --quiet

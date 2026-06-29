@@ -54,5 +54,5 @@ curl -s https://api.github.com/repos/kvndrsslr/sketchybar-app-font/releases/late
 - `sketchybar/icons.lua`: Defines all icons.
 - `sketchybar/settings.lua`: Contains default settings for items.
 - `sketchybar/bar.lua`: Configures the main bar properties.
-- `sketchybar/items/`: This directory contains individual Lua files for each bar item (e.g., `clock.lua`, `cpu.lua`).
-- `sketchybar/plugins/`: This directory contains the shell scripts that fetch dynamic data for the bar items. These are called by the Lua item configurations.
+- `sketchybar/items/`: Individual Lua files for each bar item (e.g., `front_app.lua`, `spaces.lua`). Widget items live in `items/widgets/` (e.g., `cpu.lua`, `calendar.lua`, `battery.lua`, `volume.lua`, `wifi.lua`).
+- `sketchybar/helpers/event_providers/`: C event providers (`cpu_load`, `network_load`) compiled to `bin/` binaries that emit periodic events, spawned by the Lua item configs via `Sbar.exec()`. The only shell helper is `helpers/icon_map.sh`.

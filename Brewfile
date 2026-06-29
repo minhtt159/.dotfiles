@@ -1,10 +1,9 @@
 # =============================== TAPS ===============================
-tap "fluxcd/tap"
-tap "hashicorp/tap"
-tap "FelixKratz/formulae"
-tap "nikitabobko/tap"
-tap "siderolabs/tap"
-tap "mongodb/brew"
+tap "fluxcd/tap", trusted: { formula: ["flux"] }
+tap "hashicorp/tap", trusted: { formula: ["terraform", "terraform-ls"] }
+tap "FelixKratz/formulae", trusted: { formula: ["sketchybar"] }
+tap "nikitabobko/tap", trusted: { cask: ["aerospace"] }
+tap "siderolabs/tap", trusted: { formula: ["talosctl", "omnictl"] }
 
 # ========================== DEVOPS & CLOUD ==========================
 # Kubernetes
@@ -90,6 +89,9 @@ cask "raycast", greedy: true
 cask "slack", greedy: true
 cask "claude-code", greedy: true
 cask "claude", greedy: true
+cask "android-studio", greedy: true
+cask "android-commandlinetools", greedy: true
+cask "bitwarden", greedy: true
 
 # Editors & Terminal
 brew "tmux"
@@ -112,6 +114,8 @@ brew "zsh-syntax-highlighting"
 # Git Tools
 brew "commitizen"
 brew "pre-commit"
+brew "glab"
+brew "gh"
 
 # Editor Tools (Neovim ecosystem)
 brew "fzf"

@@ -5,6 +5,9 @@
 # Vi mode for command line editing
 set -o vi
 
+# Cut the ESC -> command-mode disambiguation lag (default 40cs = 400ms)
+KEYTIMEOUT=10
+
 # Change directory without cd command
 setopt AUTO_CD
 

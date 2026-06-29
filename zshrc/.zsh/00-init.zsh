@@ -37,16 +37,18 @@ _cache_eval() {
   local init_cmd="$2"
   local cache_dir="$ZSH_CACHE_DIR/init"
   local cache_file="$cache_dir/${tool_name}.zsh"
-  local version_file="$cache_dir/${tool_name}.version"
 
   [[ ! -d "$cache_dir" ]] && mkdir -p "$cache_dir"
 
-  local current_version
-  current_version=$(command "$tool_name" --version 2>/dev/null | head -1)
-
-  if [[ ! -f "$cache_file" ]] || [[ "$(cat "$version_file" 2>/dev/null)" != "$current_version" ]]; then
+  # Rebuild only if the cache is missing or the tool binary is newer than it.
+  # `-nt` follows the symlink to the real Cellar binary, whose mtime brew bumps
+  # on upgrade — so this invalidates on upgrade without exec'ing `tool --version`
+  # on every startup (~17ms saved per shell).
+  local tool_bin
+  tool_bin=$(command -v "$tool_name" 2>/dev/null)
+  if [[ ! -f "$cache_file" || -z "$tool_bin" || "$tool_bin" -nt "$cache_file" ]]; then
     eval "$init_cmd" > "$cache_file" 2>/dev/null
-    echo "$current_version" > "$version_file"
+    touch "$cache_file"
   fi
 
   [[ -f "$cache_file" ]] && source "$cache_file"
