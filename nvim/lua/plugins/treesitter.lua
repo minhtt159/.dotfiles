@@ -31,10 +31,6 @@ return {
         -- "javascript",
         "typescript",
       },
-      ignore_install = { "tex", "latex" },
-      -- Autoinstall languages that are not installed
-      sync_install = false,
-      auto_install = true,
     },
   },
   {

@@ -2,17 +2,6 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
-vim.api.nvim_create_autocmd("TextYankPost", {
-  desc = "Highlight when yanking (copying) text",
-  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
-
 -- disable completion on markdown files by default
 -- vim.api.nvim_create_autocmd("FileType", {
 --   group = vim.api.nvim_create_augroup("disable-cmp-by-ft", { clear = true }),
@@ -22,14 +11,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 --   end,
 -- })
 
-local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.go",
-  callback = function()
-    require("go.format").goimports() -- goimports + gofmt
-  end,
-  group = format_sync_grp,
-})
+-- Go + Terraform format-on-save is handled by LazyVim/conform; only templ
+-- needs a custom hook (templ fmt has no conform formatter).
+local format_sync_grp = vim.api.nvim_create_augroup("TemplFormat", { clear = true })
 
 -- Custom format for Templ
 local custom_format = function()

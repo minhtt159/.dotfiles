@@ -17,8 +17,7 @@ keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move this line down 1" })
 keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move this line up 1" })
 -- NOTE: Telescope has Alt+J and Alt+K, but Aerospace uses it
 
--- Clear highlight
-keymap.set("n", "<Esc>", ":nohl<CR>", { desc = "Clear highlight" })
+-- Clear highlight: LazyVim's default <Esc> already runs :noh (and stops snippets)
 
 -- Diagnostic keymaps
 -- LazyVim -> <leader>cd

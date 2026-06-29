@@ -14,8 +14,10 @@ return {
     "snacks.nvim",
     opts = {
       picker = {
-        hidden = true, -- for hidden files
-        ignored = true, -- for .gitignore files
+        sources = {
+          files = { hidden = true, ignored = true }, -- show dotfiles + gitignored
+          grep = { hidden = true, ignored = true },
+        },
       },
     },
   },

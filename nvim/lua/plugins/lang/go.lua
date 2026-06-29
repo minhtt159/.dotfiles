@@ -11,8 +11,7 @@ return {
     config = function()
       require("go").setup()
     end,
-    event = { "CmdlineEnter" },
-    ft = { "go", "gomod" },
+    ft = { "go", "gomod", "gowork", "gotmpl" },
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
   {
@@ -21,7 +20,19 @@ return {
       servers = {
         tailwindcss = {
           -- NOTE: eventually I will have a different JS.lua
-          filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+          -- extend, don't replace, the default filetypes; "react" is not a real ft
+          filetypes = {
+            "templ",
+            "astro",
+            "html",
+            "css",
+            "javascript",
+            "typescript",
+            "javascriptreact",
+            "typescriptreact",
+            "vue",
+            "svelte",
+          },
           init_options = {
             userLanguages = {
               templ = "html",
