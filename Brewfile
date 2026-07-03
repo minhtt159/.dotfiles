@@ -74,14 +74,12 @@ brew "nvm"
 brew "uv"
 
 # ========================== APPLICATIONS ===============================
-# cask "karabiner-elements", greedy: true
 cask "1password-cli", greedy: true
 cask "1password", greedy: true
 cask "pgadmin4", greedy: true
 cask "tg-pro", greedy: true
 cask "nikitabobko/tap/aerospace", greedy: true
 cask "docker-desktop", greedy: true
-cask "microsoft-azure-storage-explorer", greedy: true
 cask "windows-app", greedy: true
 cask "mongodb-compass", greedy: true
 brew "mongosh"
@@ -92,6 +90,7 @@ cask "claude", greedy: true
 cask "android-studio", greedy: true
 cask "android-commandlinetools", greedy: true
 cask "bitwarden", greedy: true
+brew "kcat"
 
 # Editors & Terminal
 brew "tmux"

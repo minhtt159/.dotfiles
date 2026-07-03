@@ -15,8 +15,10 @@ return {
     opts = {
       picker = {
         sources = {
+          -- each source defaults hidden/ignored to false, so set per-source
           files = { hidden = true, ignored = true }, -- show dotfiles + gitignored
           grep = { hidden = true, ignored = true },
+          explorer = { hidden = true, ignored = true }, -- the sidebar tree
         },
       },
     },
