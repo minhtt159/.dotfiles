@@ -76,6 +76,7 @@ brew "uv"
 # ========================== APPLICATIONS ===============================
 cask "1password-cli", greedy: true
 cask "1password", greedy: true
+brew "bitwarden-cli"
 cask "pgadmin4", greedy: true
 cask "tg-pro", greedy: true
 cask "nikitabobko/tap/aerospace", greedy: true
