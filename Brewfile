@@ -16,6 +16,7 @@ brew "cilium-cli"
 brew "crane"
 brew "kubelogin"
 brew "kustomize"
+brew "cosign"
 
 # Azure
 brew "azure-cli"
@@ -92,6 +93,7 @@ cask "android-studio", greedy: true
 cask "android-commandlinetools", greedy: true
 cask "bitwarden", greedy: true
 brew "kcat"
+cask "tigervnc-viewer"
 
 # Editors & Terminal
 brew "tmux"
