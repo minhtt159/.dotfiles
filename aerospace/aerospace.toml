@@ -1,3 +1,6 @@
+# Config version (opt into latest behavior; silences reload-config deprecation warning)
+config-version = 2
+
 # -- Start AeroSpace & Sketchybar at login
 start-at-login = true
 after-startup-command = ['exec-and-forget sketchybar']
@@ -23,7 +26,7 @@ automatically-unhide-macos-hidden-apps = false
 
 # Floating finder
 [[on-window-detected]]
-if.app-name-regex-substring = 'finder'
+if = 'test %{app-bundle-id} = com.apple.finder'
 run = 'layout floating'
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
