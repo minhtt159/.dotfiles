@@ -93,7 +93,7 @@ cask "android-studio", greedy: true
 cask "android-commandlinetools", greedy: true
 cask "bitwarden", greedy: true
 brew "kcat"
-cask "tigervnc-viewer"
+cask "tigervnc"
 
 # Editors & Terminal
 brew "tmux"
@@ -118,6 +118,7 @@ brew "commitizen"
 brew "pre-commit"
 brew "glab"
 brew "gh"
+brew "tea"
 
 # Editor Tools (Neovim ecosystem)
 brew "fzf"
