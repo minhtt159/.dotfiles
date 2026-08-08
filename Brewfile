@@ -17,6 +17,7 @@ brew "crane"
 brew "kubelogin"
 brew "kustomize"
 brew "cosign"
+brew "kubectl-cnpg"
 
 # Azure
 brew "azure-cli"
