@@ -95,13 +95,13 @@ cask "android-commandlinetools", greedy: true
 cask "bitwarden", greedy: true
 brew "kcat"
 cask "tigervnc"
+cask "mactex-no-gui"
 
 # Editors & Terminal
 brew "tmux"
 brew "neovim"
 cask "ghostty", greedy: true
 cask "obsidian", greedy: true
-cask "visual-studio-code", greedy: true
 cask "zed", greedy: true
 
 # SketchyBar
