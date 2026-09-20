@@ -82,6 +82,8 @@ brew "bitwarden-cli"
 cask "pgadmin4", greedy: true
 cask "tg-pro", greedy: true
 cask "nikitabobko/tap/aerospace", greedy: true
+# Not greedy: `auto_updates true`, and a brew reinstall deletes
+# /Library/PrivilegedHelperTools/com.docker.{socket,vmnetd} -> sudo prompt.
 cask "docker-desktop"
 cask "mongodb-compass", greedy: true
 brew "mongosh"
@@ -138,5 +140,8 @@ brew "shellcheck"
 # ============================= FONTS ===============================
 cask "font-hack-nerd-font", greedy: true
 cask "font-jetbrains-mono-nerd-font", greedy: true
+# Not greedy: `version :latest` cannot be version-compared, so greedy reinstalled
+# this .pkg (and asked for the admin password) on EVERY brewup.
 cask "font-sf-pro"
+# Not greedy: .pkg install needs sudo, and the app self-updates.
 cask "sf-symbols"
