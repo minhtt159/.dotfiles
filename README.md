@@ -13,6 +13,12 @@ stow .
 
 # Pull submodules (tmux plugins etc.)
 git submodule update --init --recursive
+
+# Stow targets ~/.config, so the two zsh files that must sit in $HOME are
+# symlinked by hand. .zshenv carries the XDG_* exports and is read by every
+# zsh, including the non-interactive ones that never source .zshrc.
+ln -s ~/.dotfiles/zshrc/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/zshrc/.zshenv ~/.zshenv
 ```
 
 ## Structure

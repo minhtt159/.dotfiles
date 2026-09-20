@@ -11,7 +11,9 @@ lazy_load() {
   eval "
     $cmd() {
       unfunction $cmd
-      $init_func
+      # Claude Code's shell snapshot restores this stub but not the
+      # underscore-prefixed init function, so guard before calling it.
+      (( \$+functions[$init_func] )) && $init_func
       $cmd \"\$@\"
     }
   "
