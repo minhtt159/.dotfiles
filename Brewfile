@@ -82,8 +82,7 @@ brew "bitwarden-cli"
 cask "pgadmin4", greedy: true
 cask "tg-pro", greedy: true
 cask "nikitabobko/tap/aerospace", greedy: true
-cask "docker-desktop", greedy: true
-cask "windows-app", greedy: true
+cask "docker-desktop"
 cask "mongodb-compass", greedy: true
 brew "mongosh"
 cask "raycast", greedy: true
@@ -92,10 +91,13 @@ cask "claude-code", greedy: true
 cask "claude", greedy: true
 cask "android-studio", greedy: true
 cask "android-commandlinetools", greedy: true
+brew "xcodegen"
+brew "swiftlint"
 cask "bitwarden", greedy: true
 brew "kcat"
 cask "tigervnc"
 cask "mactex-no-gui"
+brew "hugo"
 
 # Editors & Terminal
 brew "tmux"
@@ -131,9 +133,10 @@ brew "lazydocker"
 brew "kubeconform"
 brew "hadolint"
 brew "tree-sitter-cli"
+brew "shellcheck"
 
 # ============================= FONTS ===============================
 cask "font-hack-nerd-font", greedy: true
 cask "font-jetbrains-mono-nerd-font", greedy: true
-cask "font-sf-pro", greedy: true
-cask "sf-symbols", greedy: true
+cask "font-sf-pro"
+cask "sf-symbols"
