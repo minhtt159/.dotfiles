@@ -2,9 +2,9 @@
 # Initialize core environment variables and Homebrew
 
 # ~~~~~~~~~~~~~~~~~~~~~~ XDG Base Directory Specification ~~~~~~~~~~~~~~~~~~~~~~
-export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
-export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
-export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+# Moved to ~/.zshenv (zshrc/.zshenv): .zshrc is interactive-only, so setting them
+# here left XDG_CONFIG_HOME unset in non-interactive shells and sent tea/glab/op
+# to ~/Library/Application Support.
 export ZSH_CACHE_DIR="${HOME}/.zsh/cache"
 [[ ! -d "$ZSH_CACHE_DIR" ]] && mkdir -p "$ZSH_CACHE_DIR"
 

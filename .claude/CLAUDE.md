@@ -1,6 +1,11 @@
 # Machine-wide Claude Code rules (symlinked to ~/.claude/CLAUDE.md via .dotfiles)
 
-- Shell: this machine's login shell is **zsh**; the Bash tool runs plain `/bin/bash` (no
-  profile). When a command needs my login config — `tea`, aliases, PATH from `.zshrc` — wrap it:
-  `zsh -lic '<command>'`. Symptom of a missing profile: `_init_uv: command not found` noise or
-  a CLI reporting "not logged in" despite valid config.
+- Shell: the Bash tool runs **`/bin/zsh` as a login, non-interactive shell** (`$-` =
+  `0569BEJNXghkl` — has `l`, no `i`). So `~/.zshenv` and `~/.zprofile` load, `~/.zshrc`
+  does not. Exported environment belongs in `zshrc/.zshenv` (symlinked to `~/.zshenv`)
+  so every shell gets it; `~/.config`-based CLIs like `tea`, `glab` and `op` depend on
+  `XDG_CONFIG_HOME` being set there, or they read macOS's
+  `~/Library/Application Support` and report themselves as logged out.
+- Only wrap a command as `zsh -lic '<command>'` when it genuinely needs something
+  `.zshrc` defines — an alias or a shell function (`brewup`, `dev-update`, the `tv*`
+  aliases). Plain binaries and env vars do not need the wrapper.
