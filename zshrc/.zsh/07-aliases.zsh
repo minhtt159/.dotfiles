@@ -119,8 +119,7 @@ if [[ -f "$HOME/.dotfiles/Brewfile" ]]; then
     echo "📦 Updating Homebrew..."
     brew update || echo "⚠️  Homebrew update failed, continuing anyway..."
 
-    # Install + upgrade all Brewfile entries — incl. greedy casks (every cask
-    # is greedy: true) — so a separate `brew upgrade --greedy` is redundant.
+    # Install + upgrade all Brewfile entries, honouring per-cask `greedy: true`.
     # --force-cleanup (brew 7): then remove anything not in the Brewfile (incl.
     # untracked taps, trust store reset) in the same run, reusing the parsed
     # Brewfile. Cleanup is skipped if install fails, so a partial run never prunes.
@@ -128,6 +127,13 @@ if [[ -f "$HOME/.dotfiles/Brewfile" ]]; then
     echo "🔄 Processing Brewfile..."
     HOMEBREW_NO_AUTO_UPDATE=1 brew bundle install --file="$brewfile" --force-cleanup ||
       echo "⚠️  Some packages failed to install/update (cleanup skipped)"
+
+    # Bundle only upgrades Brewfile entries; a dependency whose parents are all
+    # current (libuv, glib, …) stays outdated. Catch those here. Formula-only so
+    # non-greedy casks (docker-desktop, font-sf-pro) keep Brewfile semantics.
+    echo "⬆️  Upgrading outdated dependencies..."
+    HOMEBREW_NO_AUTO_UPDATE=1 brew upgrade --formula --yes ||
+      echo "⚠️  Some dependencies failed to upgrade"
 
     # Run maintenance tasks
     echo "🔧 Running maintenance..."
