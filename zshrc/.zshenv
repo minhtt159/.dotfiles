@@ -14,3 +14,10 @@
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
+
+# Language tooling data -> XDG (uv already follows XDG on its own)
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export PYTHON_HISTORY="$XDG_STATE_HOME/python/history"
+# export NVM_DIR="$XDG_DATA_HOME/nvm"   # only after: mv ~/.nvm "$XDG_DATA_HOME/nvm"

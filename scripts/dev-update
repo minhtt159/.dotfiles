@@ -8,6 +8,7 @@ _devup_python() {
     echo "   ⚠️  uv not found, skipping"
     return
   fi
+  uv python upgrade
   echo "   Installed Python versions:"
   uv python list --only-installed 2>/dev/null | sed 's/^/   /'
   echo "   ✅ Python done"

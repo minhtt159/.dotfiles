@@ -1,37 +1,7 @@
 # lazy/node.zsh - Node.js / NVM Lazy Loading
-# Lazy load nvm, node, npm, and npx
+# Lazy load nvm; node/npm/npx already resolve via PATH
 
-# ~~~~~~~~~~~~~~~~~~~~~~ Bootstrap Default Node on PATH ~~~~~~~~~~~~~~~~~~~~~~
-# Resolve nvm's default alias without loading nvm, so node is always available
-# (needed for neovim LSPs like yaml-language-server, prettier, etc.)
-_nvm_bootstrap_path() {
-  local nvm_dir="${NVM_DIR:-$HOME/.nvm}"
-  [[ ! -d "$nvm_dir/versions/node" ]] && return
-
-  # Resolve default -> lts/* -> lts/name -> version
-  local alias_file="$nvm_dir/alias/default"
-  [[ ! -f "$alias_file" ]] && return
-
-  local ref version
-  ref=$(cat "$alias_file")
-
-  # Follow alias chain (max 3 hops: default -> lts/* -> lts/name -> vX.Y.Z)
-  local i=0
-  while [[ $i -lt 3 ]]; do
-    local alias_path="$nvm_dir/alias/$ref"
-    if [[ -f "$alias_path" ]]; then
-      ref=$(cat "$alias_path")
-      (( i++ ))
-    else
-      break
-    fi
-  done
-
-  version="$ref"
-  local node_bin="$nvm_dir/versions/node/$version/bin"
-  [[ -d "$node_bin" ]] && path=("$node_bin" $path) && export _NVM_DEFAULT_BIN="$node_bin"
-}
-_nvm_bootstrap_path
+# Default node is put on PATH by ~/.zprofile (every login shell).
 
 # ~~~~~~~~~~~~~~~~~~~~~~ NVM Initialization ~~~~~~~~~~~~~~~~~~~~~~
 _init_nvm() {
@@ -70,13 +40,13 @@ _nvm_auto_use() {
 
   if [[ -n "$nvmrc" ]]; then
     # Trigger lazy init if nvm isn't a real function yet
-    if ! type nvm 2>/dev/null | grep -q "nvm_version"; then
+    if (( ! $+functions[nvm_version] )); then
       _init_nvm
     fi
     nvm use --silent 2>/dev/null || nvm use default --silent 2>/dev/null
   else
     # Only restore default if nvm is already loaded
-    if type nvm 2>/dev/null | grep -q "nvm_version"; then
+    if (( $+functions[nvm_version] )); then
       nvm use default --silent 2>/dev/null
     fi
   fi
@@ -87,5 +57,3 @@ add-zsh-hook chpwd _nvm_auto_use
 
 # ~~~~~~~~~~~~~~~~~~~~~~ Register Lazy Loaders ~~~~~~~~~~~~~~~~~~~~~~
 lazy_load nvm _init_nvm
-lazy_load npm _init_nvm
-lazy_load npx _init_nvm
