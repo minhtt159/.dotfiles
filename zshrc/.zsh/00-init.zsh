@@ -13,7 +13,11 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # ~~~~~~~~~~~~~~~~~~~~~~ Homebrew Setup ~~~~~~~~~~~~~~~~~~~~~~
-if [[ -f "/opt/homebrew/bin/brew" ]]; then
+# Normally done by ~/.zprofile; re-running here would push brew back ahead of
+# nvm/uv. Only a non-login shell without an inherited env gets here.
+if [[ -n "$HOMEBREW_PREFIX" ]]; then
+  :
+elif [[ -f "/opt/homebrew/bin/brew" ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 elif [[ -f "/usr/local/bin/brew" ]]; then
   eval "$(/usr/local/bin/brew shellenv)"
