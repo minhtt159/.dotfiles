@@ -119,15 +119,15 @@ if [[ -f "$HOME/.dotfiles/Brewfile" ]]; then
     echo "📦 Updating Homebrew..."
     brew update || echo "⚠️  Homebrew update failed, continuing anyway..."
 
-    # Install + upgrade all Brewfile entries — incl. greedy casks (every cask
-    # is greedy: true) — so a separate `brew upgrade --greedy` is redundant.
-    # NO_AUTO_UPDATE: we just ran `brew update`, skip bundle's repeat.
+    # Install/upgrade Brewfile entries, then prune the rest (skipped on failure)
     echo "🔄 Processing Brewfile..."
-    HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --file="$brewfile" || echo "⚠️  Some packages failed to install/update"
+    HOMEBREW_NO_AUTO_UPDATE=1 brew bundle install --file="$brewfile" --force-cleanup ||
+      echo "⚠️  Some packages failed to install/update (cleanup skipped)"
 
-    # Remove anything not in the Brewfile (also prunes untracked taps)
-    echo "🧹 Cleaning up unused packages..."
-    brew bundle cleanup --file="$brewfile" --force --quiet
+    # Bundle skips deps whose parents are current; formula-only keeps cask greedy rules
+    echo "⬆️  Upgrading outdated dependencies..."
+    HOMEBREW_NO_AUTO_UPDATE=1 brew upgrade --formula --yes ||
+      echo "⚠️  Some dependencies failed to upgrade"
 
     # Run maintenance tasks
     echo "🔧 Running maintenance..."
