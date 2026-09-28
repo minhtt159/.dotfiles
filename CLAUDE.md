@@ -12,6 +12,10 @@ Personal macOS dotfiles managed with [GNU Stow](https://www.gnu.org/software/sto
 brew bundle           # Install all dependencies from Brewfile
 stow .                # Symlink configs to ~/.config
 git submodule update --init --recursive  # Pull tmux plugins etc.
+# zsh files that must sit in $HOME (stow targets ~/.config):
+ln -s ~/.dotfiles/zshrc/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/zshrc/.zshenv ~/.zshenv
+ln -sf ~/.dotfiles/zshrc/.zprofile ~/.zprofile
 ```
 
 ## Key Commands
@@ -19,7 +23,7 @@ git submodule update --init --recursive  # Pull tmux plugins etc.
 | Command                                | What it does                                              |
 | -------------------------------------- | --------------------------------------------------------- |
 | `stow .`                               | Re-apply symlinks after adding/renaming files             |
-| `brewup`                               | Full Homebrew update: bundle → upgrade → cleanup → doctor |
+| `brewup`                               | update → bundle install + cleanup → upgrade deps → doctor |
 | `brewi`                                | Quick `brew bundle` install only                          |
 | `dev-update [python\|node\|rust\|all]` | Update language runtime managers (uv, nvm, rustup)        |
 | `reload`                               | Re-source `~/.zshrc` in the current shell                 |
@@ -33,9 +37,13 @@ Each top-level directory (`nvim/`, `tmux/`, `zshrc/`, etc.) maps directly to `~/
 
 ### Zsh — `zshrc/`
 
-`.zshrc` is a thin loader. Real config lives in numbered modules under `zshrc/.zsh/`:
+Three entry files, split by which shells read them:
 
-- `00–05`: core init, completions, plugins, options, keybindings, PATH
+- `.zshenv` — every zsh: plain exports only (XDG, GOPATH, npm/python/sops paths). No PATH.
+- `.zprofile` — every login shell (tmux panes, scripts, Claude's Bash tool): all of PATH. brew, then `~/.local/bin` (uv python) and nvm's default node prepended, then go/cargo/rustup/libpq/docker.
+- `.zshrc` — interactive only: a thin loader for numbered modules under `zshrc/.zsh/`:
+
+- `00–05`: core init, completions, plugins, options, keybindings, interactive-only tool hooks (direnv)
 - `06-lazy-load.zsh`: generic lazy-loader framework + sources all `lazy/*.zsh` files
 - `07-aliases.zsh`: all aliases and shell functions
 - `08–09`: prompt, compinit
