@@ -1,7 +1,6 @@
-#!/bin/zsh
-
-# Bootstrap Homebrew PATH (non-interactive shell doesn't load zshrc)
-[[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+#!/bin/zsh -l
+# Login shell (-l) so ~/.zprofile sets PATH; the tmux server and every
+# run-shell binding inherit it.
 
 SESSION_NAME="dotfiles"
 DOTFILES_DIR="${HOME}/.dotfiles"

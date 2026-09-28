@@ -35,7 +35,13 @@ _nvm_bootstrap_path() {
 _nvm_bootstrap_path
 unfunction _nvm_bootstrap_path
 
-# Docker Desktop CLI (was appended here by Docker Desktop's installer)
-path+=("$HOME/.docker/bin")
+# Language/tool bins, after the system dirs. Missing dirs are harmless.
+path+=(
+  "$GOBIN"                             # go install (gopls, golangci-lint, templ, …)
+  "$HOMEBREW_PREFIX/opt/rustup/bin"    # rustup proxies: cargo, rustc (brew doesn't link them)
+  "$HOME/.cargo/bin"                   # cargo install
+  "$HOMEBREW_PREFIX/opt/libpq/bin"     # psql (keg-only)
+  "$HOME/.docker/bin"                  # Docker Desktop CLI
+)
 
 typeset -U path
