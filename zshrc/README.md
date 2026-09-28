@@ -12,7 +12,7 @@ This directory contains modular zsh configuration files for better organization 
 ├── 02-plugins.zsh           # Plugin loading
 ├── 03-options.zsh           # Shell options and history
 ├── 04-keybindings.zsh       # Key bindings
-├── 05-path.zsh              # PATH configuration
+├── 05-path.zsh              # interactive-only: direnv hook, docker completions
 ├── 06-lazy-load.zsh         # Lazy loading framework + completion cache
 ├── 07-aliases.zsh           # Aliases and utility functions
 ├── 08-prompt.zsh            # Prompt configuration
@@ -24,7 +24,7 @@ This directory contains modular zsh configuration files for better organization 
     ├── terraform.zsh        # terraform, terragrunt
     ├── talos.zsh            # talosctl, omnictl
     ├── flux.zsh             # flux
-    ├── node.zsh             # nvm, node, npm, npx (+ .nvmrc auto-switch)
+    ├── node.zsh             # nvm lazy load (+ .nvmrc auto-switch)
     └── python.zsh           # uv, uvx, python, pip (+ .venv/.python-version auto-switch)
 ```
 
@@ -37,7 +37,7 @@ Files are loaded in numerical order (00-09), ensuring proper dependency manageme
 3. **02-plugins.zsh** - Loads zsh plugins (autosuggestions, syntax highlighting, tv)
 4. **03-options.zsh** - Configures shell behavior and history
 5. **04-keybindings.zsh** - Sets up keyboard shortcuts
-6. **05-path.zsh** - Configures PATH for various tools (also adds Docker to fpath)
+6. **05-path.zsh** - direnv hook and Docker completions. PATH itself lives in `.zprofile`, exports in `.zshenv`
 7. **06-lazy-load.zsh** - Sets up lazy loading framework and loads lazy modules
 8. **07-aliases.zsh** - Defines aliases and utility functions
 9. **08-prompt.zsh** - Configures the shell prompt
@@ -53,7 +53,7 @@ Tools in the `lazy/` directory are loaded on-demand:
 - **terraform.zsh** - terraform, terragrunt
 - **talos.zsh** - talosctl, omnictl
 - **flux.zsh** - flux
-- **node.zsh** - nvm, node, npm, npx. Bootstraps default node to PATH at init (no nvm load needed) so neovim Node LSPs always work. Auto-switches via `.nvmrc` on `cd`.
+- **node.zsh** - lazy-loads nvm. Default node is put on PATH by `.zprofile` (no nvm load needed) so neovim Node LSPs always work. Auto-switches via `.nvmrc` at startup and on `cd`.
 - **python.zsh** - uv, uvx, python, pip. Auto-activates `.venv/` and respects `.python-version` via `chpwd` hook so pyright/ruff always see the right interpreter.
 
 ### Benefits

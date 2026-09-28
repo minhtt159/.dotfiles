@@ -3,7 +3,8 @@
 - Shell: the Bash tool runs **`/bin/zsh` as a login, non-interactive shell** (`$-` =
   `0569BEJNXghkl` — has `l`, no `i`). So `~/.zshenv` and `~/.zprofile` load, `~/.zshrc`
   does not. Exported environment belongs in `zshrc/.zshenv` (symlinked to `~/.zshenv`)
-  so every shell gets it; `~/.config`-based CLIs like `tea`, `glab` and `op` depend on
+  and PATH in `zshrc/.zprofile` (symlinked to `~/.zprofile`; after macOS path_helper),
+  so every shell gets them — nvm's node, uv's python, `~/go/bin`, cargo, psql; `~/.config`-based CLIs like `tea`, `glab` and `op` depend on
   `XDG_CONFIG_HOME` being set there, or they read macOS's
   `~/Library/Application Support` and report themselves as logged out.
 - Only wrap a command as `zsh -lic '<command>'` when it genuinely needs something

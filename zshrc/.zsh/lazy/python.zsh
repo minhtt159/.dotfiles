@@ -1,5 +1,5 @@
 # lazy/python.zsh - Python / uv Lazy Loading
-# Lazy load uv and python with completions
+# Lazy load uv completions; python comes from ~/.local/bin (see ~/.zprofile)
 
 # ~~~~~~~~~~~~~~~~~~~~~~ uv Initialization ~~~~~~~~~~~~~~~~~~~~~~
 _init_uv() {
@@ -98,7 +98,3 @@ _uv_auto_python  # run once on shell init
 # ~~~~~~~~~~~~~~~~~~~~~~ Register Lazy Loaders ~~~~~~~~~~~~~~~~~~~~~~
 lazy_load uv _init_uv
 lazy_load uvx _init_uvx
-lazy_load python _init_uv
-lazy_load python3 _init_uv
-lazy_load pip _init_uv
-lazy_load pip3 _init_uv

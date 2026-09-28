@@ -83,7 +83,7 @@ All managed by mason.nvim. Runtime dependencies:
 | stylua, htmx-lsp, gitlab-ci-ls                                                                                                                        | Rust (compiled)                  |
 | shfmt, helm-ls, terraform-ls, tflint                                                                                                                  | Go (compiled)                    |
 
-> Node LSPs use the default nvm node bootstrapped to PATH at shell init (see `zshrc/lazy/node.zsh`).
+> Node LSPs use the default nvm node put on PATH by `zshrc/.zprofile`.
 > Python LSPs (`pyright`, `ruff`) resolve the interpreter via `VIRTUAL_ENV` when a `.venv` is active.
 
 ## Theme
