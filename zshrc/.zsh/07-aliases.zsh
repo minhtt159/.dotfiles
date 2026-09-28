@@ -121,13 +121,13 @@ if [[ -f "$HOME/.dotfiles/Brewfile" ]]; then
 
     # Install + upgrade all Brewfile entries — incl. greedy casks (every cask
     # is greedy: true) — so a separate `brew upgrade --greedy` is redundant.
+    # --force-cleanup (brew 7): then remove anything not in the Brewfile (incl.
+    # untracked taps, trust store reset) in the same run, reusing the parsed
+    # Brewfile. Cleanup is skipped if install fails, so a partial run never prunes.
     # NO_AUTO_UPDATE: we just ran `brew update`, skip bundle's repeat.
     echo "🔄 Processing Brewfile..."
-    HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --file="$brewfile" || echo "⚠️  Some packages failed to install/update"
-
-    # Remove anything not in the Brewfile (also prunes untracked taps)
-    echo "🧹 Cleaning up unused packages..."
-    brew bundle cleanup --file="$brewfile" --force --quiet
+    HOMEBREW_NO_AUTO_UPDATE=1 brew bundle install --file="$brewfile" --force-cleanup ||
+      echo "⚠️  Some packages failed to install/update (cleanup skipped)"
 
     # Run maintenance tasks
     echo "🔧 Running maintenance..."
