@@ -54,6 +54,7 @@ _nvm_auto_use() {
 
 autoload -U add-zsh-hook
 add-zsh-hook chpwd _nvm_auto_use
+_nvm_auto_use  # shells that start inside a .nvmrc project (tmux-sessionizer)
 
 # ~~~~~~~~~~~~~~~~~~~~~~ Register Lazy Loaders ~~~~~~~~~~~~~~~~~~~~~~
 lazy_load nvm _init_nvm
