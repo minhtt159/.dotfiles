@@ -12,16 +12,11 @@ export ZSH_CACHE_DIR="${HOME}/.zsh/cache"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# ~~~~~~~~~~~~~~~~~~~~~~ Homebrew Setup ~~~~~~~~~~~~~~~~~~~~~~
-# Normally done by ~/.zprofile; re-running here would push brew back ahead of
-# nvm/uv. Only a non-login shell without an inherited env gets here.
-if [[ -n "$HOMEBREW_PREFIX" ]]; then
-  :
-elif [[ -f "/opt/homebrew/bin/brew" ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [[ -f "/usr/local/bin/brew" ]]; then
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
+# ~~~~~~~~~~~~~~~~~~~~~~ Homebrew + PATH ~~~~~~~~~~~~~~~~~~~~~~
+# ~/.zprofile sets both for login shells. A non-login shell with a bare env
+# (app launched from Finder, `env -i zsh -i`) has neither, so load it here.
+# Never re-run `brew shellenv` alone: it would push brew ahead of nvm/uv.
+[[ -z "$HOMEBREW_PREFIX" ]] && source "${ZSHRC_DIR}/.zprofile"
 
 # ~~~~~~~~~~~~~~~~~~~~~~ Editor Configuration ~~~~~~~~~~~~~~~~~~~~~~
 if [[ -n $SSH_CONNECTION ]]; then

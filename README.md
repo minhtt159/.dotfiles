@@ -14,11 +14,12 @@ stow .
 # Pull submodules (tmux plugins etc.)
 git submodule update --init --recursive
 
-# Stow targets ~/.config, so the two zsh files that must sit in $HOME are
-# symlinked by hand. .zshenv carries the XDG_* exports and is read by every
-# zsh, including the non-interactive ones that never source .zshrc.
+# Stow targets ~/.config, so the zsh files that must sit in $HOME are
+# symlinked by hand. .zshenv carries plain exports (every zsh); .zprofile
+# sets PATH (every login shell, incl. scripts and Claude Code's Bash tool).
 ln -s ~/.dotfiles/zshrc/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/zshrc/.zshenv ~/.zshenv
+ln -sf ~/.dotfiles/zshrc/.zprofile ~/.zprofile  # -f: replaces Docker Desktop's
 ```
 
 ## Structure

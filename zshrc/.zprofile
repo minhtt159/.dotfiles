@@ -37,7 +37,7 @@ unfunction _nvm_bootstrap_path
 
 # Language/tool bins, after the system dirs. Missing dirs are harmless.
 path+=(
-  "$GOBIN"                             # go install (gopls, golangci-lint, templ, …)
+  "${GOBIN:-$HOME/go/bin}"             # go install (gopls, golangci-lint, templ, …)
   "$HOMEBREW_PREFIX/opt/rustup/bin"    # rustup proxies: cargo, rustc (brew doesn't link them)
   "$HOME/.cargo/bin"                   # cargo install
   "$HOMEBREW_PREFIX/opt/libpq/bin"     # psql (keg-only)
